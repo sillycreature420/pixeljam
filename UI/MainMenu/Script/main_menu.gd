@@ -14,3 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_play_button_pressed() -> void:
 	LevelManager.change_level(level_one_scene_path)
+	hide()

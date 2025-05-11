@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e3ngv")
-level_one_scene_path = "res://World/Levels/Level1/Level1.tscn"
+level_one_scene_path = "res://World/Levels/LevelOne/Scene/level_one.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnql4xsdf4yqp"]
+
+[ext_resource type="PackedScene" uid="uid://c32gnxi2b8mbq" path="res://UI/MainMenu/Scene/main_menu.tscn" id="1_fbpti"]
+[ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="2_wfhko"]
+
+[node name="World" type="Node"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="UILayer" instance=ExtResource("1_fbpti")]
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource("2_wfhko")
