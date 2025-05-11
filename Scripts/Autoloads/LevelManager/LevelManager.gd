@@ -10,7 +10,7 @@ var _current_level: Node
 var current_level_data: LevelData
 var level_data: Dictionary[String, LevelData]
 var _loading_screen: Control
-var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/LoadingScreen.tscn")
+var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/loading_screen.tscn")
 var tile_data: TileMapLayer
 
 

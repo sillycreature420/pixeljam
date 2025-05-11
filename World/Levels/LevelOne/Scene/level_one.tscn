@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=6 format=3 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
 [ext_resource type="TileSet" uid="uid://c3k7kwagy0sky" path="res://World/Environment/TileSet/debug_tile_set.tres" id="3_idf41"]
+[ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -24,3 +25,6 @@ visible = false
 
 [node name="Detail" type="TileMapLayer" parent="."]
 visible = false
+
+[node name="SpawnPoint" parent="." instance=ExtResource("4_a3qh1")]
+position = Vector2(480, 80)

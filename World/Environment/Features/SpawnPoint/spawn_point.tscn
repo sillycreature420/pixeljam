@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://e7gffkw5l42p"]
+[gd_scene load_steps=3 format=3 uid="uid://e7gffkw5l42p"]
 
-[node name="Spawn" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="1_1p1k7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhyus"]
+atlas = ExtResource("1_1p1k7")
+region = Rect2(592, 304, 16, 16)
+
+[node name="SpawnPoint" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mhyus")
