@@ -8,6 +8,7 @@ class_name BodyPart
 @export var speed_modifier : float = 1
 @export var count_modifier : int = 1
 
+
 enum RARITY{COMMON, UNCOMMON, RARE}
 @export var rarity : RARITY
 
