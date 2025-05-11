@@ -5,6 +5,7 @@
 [node name="AudioSlider" type="HSlider"]
 offset_right = 278.0
 offset_bottom = 16.0
+min_value = -60.0
 script = ExtResource("1_1yik7")
 print_debug = true
 audio_bus_to_change = "Master"
