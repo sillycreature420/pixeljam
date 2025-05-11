@@ -11,9 +11,28 @@ config_version=5
 [application]
 
 config/name="FromTheDeadGameTheme"
+run/main_scene="uid://bnql4xsdf4yqp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LevelManager="*res://Scripts/Autoloads/LevelManager/LevelManager.gd"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Resources/": "orange",
+"res://Scripts/": "blue",
+"res://UI/": "green",
+"res://World/": "purple"
+}

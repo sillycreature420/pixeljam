@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnql4xsdf4yqp"]
+
+[ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_07ofo"]
+[ext_resource type="PackedScene" uid="uid://c32gnxi2b8mbq" path="res://UI/MainMenu/Scene/main_menu.tscn" id="1_lwswg"]
+
+[node name="World" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Level" type="Node2D" parent="."]
+script = ExtResource("1_07ofo")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_lwswg")]
+level_one_scene_path = "res://World/Levels/Level1/level_one.tscn"
