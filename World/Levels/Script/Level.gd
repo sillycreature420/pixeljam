@@ -21,21 +21,14 @@ func _ready() -> void:
 	EventBus.prep_phase_done.connect(start_action_phase)
 	EventBus.action_phase_done.connect(end_action_phase)
 	LevelManager.transition_completed.connect(_level_loaded)
-	
-# TODO: Implement action phase logic
-# This should handle:
-# - Spawning groups from spawn points
-# - Path assignment to unit groups as well as pathfinding node configuration
-# - Phase-specific game rules
+
+
 func start_action_phase():
-	# Spawn units
+	# Spawn units, the spawn_point handles the path assignment
 	for group in group_manager_component.groups:
 		spawn_point.spawn_group(group)
 
-# TODO: Implement ending the action phase logic
-# This should handle:
-# - Cleaning up leftover units
-# - Incrementing the round count
+
 func end_action_phase():
 	# Increment round by one
 	current_round += 1
