@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://imht6iab5syd"]
+
+[ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_2vqs7"]
+
+[resource]
+script = ExtResource("1_2vqs7")
+priority = 0
+health_modifier = 1.0
+speed_modifier = 1.0
+count_modifier = 1
+rarity = 0
+Body_type = 0
+metadata/_custom_type_script = "uid://60krhj2toyet"
