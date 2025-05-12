@@ -49,3 +49,9 @@ func _on_return_to_prep_button_pressed() -> void:
 	# Show preparation UI and hide playing UI
 	preparing_scene.show()
 	playing_scene.hide()
+
+
+func _on_add_group_debug_button_pressed() -> void:
+	var new_group = UnitGroup.new()
+	
+	EventBus.emit_new_group_added(new_group)

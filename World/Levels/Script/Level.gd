@@ -46,6 +46,24 @@ func _level_loaded():
 		# Add to group manager's tracking system
 		group_manager_component.groups.append(first_unit_group)
 		
+	build_groups_container()
+		
+	build_paths_container()
+
+
+func _group_selected(group):
+	group_manager_component.currently_selected_group = group
+	EventBus.emit_prep_phase_group_selected(group)
+	print(str(group) + " selected")
+
+
+func _path_selected(path):
+	group_manager_component.assign_path(group_manager_component.currently_selected_group, path)
+	EventBus.emit_prep_phase_path_selected(path)
+	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))
+
+
+func build_groups_container():
 	# Clear the current group buttons
 	for child in hud.groups_container.get_children():
 		child.queue_free()
@@ -59,6 +77,7 @@ func _level_loaded():
 		
 		hud.groups_container.add_child(new_group_button)
 		
+func build_paths_container():
 	# Clear the current path buttons
 	for child in hud.paths_container.get_children():
 		child.queue_free()
@@ -71,15 +90,3 @@ func _level_loaded():
 		new_path_button.pressed.connect(_path_selected.bind(path))
 		
 		hud.paths_container.add_child(new_path_button)
-
-
-func _group_selected(group):
-	group_manager_component.currently_selected_group = group
-	EventBus.emit_prep_phase_group_selected(group)
-	print(str(group) + " selected")
-
-
-func _path_selected(path):
-	group_manager_component.assign_path(group_manager_component.currently_selected_group, path)
-	EventBus.emit_prep_phase_path_selected(path)
-	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))
