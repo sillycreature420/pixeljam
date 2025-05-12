@@ -11,6 +11,13 @@ class_name Unit
 @onready var pathfinding: PathfindingComponent = $PathfindingComponent
 
 var current_target_path_node: Node2D
+var path_target_index := 0
+
+# Unit Combat Stats
+#TODO Link these stats to the stats accumulated from body parts
+var health: float
+var damage: float
+var speed: float
 
 func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_part : BodyPart = null) -> void:
 	
@@ -28,6 +35,7 @@ func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_par
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_spawn"):
 		pathfinding.move_to(current_target_path_node.global_position)
+		$StateChart.send_event("NewPathFound")
 
 
 func initialize_components():
@@ -36,8 +44,13 @@ func initialize_components():
 
 
 func _ready():
-	if path:
-		current_target_path_node = path.get_child(0)
-	else:
-		push_error("A group does not have a path selected!")
+	pathfinding.target_reached.connect(_target_reached)
 	
+	if path:
+		current_target_path_node = path.get_child(path_target_index)
+	else:
+		push_error("A unit does not have a path selected!")
+
+
+func _target_reached():
+	path_target_index += 1

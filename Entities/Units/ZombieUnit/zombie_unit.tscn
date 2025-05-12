@@ -16,15 +16,12 @@ head_part = ExtResource("2_0paep")
 body_part = ExtResource("3_xj40s")
 legs_part = ExtResource("4_j3mfq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="0" node_paths=PackedStringArray("list_of_nodes")]
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
 offset_left = 48.0
 offset_top = 2.0
 offset_right = 143.0
 offset_bottom = 91.0
 script = ExtResource("6_xj40s")
-list_of_nodes = {
-NodePath("../HealthComponent"): ["health"]
-}
 
 [node name="Sprite2D" parent="." index="1"]
 texture = SubResource("AtlasTexture_tiu4m")

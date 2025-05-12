@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cwvp6lyququh7" path="res://Entities/Units/Script/unit.gd" id="1_0rvlb"]
 [ext_resource type="PackedScene" uid="uid://vmhyfahdse7t" path="res://Components/Pathfinding/pathfinding_component.tscn" id="2_g8r8p"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_8h3iq"]
-[ext_resource type="Script" uid="uid://bd38s2va451xd" path="res://Components/HealthComponent/health_component.gd" id="3_g8r8p"]
+[ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="3_g8r8p"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_klm5s"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_db1gm"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_f6oxd"]
@@ -16,9 +16,8 @@ centered = false
 
 [node name="PathfindingComponent" parent="." instance=ExtResource("2_g8r8p")]
 
-[node name="HealthComponent" type="Node2D" parent="."]
+[node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
 unique_name_in_owner = true
-script = ExtResource("3_g8r8p")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("3_8h3iq")

@@ -30,7 +30,9 @@ func spawn_group(group: UnitGroup):
 		# Add the unit to the game world by making it a child of unit_container
 		unit_container.add_child(new_unit)
 		
-		new_unit.pathfinding.move_to(target_path.get_child(0).global_position)
+		if target_path:
+			new_unit.pathfinding.move_to(target_path.get_child(0).global_position)
+			new_unit.get_node("StateChart").send_event("NewPathFound")
 		
 		spawn_delay.start(1)
 		await spawn_delay.timeout
