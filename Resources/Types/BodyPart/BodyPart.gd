@@ -13,4 +13,4 @@ enum RARITY{COMMON, UNCOMMON, RARE}
 @export var rarity : RARITY
 
 enum BODY_TYPE{HEAD, BODY, LEGS}
-@export var Body_type: BODY_TYPE
+@export var body_type: BODY_TYPE

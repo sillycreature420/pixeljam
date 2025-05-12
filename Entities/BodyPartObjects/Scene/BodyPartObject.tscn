@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkkmxwiw1ph67"]
+
+[ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="1_g3f5j"]
+[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/TestHead.tres" id="2_bhnwa"]
+[ext_resource type="PackedScene" uid="uid://dout5pb06he0q" path="res://Components/PickupableComponent/pickupable_component.tscn" id="3_jsa15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bhnwa"]
+radius = 8.0
+
+[node name="BodyPartObject" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_g3f5j")
+body_part_resource = ExtResource("2_bhnwa")
+
+[node name="ObjectSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bhnwa")
+
+[node name="PickupableComponent" parent="." instance=ExtResource("3_jsa15")]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwkhv3e6rhly8"]
+
+[ext_resource type="PackedScene" uid="uid://dkkmxwiw1ph67" path="res://Entities/BodyPartObjects/Scene/BodyPartObject.tscn" id="1_81533"]
+[ext_resource type="Script" uid="uid://c48s8456nafuc" path="res://Unorganized/object_slot.gd" id="2_vd0g4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jpdq"]
+
+[node name="Object_Slot" type="Node2D"]
+
+[node name="BodyPartObject" parent="." instance=ExtResource("1_81533")]
+position = Vector2(172, 61)
+
+[node name="BodyPartObject2" parent="." instance=ExtResource("1_81533")]
+position = Vector2(75, 56)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_vd0g4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4jpdq")

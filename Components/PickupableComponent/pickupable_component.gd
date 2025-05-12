@@ -1,0 +1,33 @@
+extends Area2D
+class_name PickupableComponent
+
+signal picked_up
+signal placed_down
+
+var held : bool = false
+var node_to_pickup : Node2D
+
+func _ready() -> void:
+	node_to_pickup = get_parent()
+	return
+
+func _process(delta: float) -> void:
+	if held: object_to_mouse()
+	return
+
+func object_to_mouse():
+	node_to_pickup.global_position = get_global_mouse_position()
+	if node_to_pickup is RigidBody2D: node_to_pickup.gravity_scale = 0; node_to_pickup.linear_velocity = Vector2.ZERO
+	return
+
+
+func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseMotion && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && !EventBus.current_object_held:
+		held = true
+		EventBus.current_object_held = self
+	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && EventBus.current_object_held == self:
+		if node_to_pickup is RigidBody2D: node_to_pickup.gravity_scale = 1
+		EventBus.current_object_held = null
+		held = false
+	
+	return
