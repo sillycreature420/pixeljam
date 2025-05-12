@@ -21,3 +21,6 @@ script = ExtResource("2_wfhko")
 
 [node name="AStarGrid2D" type="Node2D" parent="."]
 script = ExtResource("3_wfhko")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

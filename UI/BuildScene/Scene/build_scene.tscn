@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=6 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imtg7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4iico"]
 
 [node name="BuildScene" type="Control"]
 layout_mode = 3
@@ -33,6 +39,84 @@ ratio = 1.7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="PartsVat" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PartsAssembly" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Head" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HeadLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Head"
+
+[node name="HeadTexture" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("PlaceholderTexture2D_lk7k5")
+
+[node name="Body" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BodyLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Body"
+
+[node name="Body" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_imtg7")
+
+[node name="Legs" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LegsLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Legs"
+
+[node name="Legs" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4iico")
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Finish"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
