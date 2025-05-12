@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=3 format=3 uid="uid://cdno5nencn4p8"]
+
+[ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
 
 [node name="BuildScene" type="Control"]
 layout_mode = 3
@@ -7,6 +11,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_auprv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_auprv")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -19,3 +33,13 @@ ratio = 1.7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ReadyButton" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "READY"
+
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

@@ -105,3 +105,7 @@ func _show_loading_screen():
 func _hide_loading_screen():
 	if _loading_screen:
 		_loading_screen.hide()
+
+#TODO Action phase: spawner logic, establish paths with pathfinding nodes
+func start_action_phase():
+	pass

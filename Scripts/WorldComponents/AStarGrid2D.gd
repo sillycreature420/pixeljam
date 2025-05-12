@@ -4,6 +4,7 @@ extends Node2D
 @export var cell_size := Vector2(16, 16)    # Size of each cell in pixels
 @export var default_weight := 1.0           # Default path weight
 @export var diagonal_movement := false       # Allow diagonal movement
+@export var debug_draw: bool
 
 var astar := AStarGrid2D.new()
 var obstacles := []  # Array of grid coordinates that are blocked
@@ -39,7 +40,7 @@ func _find_terrain_layer() -> TileMapLayer:
 func _process_terrain_tiles():
 	print("Processing terrain tiles...")
 	if not terrain_layer:
-		push_error("No terrain layer to process!")
+		push_error("No terrain layer to process - Maybe the level hasn't loaded yet?")
 		return
 	
 	var used_cells = terrain_layer.get_used_cells()
@@ -49,7 +50,7 @@ func _process_terrain_tiles():
 			cell.y * terrain_layer.tile_set.tile_size.y / cell_size.y
 		)
 		astar.set_point_solid(grid_pos, true)
-		print("Processed tile at " + str(grid_pos))
+		#print("Processed tile at " + str(grid_pos))
 
 func find_path(from_world: Vector2, to_world: Vector2) -> PackedVector2Array:
 	var from_grid := world_to_grid(from_world)
@@ -81,6 +82,9 @@ func grid_to_world(grid_pos: Vector2i) -> Vector2:
 	
 
 func _draw():
+	if not debug_draw and not get_tree().debug_collisions_hint:
+		return
+	
 	# Draw grid cells
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
