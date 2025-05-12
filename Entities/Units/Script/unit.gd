@@ -54,3 +54,8 @@ func _ready():
 
 func _target_reached():
 	path_target_index += 1
+	
+	#TODO Find nearby obstacle to attack
+	# for obstacle in get_tree().get_nodes_in_group("obstacles"):
+	# 	if obstacle.get_distance() < 8:
+	# 		set_target

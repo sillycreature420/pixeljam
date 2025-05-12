@@ -43,6 +43,10 @@ folder_colors={
 "res://World/": "purple"
 }
 
+[global_group]
+
+obstacles=""
+
 [input]
 
 debug_spawn={
