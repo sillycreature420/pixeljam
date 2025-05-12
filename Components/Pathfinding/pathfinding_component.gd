@@ -24,6 +24,7 @@ func _physics_process(delta):
 		var parent = get_parent() as Node2D
 		parent.position += safe_velocity * delta
 	
+	#FIXME Easing is problematic, leads to diagonal movement (sometimes thru walls)
 	if global_position.distance_to(next_point) < target_easing:
 		current_path.remove_at(0)
 		

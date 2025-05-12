@@ -1,5 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvkhd03uximaw"]
+[gd_scene load_steps=4 format=3 uid="uid://cvkhd03uximaw"]
 
 [ext_resource type="PackedScene" uid="uid://cfcxjta6sfeie" path="res://Entities/Units/Scene/Unit.tscn" id="1_5w4xa"]
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="2_x20od"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiu4m"]
+atlas = ExtResource("2_x20od")
+region = Rect2(464, 96, 16, 16)
 
 [node name="Unit" instance=ExtResource("1_5w4xa")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_tiu4m")
