@@ -19,9 +19,6 @@ func _ready():
 	astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	astar.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	astar.update()
-	
-	# Mark terrain tiles as obstacles
-	_process_terrain_tiles()
 
 func _process(_delta: float) -> void:
 	pass

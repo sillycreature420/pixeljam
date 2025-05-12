@@ -66,6 +66,16 @@ text = "READY"
 layout_mode = 2
 text = "BUILD"
 
+[node name="Group1Button" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Group1"
+
+[node name="Path1Button" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Path1"
+
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/BuildButton" to="." method="_on_build_button_pressed"]

@@ -1,3 +1,6 @@
 class_name UnitGroup extends Resource
 
-var current_path: Node2D
+@export var unit_scene: PackedScene
+@export var unit_count: int
+@export var unit_leader: UnitLeader
+var target_path: Node2D
