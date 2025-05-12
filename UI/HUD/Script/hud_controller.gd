@@ -24,9 +24,6 @@ func _level_transition_completed():
 	# Show preparation UI and hide playing UI
 	preparing_scene.show()
 	playing_scene.hide()
-	
-	# TODO: Implement showing proper groups from Level GroupManagerComponent
-	# This will need to be implemented to display the correct groups during preparation phase
 
 
 # Handler for when the build button is pressed
