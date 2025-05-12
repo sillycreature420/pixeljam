@@ -94,7 +94,8 @@ func get_new_target_obstacle():
 		if obstacle.global_position.distance_to(global_position) < 32:
 			target_obstacle = obstacle
 			# Connect to obstacle's death signal
-			target_obstacle.health_component.health_below_zero.connect(_target_obstacle_destroyed)
+			if !target_obstacle.health_component.health_below_zero.is_connected(_target_obstacle_destroyed):
+				target_obstacle.health_component.health_below_zero.connect(_target_obstacle_destroyed)
 			print("found nearby obstacle " + str(obstacle))
 			# Move toward the obstacle
 			pathfinding.move_to(target_obstacle.global_position)

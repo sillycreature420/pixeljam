@@ -25,3 +25,6 @@ script = ExtResource("6_xj40s")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = SubResource("AtlasTexture_tiu4m")
+
+[node name="PathfindingComponent" parent="." index="2"]
+astar_implementation = true

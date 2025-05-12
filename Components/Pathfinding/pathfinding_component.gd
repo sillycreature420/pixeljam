@@ -3,11 +3,13 @@ class_name PathfindingComponent extends Node2D
 signal target_reached
 
 @export var move_speed := 30.0
-@export var target_easing := 5.0
+@export var target_easing := 1.0
+@export var astar_implementation: bool # True for grid
 var current_path: PackedVector2Array = []
 var target_position: Vector2
 
 @onready var astar_grid := $"/root/World/AStarGrid2D"
+@onready var astar := $"/root/World/AStar2D"
 
 func _physics_process(delta):
 	if current_path.is_empty():
@@ -34,4 +36,7 @@ func _physics_process(delta):
 
 func move_to(target: Vector2):
 	target_position = target
-	current_path = astar_grid.find_path(global_position, target_position)
+	if astar_implementation:
+		current_path = astar_grid.find_path(global_position, target_position)
+	else:
+		current_path = astar.find_path(global_position, target_position)
