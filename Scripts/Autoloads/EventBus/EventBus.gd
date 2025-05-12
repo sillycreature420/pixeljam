@@ -1,6 +1,7 @@
 extends Node
 
 signal prep_phase_done
+signal action_phase_done
 signal prep_phase_group_selected(group: UnitGroup)
 signal prep_phase_path_selected(path: Node2D)
 signal new_group_added(group: UnitGroup)
@@ -10,6 +11,10 @@ var current_object_held : Node2D
 
 func emit_prep_phase_done():
 	prep_phase_done.emit()
+
+
+func emit_action_phase_done():
+	action_phase_done.emit()
 
 
 func emit_prep_phase_group_selected(group: UnitGroup):

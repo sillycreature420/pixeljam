@@ -5,7 +5,6 @@ extends Node2D
 @export var level_data: LevelData             # Data asset containing level config and info
 @export var paths: Array[Node2D]              # Array of currently available paths in this level
 
-
 @onready var hud: Control = $"../UILayer/HUD"
 
 # Reference to the group management system (initialized when level loads)
@@ -14,9 +13,13 @@ var group_manager_component: Node
 # Spawn point for units (initialized when level loads)
 var spawn_point: Node2D
 
+# Current round of the current level
+var current_round: int = 1
+
 func _ready() -> void:
 	# Connect to global event bus signals
 	EventBus.prep_phase_done.connect(start_action_phase)
+	EventBus.action_phase_done.connect(end_action_phase)
 	LevelManager.transition_completed.connect(_level_loaded)
 	
 # TODO: Implement action phase logic
@@ -27,7 +30,20 @@ func _ready() -> void:
 func start_action_phase():
 	# Spawn units
 	spawn_point.spawn_group(group_manager_component.groups[0])
+
+# TODO: Implement ending the action phase logic
+# This should handle:
+# - Cleaning up leftover units
+# - Incrementing the round count
+func end_action_phase():
+	# Increment round by one
+	current_round += 1
 	
+	
+	# Update the HUD to reflect the current level's status
+	build_groups_container()
+	build_paths_container()
+	hud.update_round_display(current_round)
 	
 # Callback when level transition completes
 func _level_loaded():
@@ -41,14 +57,14 @@ func _level_loaded():
 		var first_unit_group = UnitGroup.new()
 		first_unit_group.unit_count = 1  # Starting with just one unit
 		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
-		first_unit_group.unit_leader = UnitLeader.new()  # Create new leader instance
 		
 		# Add to group manager's tracking system
 		group_manager_component.groups.append(first_unit_group)
-		
+	
+	# Update the HUD to reflect the current level's status
 	build_groups_container()
-		
 	build_paths_container()
+	hud.update_round_display(current_round)
 
 
 func _group_selected(group):

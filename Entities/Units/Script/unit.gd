@@ -36,5 +36,8 @@ func initialize_components():
 
 
 func _ready():
-	current_target_path_node = path.get_child(0)
+	if path:
+		current_target_path_node = path.get_child(0)
+	else:
+		push_error("A group does not have a path selected!")
 	

@@ -46,6 +46,8 @@ func _on_play_button_pressed() -> void:
 ### DEBUG HUD FUNCTIONS ###
 # Debug function to return to preparation phase
 func _on_return_to_prep_button_pressed() -> void:
+	EventBus.emit_action_phase_done()
+	
 	# Show preparation UI and hide playing UI
 	preparing_scene.show()
 	playing_scene.hide()
@@ -55,3 +57,6 @@ func _on_add_group_debug_button_pressed() -> void:
 	var new_group = UnitGroup.new()
 	
 	EventBus.emit_new_group_added(new_group)
+
+func update_round_display(current_round: int):
+	%CurrentRound.text = str(current_round)

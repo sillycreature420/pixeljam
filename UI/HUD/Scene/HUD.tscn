@@ -96,6 +96,14 @@ text = "READY"
 layout_mode = 2
 text = "BUILD"
 
+[node name="RoundLabel" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Round: "
+
+[node name="CurrentRound" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/Debug stuff/AddGroupDebugButton" to="." method="_on_add_group_debug_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
