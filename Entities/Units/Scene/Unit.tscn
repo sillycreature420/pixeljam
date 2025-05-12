@@ -19,6 +19,9 @@ centered = false
 [node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
 unique_name_in_owner = true
 
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.3
+
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("3_8h3iq")
 metadata/_custom_type_script = "uid://couw105c3bde4"
@@ -44,3 +47,5 @@ script = ExtResource("6_f6oxd")
 to = NodePath("../../Moving")
 event = &"NewPathFound"
 delay_in_seconds = "0.0"
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

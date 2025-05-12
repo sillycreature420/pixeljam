@@ -28,7 +28,9 @@ func set_health_to_max_health():
 func damage(amount_damage_taken : float):
 	
 	current_health -= amount_damage_taken
-	if current_health < 0: health_below_zero.emit(); #TODO decide what happens when health hits 0
+	if current_health < 0: 
+		health_below_zero.emit()
+		get_parent().queue_free()
 	
 	damage_taken.emit(amount_damage_taken)
 	return
