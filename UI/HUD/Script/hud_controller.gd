@@ -5,6 +5,11 @@ extends Control
 # Reference to the preparation phase UI element
 @onready var preparing_scene: Control = $Preparing
 
+@onready var groups_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Groups
+@onready var paths_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Paths
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect to the LevelManager's signal for when a level transition completes
@@ -39,7 +44,6 @@ func _on_play_button_pressed() -> void:
 	playing_scene.show()
 
 ### DEBUG HUD FUNCTIONS ###
-
 # Debug function to return to preparation phase
 func _on_return_to_prep_button_pressed() -> void:
 	# Show preparation UI and hide playing UI

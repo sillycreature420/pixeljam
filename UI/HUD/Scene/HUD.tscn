@@ -54,6 +54,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+size_flags_stretch_ratio = 5.0
+
+[node name="Groups" type="GridContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 4
+
+[node name="DummyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Groups"]
+layout_mode = 2
+text = "DummyGroup"
+
+[node name="Paths" type="GridContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 3
+
+[node name="DummyPath" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Paths"]
+layout_mode = 2
+text = "DummyPath"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
@@ -65,16 +88,6 @@ text = "READY"
 [node name="BuildButton" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "BUILD"
-
-[node name="Group1Button" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "Group1"
-
-[node name="Path1Button" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "Path1"
 
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
