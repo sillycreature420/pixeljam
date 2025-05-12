@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var grid_size := Vector2i(500, 500)  # Grid dimensions in cells
+@export var grid_size := Vector2i(100, 100)  # Grid dimensions in cells
 @export var cell_size := Vector2(16, 16)    # Size of each cell in pixels
 @export var default_weight := 1.0           # Default path weight
 @export var diagonal_movement := false       # Allow diagonal movement
@@ -21,6 +21,10 @@ func _ready():
 	
 	# Mark terrain tiles as obstacles
 	_process_terrain_tiles()
+
+func _process(_delta: float) -> void:
+	pass
+	#queue_redraw()
 
 func _find_terrain_layer() -> TileMapLayer:
 	print("Finding terrain layer...")
@@ -63,6 +67,10 @@ func find_path(from_world: Vector2, to_world: Vector2) -> PackedVector2Array:
 	for point in grid_path:
 		world_path.append(grid_to_world(point))
 	
+	# Store path for debug drawing
+	set_meta("last_path", world_path)
+	queue_redraw()
+	
 	return world_path
 
 func world_to_grid(world_pos: Vector2) -> Vector2i:
@@ -70,3 +78,33 @@ func world_to_grid(world_pos: Vector2) -> Vector2i:
 
 func grid_to_world(grid_pos: Vector2i) -> Vector2:
 	return Vector2(grid_pos) * cell_size + cell_size / 2
+	
+
+func _draw():
+	# Draw grid cells
+	for x in range(grid_size.x):
+		for y in range(grid_size.y):
+			var grid_pos = Vector2i(x, y)
+			var rect_pos = grid_to_world(grid_pos) - cell_size / 2
+			var rect = Rect2(rect_pos, cell_size)
+			
+			# Draw cell background
+			var cell_color = Color(0.1, 0.1, 0.1, 0.3)
+			if astar.is_point_solid(grid_pos):
+				cell_color = Color(0.8, 0.2, 0.2, 0.5)  # Obstacle color
+			draw_rect(rect, cell_color, true)
+			
+			# Draw cell border
+			draw_rect(rect, Color(0.3, 0.3, 0.3, 0.5), false, 1.0)
+	
+	# Draw last calculated path (if any)
+	if has_meta("last_path"):
+		var path: PackedVector2Array = get_meta("last_path")
+		if path.size() > 1:
+			for i in range(path.size() - 1):
+				draw_line(path[i], path[i+1], Color(0, 1, 0, 0.8), 2.0)
+			
+			# Draw path points
+			for point in path:
+				draw_circle(point, 3, Color(0, 1, 0))
+				draw_circle(point, 1, Color(1, 1, 1))
