@@ -43,9 +43,35 @@ func _level_loaded():
 		# Add to group manager's tracking system
 		group_manager_component.groups.append(first_unit_group)
 		
-	#TODO Populate the hud groups_container and paths_container with buttons for the current groups and paths
-	#for group in group_manager_component.groups:
-		# var new_group_button = Button.new()
-		# hud.groups_container.add_child(new_group_button)
+	# Clear the current groups
+	for child in hud.groups_container.get_children():
+		child.queue_free()
+	
+	# Add buttons for each group found in the group manager component
+	for group in group_manager_component.groups:
+		var new_group_button = Button.new()
+		new_group_button.text = "Group " + str(group_manager_component.groups.find(group) + 1)
 		# then connect the button to group_manager_component callbacks
-	#hud.path_container.add_child() same thing here for paths
+		new_group_button.pressed.connect(_group_selected.bind(group))
+		
+		hud.groups_container.add_child(new_group_button)
+		
+		
+	for child in hud.paths_container.get_children():
+		child.queue_free()
+		
+	for path in paths:
+		var new_path_button = Button.new()
+		new_path_button.text = "Path " + str(paths.find(path) + 1)
+		
+		new_path_button.pressed.connect(_path_selected.bind(path))
+		
+		hud.paths_container.add_child(new_path_button)
+
+func _group_selected(group):
+	group_manager_component.currently_selected_group = group
+	print(str(group) + " selected")
+
+func _path_selected(path):
+	group_manager_component.currently_selected_group.target_path = path
+	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))

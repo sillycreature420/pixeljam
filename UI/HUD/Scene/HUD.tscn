@@ -54,6 +54,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Debug stuff" type="HBoxContainer" parent="Preparing/VBoxContainer"]
+layout_mode = 2
+
+[node name="AddGroupDebugButton" type="Button" parent="Preparing/VBoxContainer/Debug stuff"]
+layout_mode = 2
+text = "Add Group (debug)"
+
 [node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
