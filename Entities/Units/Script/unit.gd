@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 		pathfinding.move_to(current_target_path_node.global_position)
 
 func initialize_components():
-	health_component.health = head_part.health_modifier + body_part.health_modifier + legs_part.health_modifier
+	health_component.max_health = head_part.health_modifier + body_part.health_modifier + legs_part.health_modifier
 	return
 
 func _ready():
