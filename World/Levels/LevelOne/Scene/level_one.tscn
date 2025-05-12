@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
 [ext_resource type="TileSet" uid="uid://c3k7kwagy0sky" path="res://World/Environment/TileSet/debug_tile_set.tres" id="3_idf41"]
 [ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
-[ext_resource type="PackedScene" uid="uid://b2o763e8gfyiq" path="res://Entities/Creeps/ZombieCreep/zombie_creep.tscn" id="5_j8u8f"]
+[ext_resource type="PackedScene" uid="uid://b2o763e8gfyiq" path="res://Entities/Units/ZombieCreep/zombie_creep.tscn" id="5_j8u8f"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
 
 [sub_resource type="Resource" id="Resource_idf41"]

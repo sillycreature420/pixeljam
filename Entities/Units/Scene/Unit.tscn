@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfcxjta6sfeie"]
+
+[ext_resource type="Script" uid="uid://cwvp6lyququh7" path="res://Entities/Units/Script/unit.gd" id="1_0rvlb"]
+[ext_resource type="PackedScene" uid="uid://vmhyfahdse7t" path="res://Components/Pathfinding/pathfinding_component.tscn" id="2_g8r8p"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_8h3iq"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_klm5s"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_db1gm"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_f6oxd"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_0rvlb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = false
+
+[node name="PathfindingComponent" parent="." instance=ExtResource("2_g8r8p")]
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_8h3iq")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_klm5s")
+initial_state = NodePath("Moving")
+
+[node name="Moving" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_db1gm")
+
+[node name="OnAttack" type="Node" parent="StateChart/Root/Moving"]
+script = ExtResource("6_f6oxd")
+to = NodePath("../../Attacking")
+event = &"Attack"
+delay_in_seconds = "0.0"
+
+[node name="Attacking" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_db1gm")
+
+[node name="OnNewPathFound" type="Node" parent="StateChart/Root/Attacking"]
+script = ExtResource("6_f6oxd")
+to = NodePath("../../Moving")
+event = &"NewPathFound"
+delay_in_seconds = "0.0"
