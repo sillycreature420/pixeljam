@@ -13,5 +13,7 @@ func _ready() -> void:
 func assign_path(group: UnitGroup, path: Node2D):
 	group.target_path = path
 
-func _new_group_added(group: UnitGroup):
+func _new_group_added(group: UnitGroup, type: String):
+	var type_lower = type.to_lower()
+	group.unit_scene = load("res://Entities/Units/" + type + "Unit/" + type_lower + "_unit.tscn")
 	groups.append(group)

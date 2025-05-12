@@ -29,7 +29,8 @@ func _ready() -> void:
 # - Phase-specific game rules
 func start_action_phase():
 	# Spawn units
-	spawn_point.spawn_group(group_manager_component.groups[0])
+	for group in group_manager_component.groups:
+		spawn_point.spawn_group(group)
 
 # TODO: Implement ending the action phase logic
 # This should handle:
@@ -39,6 +40,8 @@ func end_action_phase():
 	# Increment round by one
 	current_round += 1
 	
+	for child in $Units.get_children():
+		child.queue_free()
 	
 	# Update the HUD to reflect the current level's status
 	build_groups_container()

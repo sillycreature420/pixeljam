@@ -54,9 +54,12 @@ func _on_return_to_prep_button_pressed() -> void:
 
 
 func _on_add_group_debug_button_pressed() -> void:
+	%DebugGroupOptions.show()
+
+func debug_new_group_type_selected(type: String):
 	var new_group = UnitGroup.new()
+	EventBus.emit_new_group_added(new_group, type)
 	
-	EventBus.emit_new_group_added(new_group)
 
 func update_round_display(current_round: int):
 	%CurrentRound.text = str(current_round)
