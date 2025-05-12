@@ -2,6 +2,9 @@ extends Node
 
 @export var groups: Array[UnitGroup]
 
+var currently_selected_group: UnitGroup
+
+
 func _ready() -> void:
 	pass
 	

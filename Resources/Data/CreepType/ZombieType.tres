@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="CreepType" load_steps=2 format=3 uid="uid://cqb14cwhphkio"]
-
-[ext_resource type="Script" uid="uid://dwt1kwnmvfjjb" path="res://Resources/Types/CreepType/CreepType.gd" id="1_fbmv8"]
-
-[resource]
-script = ExtResource("1_fbmv8")
-metadata/_custom_type_script = "uid://dwt1kwnmvfjjb"
