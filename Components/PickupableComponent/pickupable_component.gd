@@ -18,16 +18,26 @@ func _process(delta: float) -> void:
 func object_to_mouse():
 	node_to_pickup.global_position = get_global_mouse_position()
 	if node_to_pickup is RigidBody2D: node_to_pickup.gravity_scale = 0; node_to_pickup.linear_velocity = Vector2.ZERO
+	check_for_release()
 	return
 
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseMotion && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && !EventBus.current_object_held:
+	check_for_grab(event)
+	
+	return
+
+func check_for_grab(_event : InputEvent):
+	if _event is InputEventMouseMotion && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && !EventBus.current_object_held:
 		held = true
 		EventBus.current_object_held = self
-	elif !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && EventBus.current_object_held == self:
-		if node_to_pickup is RigidBody2D: node_to_pickup.gravity_scale = 1
+		picked_up.emit()
+	return
+
+func check_for_release():
+	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && EventBus.current_object_held == self:
 		EventBus.current_object_held = null
 		held = false
-	
+		placed_down.emit()
+		#if node_to_pickup is RigidBody2D: node_to_pickup.gravity_scale = 1
 	return

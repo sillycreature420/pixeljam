@@ -9,6 +9,7 @@ class_name DebugLabel
 
 
 func _ready() -> void:
+	print("debug here")
 	if !show_debug:
 		queue_free()
 
@@ -21,7 +22,6 @@ func update_text():
 	
 	for index in list_of_nodes:
 		var property_array = list_of_nodes[index]
-		
 		add_text(index.name + "\n")
 		for property in property_array:
 			assert(property is String, "The value " + str(property) + " in the array must be a string to display the variable.")

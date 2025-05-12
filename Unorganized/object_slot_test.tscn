@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1338ijexnqb"]
+
+[ext_resource type="PackedScene" uid="uid://dkkmxwiw1ph67" path="res://Entities/BodyPartObjects/Scene/BodyPartObject.tscn" id="1_hf1dk"]
+[ext_resource type="PackedScene" uid="uid://bwkhv3e6rhly8" path="res://Unorganized/object_slot.tscn" id="2_kq324"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BodyPartObject2" parent="." instance=ExtResource("1_hf1dk")]
+position = Vector2(97, 138)
+
+[node name="BodyPartObject" parent="." instance=ExtResource("1_hf1dk")]
+position = Vector2(92, 109)
+
+[node name="BodyPartObject3" parent="." instance=ExtResource("1_hf1dk")]
+position = Vector2(94, 82)
+
+[node name="Object_Slot2" parent="." instance=ExtResource("2_kq324")]
+offset_left = 145.0
+offset_top = 100.0
+offset_right = 161.0
+offset_bottom = 116.0
+
+[node name="Object_Slot3" parent="." instance=ExtResource("2_kq324")]
+offset_left = 147.0
+offset_top = 129.0
+offset_right = 163.0
+offset_bottom = 145.0
+
+[node name="Object_Slot" parent="." instance=ExtResource("2_kq324")]
+offset_left = 146.0
+offset_top = 75.0
+offset_right = 162.0
+offset_bottom = 91.0
