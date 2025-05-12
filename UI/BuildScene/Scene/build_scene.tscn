@@ -118,6 +118,51 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Finish"
 
+[node name="UnitSelect" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Groups" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
+layout_mode = 2
+
+[node name="DummyGroup" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "DummyGroup"
+
+[node name="DummyGroup2" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyGroup"
+
+[node name="DummyGroup3" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyGroup"
+
+[node name="Units" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
+layout_mode = 2
+
+[node name="DummyUnit" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "DummyUnit"
+
+[node name="DummyUnit2" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
+[node name="DummyUnit3" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
+[node name="DummyUnit4" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10

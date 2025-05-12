@@ -43,25 +43,25 @@ unit_container = NodePath("../Units")
 [node name="Path1" type="Node2D" parent="Obstacles"]
 position = Vector2(240, 32)
 
-[node name="Obstacle" parent="Obstacles/Path1" groups=["obstacles"] instance=ExtResource("5_dudjm")]
+[node name="Obstacle" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
 position = Vector2(16, 112)
 script = null
 
 [node name="Path2" type="Node2D" parent="Obstacles"]
 position = Vector2(480, 16)
 
-[node name="Obstacle" parent="Obstacles/Path2" groups=["obstacles"] instance=ExtResource("5_dudjm")]
+[node name="Obstacle" parent="Obstacles/Path2" instance=ExtResource("5_dudjm")]
 position = Vector2(64, 176)
 script = null
 
-[node name="Obstacle2" parent="Obstacles/Path2" groups=["obstacles"] instance=ExtResource("5_dudjm")]
+[node name="Obstacle2" parent="Obstacles/Path2" instance=ExtResource("5_dudjm")]
 position = Vector2(80, 176)
 script = null
 
 [node name="Path3" type="Node2D" parent="Obstacles"]
 position = Vector2(752, 32)
 
-[node name="Obstacle" parent="Obstacles/Path3" groups=["obstacles"] instance=ExtResource("5_dudjm")]
+[node name="Obstacle" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
 position = Vector2(48, 64)
 script = null
 
