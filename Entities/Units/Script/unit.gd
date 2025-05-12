@@ -24,14 +24,17 @@ func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_par
 	call_deferred("initialize_components")
 	return
 
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_spawn"):
 		pathfinding.move_to(current_target_path_node.global_position)
+
 
 func initialize_components():
 	health_component.max_health = head_part.health_modifier + body_part.health_modifier + legs_part.health_modifier
 	return
 
+
 func _ready():
 	current_target_path_node = path.get_child(0)
-	pass
+	

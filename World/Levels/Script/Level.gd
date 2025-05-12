@@ -7,6 +7,7 @@ extends Node2D
 
 
 @onready var hud: Control = $"../UILayer/HUD"
+
 # Reference to the group management system (initialized when level loads)
 var group_manager_component: Node
 
@@ -24,8 +25,10 @@ func _ready() -> void:
 # - Path assignment to unit groups as well as pathfinding node configuration
 # - Phase-specific game rules
 func start_action_phase():
-	pass
-
+	# Spawn units
+	spawn_point.spawn_group(group_manager_component.groups[0])
+	
+	
 # Callback when level transition completes
 func _level_loaded():
 	# Cache reference to spawn point for later use
@@ -43,7 +46,7 @@ func _level_loaded():
 		# Add to group manager's tracking system
 		group_manager_component.groups.append(first_unit_group)
 		
-	# Clear the current groups
+	# Clear the current group buttons
 	for child in hud.groups_container.get_children():
 		child.queue_free()
 	
@@ -51,15 +54,16 @@ func _level_loaded():
 	for group in group_manager_component.groups:
 		var new_group_button = Button.new()
 		new_group_button.text = "Group " + str(group_manager_component.groups.find(group) + 1)
-		# then connect the button to group_manager_component callbacks
+		
 		new_group_button.pressed.connect(_group_selected.bind(group))
 		
 		hud.groups_container.add_child(new_group_button)
 		
-		
+	# Clear the current path buttons
 	for child in hud.paths_container.get_children():
 		child.queue_free()
-		
+	
+	# Add buttons for each path found in the paths property
 	for path in paths:
 		var new_path_button = Button.new()
 		new_path_button.text = "Path " + str(paths.find(path) + 1)
@@ -68,12 +72,14 @@ func _level_loaded():
 		
 		hud.paths_container.add_child(new_path_button)
 
+
 func _group_selected(group):
 	group_manager_component.currently_selected_group = group
 	EventBus.emit_prep_phase_group_selected(group)
 	print(str(group) + " selected")
 
+
 func _path_selected(path):
-	group_manager_component.currently_selected_group.target_path = path
+	group_manager_component.assign_path(group_manager_component.currently_selected_group, path)
 	EventBus.emit_prep_phase_path_selected(path)
 	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))

@@ -33,6 +33,7 @@ func _ready() -> void:
 		# Notify other systems that initial level is ready
 		level_loaded.emit(_current_level)
 
+
 # Handles transitioning between levels
 # @param new_scene_path: Path to the packed scene for the new level
 func change_level(new_scene_path: String) -> void:
@@ -98,12 +99,14 @@ func change_level(new_scene_path: String) -> void:
 	
 	transition_completed.emit()
 
+
 # Creates and shows the loading screen overlay
 func _show_loading_screen():
 	if not _loading_screen:
 		_loading_screen = loading_screen_scene.instantiate()
 		get_tree().root.add_child(_loading_screen)
 	_loading_screen.show()
+
 
 # Hides the loading screen overlay
 func _hide_loading_screen():

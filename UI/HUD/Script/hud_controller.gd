@@ -9,7 +9,6 @@ extends Control
 @onready var paths_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Paths
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect to the LevelManager's signal for when a level transition completes
@@ -18,6 +17,7 @@ func _ready() -> void:
 	# Initially hide both UI scenes
 	playing_scene.hide()
 	preparing_scene.hide()
+
 
 # Handler for when a level transition is completed
 func _level_transition_completed():
@@ -28,12 +28,14 @@ func _level_transition_completed():
 	# TODO: Implement showing proper groups from Level GroupManagerComponent
 	# This will need to be implemented to display the correct groups during preparation phase
 
+
 # Handler for when the build button is pressed
 func _on_build_button_pressed() -> void:
 	# Get reference to and show the build scene
 	var build_scene = $"../BuildScene"
 	build_scene.show()
 	
+
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
 	# Emit signal indicating preparation phase is done
@@ -42,6 +44,7 @@ func _on_play_button_pressed() -> void:
 	# Switch to playing phase UI
 	preparing_scene.hide()
 	playing_scene.show()
+
 
 ### DEBUG HUD FUNCTIONS ###
 # Debug function to return to preparation phase

@@ -16,3 +16,5 @@ centered = false
 
 [node name="SpawnLocation" type="Node2D" parent="."]
 position = Vector2(0, 16)
+
+[node name="SpawnDelay" type="Timer" parent="."]

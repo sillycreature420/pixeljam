@@ -5,6 +5,7 @@ extends Node2D
 
 # Reference to the location where units will spawn
 @onready var spawn_location: Node2D = $SpawnLocation
+@onready var spawn_delay: Timer = $SpawnDelay
 
 # Spawns a group of units based on the provided UnitGroup configuration
 # @param group: The UnitGroup resource containing spawn configuration and Unit stats
@@ -28,3 +29,6 @@ func spawn_group(group: UnitGroup):
 		
 		# Add the unit to the game world by making it a child of unit_container
 		unit_container.add_child(new_unit)
+		
+		spawn_delay.start(1)
+		await spawn_delay.timeout

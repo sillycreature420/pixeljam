@@ -9,17 +9,21 @@ signal full_health_reached
 signal damage_taken(amount_damage_taken : float)
 signal heal_given(amount_heal_given : float)
 
+
 func _ready() -> void:
 	set_health_to_max_health()
 	return
+
 
 func set_max_health(new_max_health : float):
 	max_health = new_max_health
 	return
 
+
 func set_health_to_max_health():
 	health = max_health
 	return
+
 
 func damage(amount_damage_taken : float):
 	
@@ -28,6 +32,7 @@ func damage(amount_damage_taken : float):
 	
 	damage_taken.emit(amount_damage_taken)
 	return
+
 
 func heal(amount_heal_given : float):
 	
