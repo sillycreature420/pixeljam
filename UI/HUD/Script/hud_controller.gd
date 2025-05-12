@@ -37,7 +37,7 @@ func _on_build_button_pressed() -> void:
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
 	# Emit signal indicating preparation phase is done
-	EventBus.prep_phase_done.emit()
+	EventBus.emit_prep_phase_done()
 	
 	# Switch to playing phase UI
 	preparing_scene.hide()

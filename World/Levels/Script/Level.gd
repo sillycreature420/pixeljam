@@ -70,8 +70,10 @@ func _level_loaded():
 
 func _group_selected(group):
 	group_manager_component.currently_selected_group = group
+	EventBus.emit_prep_phase_group_selected(group)
 	print(str(group) + " selected")
 
 func _path_selected(path):
 	group_manager_component.currently_selected_group.target_path = path
+	EventBus.emit_prep_phase_path_selected(path)
 	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))
