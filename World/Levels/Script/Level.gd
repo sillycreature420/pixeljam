@@ -22,6 +22,7 @@ func _ready() -> void:
 	# Connect to global event bus signals
 	EventBus.prep_phase_done.connect(start_action_phase)
 	EventBus.action_phase_done.connect(end_action_phase)
+	EventBus.points_added.connect(_update_points_total)
 	LevelManager.transition_completed.connect(_level_loaded)
 
 
@@ -104,3 +105,8 @@ func build_paths_container():
 		new_path_button.pressed.connect(_path_selected.bind(path))
 		
 		hud.paths_container.add_child(new_path_button)
+
+
+func _update_points_total(points: int):
+	current_points += points
+	hud.update_points_display(current_points)

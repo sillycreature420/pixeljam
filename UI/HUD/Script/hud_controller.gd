@@ -13,7 +13,6 @@ extends Control
 func _ready() -> void:
 	# Connect to the LevelManager's signal for when a level transition completes
 	LevelManager.transition_completed.connect(_level_transition_completed)
-	
 	# Initially hide both UI scenes
 	playing_scene.hide()
 	preparing_scene.hide()
@@ -43,6 +42,15 @@ func _on_play_button_pressed() -> void:
 	playing_scene.show()
 
 
+func update_round_display(current_round: int):
+	%CurrentRound.text = str(current_round)
+
+
+func update_points_display(current_points: int):
+	%CurrentPoints.text = str(current_points)
+
+
+
 ### DEBUG HUD FUNCTIONS ###
 # Debug function to return to preparation phase
 func _on_return_to_prep_button_pressed() -> void:
@@ -60,9 +68,3 @@ func debug_new_group_type_selected(type: String):
 	var new_group = UnitGroup.new()
 	EventBus.emit_new_group_added(new_group, type)
 	
-
-func update_round_display(current_round: int):
-	%CurrentRound.text = str(current_round)
-	
-func update_points_display(current_points: int):
-	%CurrentPoints.text = str(current_points)
