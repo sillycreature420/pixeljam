@@ -116,6 +116,14 @@ text = "Round: "
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="PointsLabel" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Points: "
+
+[node name="CurrentPoints" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/HBoxContainer/AddGroupDebugButton" to="." method="_on_add_group_debug_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/DebugGroupOptions/ZombieGroup" to="." method="debug_new_group_type_selected" binds= ["Zombie"]]

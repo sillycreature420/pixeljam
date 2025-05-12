@@ -15,6 +15,8 @@ var spawn_point: Node2D
 
 # Current round of the current level
 var current_round: int = 1
+# Current number of points the player has
+var current_points: int = 0
 
 func _ready() -> void:
 	# Connect to global event bus signals

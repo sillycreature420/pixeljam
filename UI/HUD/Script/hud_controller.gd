@@ -63,3 +63,6 @@ func debug_new_group_type_selected(type: String):
 
 func update_round_display(current_round: int):
 	%CurrentRound.text = str(current_round)
+	
+func update_points_display(current_points: int):
+	%CurrentPoints.text = str(current_points)
