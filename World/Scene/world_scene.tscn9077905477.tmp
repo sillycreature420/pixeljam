@@ -15,3 +15,7 @@ script = ExtResource("2_wfhko")
 
 [node name="AStarGrid2D" type="Node2D" parent="."]
 script = ExtResource("3_wfhko")
+grid_size = null
+cell_size = null
+default_weight = null
+diagonal_movement = null

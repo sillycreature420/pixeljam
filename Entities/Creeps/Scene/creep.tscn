@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://j8ij7qq16mof"]
+
+[ext_resource type="Script" uid="uid://wq3m2rjrmhsy" path="res://Entities/Creeps/Script/creep.gd" id="1_a1u5j"]
+[ext_resource type="PackedScene" uid="uid://vmhyfahdse7t" path="res://Components/Pathfinding/pathfinding_component.tscn" id="2_vjbwg"]
+
+[node name="Creep" type="Node2D"]
+script = ExtResource("1_a1u5j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PathfindingComponent" parent="." instance=ExtResource("2_vjbwg")]

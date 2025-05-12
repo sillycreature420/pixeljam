@@ -76,6 +76,11 @@ func change_level(new_scene_path: String) -> void:
 		print("Current level's containers: " + str(current_level_data.containers))
 		print("Current level's enemies: " + str(current_level_data.enemies))
 	
+	var pathfinding = world_node.get_node("AStarGrid2D")
+	
+	pathfinding.terrain_layer = pathfinding._find_terrain_layer()
+	pathfinding._process_terrain_tiles()
+	
 	#DEPRECATED
 	#tile_data = new_level.get_node("Data") as TileMapLayer
 	#if not tile_data:
