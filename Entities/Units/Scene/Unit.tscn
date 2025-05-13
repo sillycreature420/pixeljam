@@ -17,7 +17,6 @@ centered = false
 [node name="PathfindingComponent" parent="." instance=ExtResource("2_g8r8p")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
-unique_name_in_owner = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 0.3

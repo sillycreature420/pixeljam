@@ -8,7 +8,7 @@ class_name Unit
 @export var path: Node2D
 
 # Component references
-@onready var health_component : HealthComponent = $%HealthComponent  # Health management system
+@onready var health_component : HealthComponent = $HealthComponent  # Health management system
 @onready var pathfinding: PathfindingComponent = $PathfindingComponent  # Navigation handler
 @onready var attack_cooldown: Timer = $AttackCooldown  # Timer between attacks
 
@@ -33,7 +33,11 @@ func initialize_unit_data(_unit_data : UnitData):
 	assert(_unit_data, name + " initialized without any unit data.")
 	
 	unit_data = _unit_data
-	damage = unit_data.damage #Not sure if you want this to be + or just assigning
+	
+	unit_data.initialize_unit_stats()
+	
+	health = unit_data.max_health
+	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed
 	
 	return
@@ -48,6 +52,7 @@ func initialize_components():
 # Called when node enters scene tree
 func _ready():
 	initialize_components()
+	initialize_unit_data(unit_data)
 	# Connect pathfinding completion signal
 	pathfinding.target_reached.connect(_target_reached)
 	

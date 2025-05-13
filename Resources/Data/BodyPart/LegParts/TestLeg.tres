@@ -4,10 +4,12 @@
 
 [resource]
 script = ExtResource("1_qe8tl")
-priority = 0
+display_priority = 0
+creature_type = 0
 health_modifier = 2.0
 speed_modifier = 10.0
 count_modifier = 1
+damage_modifier = 1
 rarity = 0
-Body_type = 2
+body_type = 0
 metadata/_custom_type_script = "uid://60krhj2toyet"
