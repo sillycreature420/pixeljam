@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=9 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
+[ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imtg7"]
+radius = 64.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
 
@@ -49,9 +56,42 @@ size_flags_stretch_ratio = 10.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat"]
 layout_mode = 2
-size_flags_horizontal = 3
+
+[node name="CurrentPart" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.0
+
+[node name="CurrentPart2" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2"]
+texture = SubResource("PlaceholderTexture2D_nwngi")
+
+[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2"]
+script = ExtResource("2_lk7k5")
+
+[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent"]
+shape = SubResource("CircleShape2D_imtg7")
+
+[node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="SelectPrev" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Previous"
+
+[node name="SelectNext" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Next"
 
 [node name="PartsAssembly" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -171,4 +211,5 @@ size_flags_vertical = 10
 layout_mode = 2
 text = "READY"
 
+[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" method="_input_event"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]
