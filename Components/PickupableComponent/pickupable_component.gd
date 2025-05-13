@@ -11,7 +11,7 @@ func _ready() -> void:
 	node_to_pickup = get_parent()
 	return
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if held: object_to_mouse()
 	return
 
@@ -22,7 +22,7 @@ func object_to_mouse():
 	return
 
 
-func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	check_for_grab(event)
 	
 	return

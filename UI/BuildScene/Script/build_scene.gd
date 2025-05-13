@@ -8,3 +8,8 @@ func _ready() -> void:
 
 func _on_ready_button_pressed() -> void:
 	hide()
+
+
+func _on_units_visibility_changed() -> void:
+	if visible:
+		pass

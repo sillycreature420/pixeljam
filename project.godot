@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://Scripts/Autoloads/LevelManager/LevelManager.gd"
 EventBus="*res://Scripts/Autoloads/EventBus/EventBus.gd"
+GroupManager="*res://Scripts/Autoloads/GroupManager/GroupManager.gd"
 
 [display]
 

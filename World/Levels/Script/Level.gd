@@ -48,7 +48,7 @@ func end_action_phase():
 func _level_loaded():
 	# Cache reference to spawn point for later use
 	spawn_point = $SpawnPoint
-	group_manager_component = $GroupManagerComponent
+	group_manager_component = GroupManager
 	
 	# Special initialization for first level
 	if level_name == "Level One":

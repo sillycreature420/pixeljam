@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc6o3yi61l3mj"]
-
-[ext_resource type="Script" uid="uid://bwu30m3g6gsj" path="res://Components/LevelComponents/GroupManager/group_manager_component.gd" id="1_shrnj"]
-
-[node name="GroupManagerComponent" type="Node"]
-script = ExtResource("1_shrnj")
