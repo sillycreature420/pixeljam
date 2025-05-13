@@ -17,25 +17,25 @@ enum CREATURE_TYPE{ZOMBIE, SKELETON, GHOST}
 @export var creature_type : CREATURE_TYPE
 
 # Initialize unit with optional body parts
-#func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_part : BodyPart = null) -> void:
-	## Set body parts with fallback warnings
-	#if _head_part: 
-		#head_part = _head_part
-	#else: 
-		#push_warning("Initialized without headpart")
-	#
-	#if _body_part: 
-		#body_part = _body_part
-	#else: 
-		#push_warning("Initialized without bodypart")
-	#
-	#if _legs_part: 
-		#legs_part = _legs_part
-	#else: 
-		#push_warning("Initialized without legspart")
-	#
-	#initialize_unit_stats()
-	#return
+func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_part : BodyPart = null) -> void:
+	# Set body parts with fallback warnings
+	if _head_part: 
+		head_part = _head_part
+	else: 
+		push_warning("Initialized without headpart")
+	
+	if _body_part: 
+		body_part = _body_part
+	else: 
+		push_warning("Initialized without bodypart")
+	
+	if _legs_part: 
+		legs_part = _legs_part
+	else: 
+		push_warning("Initialized without legspart")
+	
+	initialize_unit_stats.call_deferred()
+	return
 
 func initialize_unit_stats():
 	

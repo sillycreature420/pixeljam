@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnql4xsdf4yqp"]
+[gd_scene load_steps=6 format=3 uid="uid://bnql4xsdf4yqp"]
 
 [ext_resource type="PackedScene" uid="uid://c32gnxi2b8mbq" path="res://UI/MainMenu/Scene/main_menu.tscn" id="1_fbpti"]
 [ext_resource type="PackedScene" uid="uid://dt44ewa43ei5s" path="res://UI/HUD/Scene/HUD.tscn" id="2_ldy0v"]
 [ext_resource type="PackedScene" uid="uid://cdno5nencn4p8" path="res://UI/BuildScene/Scene/build_scene.tscn" id="2_urue2"]
-[ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="2_wfhko"]
-[ext_resource type="Script" uid="uid://du3bfntkot3sc" path="res://Scripts/WorldComponents/AStarGrid2D.gd" id="3_wfhko"]
+[ext_resource type="PackedScene" uid="uid://8adewwn5hngw" path="res://World/Levels/LevelOne/Scene/level_one.tscn" id="4_b8c1i"]
 [ext_resource type="Script" uid="uid://c2fotwxg0p3ea" path="res://Scripts/WorldComponents/CameraController.gd" id="6_75yel"]
 
 [node name="World" type="Node"]
@@ -17,11 +16,7 @@
 
 [node name="MainMenu" parent="UILayer" instance=ExtResource("1_fbpti")]
 
-[node name="Level" type="Node2D" parent="."]
-script = ExtResource("2_wfhko")
-
-[node name="AStarGrid2D" type="Node2D" parent="."]
-script = ExtResource("3_wfhko")
+[node name="Level" parent="." instance=ExtResource("4_b8c1i")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

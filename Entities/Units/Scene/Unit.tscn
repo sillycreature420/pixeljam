@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfcxjta6sfeie"]
+[gd_scene load_steps=7 format=3 uid="uid://cfcxjta6sfeie"]
 
 [ext_resource type="Script" uid="uid://cwvp6lyququh7" path="res://Entities/Units/Script/unit.gd" id="1_0rvlb"]
-[ext_resource type="PackedScene" uid="uid://vmhyfahdse7t" path="res://Components/Pathfinding/pathfinding_component.tscn" id="2_g8r8p"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_8h3iq"]
 [ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="3_g8r8p"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_klm5s"]
@@ -13,8 +12,6 @@ script = ExtResource("1_0rvlb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 centered = false
-
-[node name="PathfindingComponent" parent="." instance=ExtResource("2_g8r8p")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
 

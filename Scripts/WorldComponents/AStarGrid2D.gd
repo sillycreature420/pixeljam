@@ -22,7 +22,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	pass
-	#queue_redraw()
+	queue_redraw()
 
 func _find_terrain_layer() -> TileMapLayer:
 	print("Finding terrain layer...")

@@ -9,7 +9,7 @@ var current_path: PackedVector2Array = []
 var target_position: Vector2
 
 @onready var astar_grid := $"/root/World/AStarGrid2D"
-#@onready var astar := $"/root/World/AStar2D"
+@onready var astar := $"/root/World/AStar2D"
 
 func _physics_process(delta):
 	if current_path.is_empty():
@@ -37,5 +37,5 @@ func move_to(target: Vector2):
 	target_position = target
 	if astar_implementation:
 		current_path = astar_grid.find_path(global_position, target_position)
-	#else:
-		#current_path = astar.find_path(global_position, target_position)
+	else:
+		current_path = astar.find_path(global_position, target_position)

@@ -9,7 +9,7 @@ class_name Unit
 
 # Component references
 @onready var health_component : HealthComponent = $HealthComponent  # Health management system
-@onready var pathfinding: PathfindingComponent = $PathfindingComponent  # Navigation handler
+#@onready var pathfinding: PathfindingComponent = $PathfindingComponent  # Navigation handler
 @onready var attack_cooldown: Timer = $AttackCooldown  # Timer between attacks
 
 # Pathfinding variables
@@ -24,9 +24,7 @@ var speed: float  # Movement speed
 
 # Debug input handler
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("debug_spawn"):
-		pathfinding.move_to(current_target_path_node.global_position)
-		$StateChart.send_event("NewPathFound")
+	pass
 
 
 func initialize_unit_data(_unit_data : UnitData):
@@ -54,7 +52,7 @@ func _ready():
 	initialize_components()
 	initialize_unit_data(unit_data)
 	# Connect pathfinding completion signal
-	pathfinding.target_reached.connect(_target_reached)
+	#pathfinding.target_reached.connect(_target_reached)
 	
 	# Set initial path target
 	if path:
@@ -62,23 +60,25 @@ func _ready():
 	else:
 		push_error("A unit does not have a path selected!")
 
-# Handle reaching a target (path node or obstacle)
-func _target_reached():
-	if target_obstacle:
-		# If we reached an obstacle, start attacking
-		attack_cooldown.start()
-		$StateChart.send_event("Attack")
-	else:
-		# If we reached a path node, advance to next node
-		path_target_index += 1
-		if path_target_index >= path.get_child_count():
-			path_target_index = 0  # Loop path (TODO: Better end handling, not just a loop)
-		
-		move_to_next_pathfinding_node()
-	
-	# Always check for nearby obstacles
-	if !target_obstacle || target_obstacle.global_position.distance_to(global_position) > 32:
-		get_new_target_obstacle()
+#DEPRECATED
+## Handle reaching a target (path node or obstacle)
+#func _target_reached():
+	#if target_obstacle:
+		## If we reached an obstacle, start attacking
+		#attack_cooldown.start()
+		#$StateChart.send_event("Attack")
+	#else:
+		## If we reached a path node, advance to next node
+		#path_target_index += 1
+		#if path_target_index >= path.get_child_count():
+			#path_target_index = 0  # Loop path (TODO: Better end handling, not just a loop)
+		#
+		##DEPRECATED
+		##move_to_next_pathfinding_node()
+	#
+	## Always check for nearby obstacles
+	#if !target_obstacle || target_obstacle.global_position.distance_to(global_position) > 32:
+		#get_new_target_obstacle()
 
 # Find and target nearest obstacle within range
 func get_new_target_obstacle():
@@ -90,7 +90,7 @@ func get_new_target_obstacle():
 				target_obstacle.health_component.health_below_zero.connect(_target_obstacle_destroyed)
 			print("found nearby obstacle " + str(obstacle))
 			# Move toward the obstacle
-			pathfinding.move_to(target_obstacle.global_position)
+			#pathfinding.move_to(target_obstacle.global_position)
 
 # Attack cooldown completion handler
 func _on_attack_cooldown_timeout() -> void:
@@ -106,20 +106,21 @@ func _target_obstacle_destroyed():
 	# Look for new obstacles
 	get_new_target_obstacle()
 
-# Advance to next node in path
-func move_to_next_pathfinding_node():
-	# Clean up previous obstacle target if exists
-	if target_obstacle:
-		if target_obstacle.health_component.health_below_zero.is_connected(_target_obstacle_destroyed):
-			target_obstacle.health_component.health_below_zero.disconnect(_target_obstacle_destroyed)
-		target_obstacle = null
-		
-	if path:
-		if path_target_index < path.get_child_count():
-			# Set new path target and move toward it
-			current_target_path_node = path.get_child(path_target_index)
-			pathfinding.move_to(current_target_path_node.global_position)
-			$StateChart.send_event("NewPathFound")
-		else:
-			# Handle path completion (#TODO: Implement end of path behaviour)
-			pass
+#DEPRECATED
+## Advance to next node in path
+#func move_to_next_pathfinding_node():
+	## Clean up previous obstacle target if exists
+	#if target_obstacle:
+		#if target_obstacle.health_component.health_below_zero.is_connected(_target_obstacle_destroyed):
+			#target_obstacle.health_component.health_below_zero.disconnect(_target_obstacle_destroyed)
+		#target_obstacle = null
+		#
+	#if path:
+		#if path_target_index < path.get_child_count():
+			## Set new path target and move toward it
+			#current_target_path_node = path.get_child(path_target_index)
+			##pathfinding.move_to(current_target_path_node.global_position)
+			#$StateChart.send_event("NewPathFound")
+		#else:
+			## Handle path completion (#TODO: Implement end of path behaviour)
+			#pass
