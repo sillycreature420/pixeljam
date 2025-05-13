@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://db1338ijexnqb"]
 
-[ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://Unorganized/object_slot_2D.tscn" id="1_2ew45"]
+[ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="1_2ew45"]
 [ext_resource type="PackedScene" uid="uid://dkkmxwiw1ph67" path="res://Entities/BodyPartObjects/Scene/BodyPartObject.tscn" id="2_68532"]
 [ext_resource type="PackedScene" uid="uid://crxjohyvi1beh" path="res://UI/ObjectSlot/Scene/craft_button.tscn" id="3_b6yp1"]
 

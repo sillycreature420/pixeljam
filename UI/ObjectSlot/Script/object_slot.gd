@@ -6,7 +6,6 @@ var object_held : BodyPartObject
 func _ready() -> void:
 	input_pickable = false
 
-
 func snap_object_to_self():
 	object_held.global_position = global_position
 	return
@@ -16,7 +15,6 @@ func store_object_info(new_object : BodyPartObject):
 	object_held = new_object
 	
 	object_held.pickupable_component.picked_up.connect(clear_object_info)
-	
 	snap_object_to_self()
 	return
 
