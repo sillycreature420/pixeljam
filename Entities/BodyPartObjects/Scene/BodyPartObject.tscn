@@ -27,6 +27,7 @@ offset_top = 2.0
 offset_right = 151.0
 offset_bottom = 89.0
 script = ExtResource("4_2oxq4")
+show_debug = false
 list_of_nodes = {
 NodePath("../PickupableComponent"): ["held"]
 }

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqdpu004yxhei"]
+
+[ext_resource type="Script" uid="uid://c48s8456nafuc" path="res://UI/ObjectSlot/Script/object_slot.gd" id="1_5x2bd"]
+[ext_resource type="Texture2D" uid="uid://bnys2m08eksd0" path="res://UI/ObjectSlot/Asset/object_slot_sprite.png" id="2_ivre6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jpdq"]
+
+[node name="ObjectSlot" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_5x2bd")
+
+[node name="SlotArea2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4jpdq")
+
+[node name="SlotTexture" type="TextureRect" parent="."]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("2_ivre6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

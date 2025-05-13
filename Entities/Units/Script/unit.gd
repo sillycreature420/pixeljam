@@ -43,6 +43,8 @@ func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_par
 	else: 
 		push_warning("Initialized without legspart")
 
+	if !health_component:
+		health_component = HealthComponent.new()
 	# Defer component initialization until scene is ready
 	initialize_components.call_deferred()
 	return
