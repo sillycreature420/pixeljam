@@ -1,21 +1,27 @@
 extends Node2D
 
-# The value of this obstacle in points, awarded when it is destroyed
-@export var point_value: int = 20
+@onready var health_component: HealthComponent = $HealthComponent
 
-# This obstacle's health component
-@export var health_component: HealthComponent
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health_component.damage_taken.connect(_on_damage_taken)
 	health_component.health_below_zero.connect(_on_destroyed)
-	#print(health_component)
 
-func _on_damage_taken(_amount_damage_taken):
-	_flash_red()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
 
 func _on_destroyed():
-	EventBus.emit_points_added(point_value)
+	pass
+
+
+func unit_reached_goal(damage_taken: float):
+	EventBus.emit_points_added(100)
+	health_component.damage(damage_taken)
+	_flash_red()
+
 
 func _flash_red():
 	# Create a new tween

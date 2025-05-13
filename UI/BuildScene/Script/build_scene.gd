@@ -10,10 +10,6 @@ func _on_ready_button_pressed() -> void:
 	hide()
 
 
-func _on_units_visibility_changed() -> void:
-	if visible:
-		build_groups_container()
-
 func build_groups_container():
 	# Clear the current group buttons
 	for child in %Groups.get_children():
@@ -32,3 +28,8 @@ func build_groups_container():
 func _group_selected(group):
 	GroupManager.currently_selected_group = group
 	print(str(group) + " selected")
+
+
+func _on_visibility_changed() -> void:
+		if visible:
+			build_groups_container()

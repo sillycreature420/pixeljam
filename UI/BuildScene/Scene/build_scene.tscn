@@ -218,6 +218,6 @@ size_flags_vertical = 10
 layout_mode = 2
 text = "READY"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
-[connection signal="visibility_changed" from="AspectRatioContainer/VBoxContainer/UnitSelect/Units" to="." method="_on_units_visibility_changed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

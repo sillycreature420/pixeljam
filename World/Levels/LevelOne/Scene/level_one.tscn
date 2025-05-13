@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=9 format=3 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
 [ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
 [ext_resource type="PackedScene" uid="uid://bc2fk7cxexec3" path="res://Entities/Obstacles/BasicWall/basic_wall.tscn" id="5_dudjm"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
+[ext_resource type="PackedScene" uid="uid://viml08d7w1pc" path="res://World/Environment/Features/Goal/goal.tscn" id="6_dudjm"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -74,3 +75,6 @@ position = Vector2(244, 46)
 
 [node name="PathfindingNode" parent="Path3" instance=ExtResource("6_dd4mq")]
 position = Vector2(135, -14)
+
+[node name="Goal" parent="." groups=["goal"] instance=ExtResource("6_dudjm")]
+position = Vector2(659, 413)

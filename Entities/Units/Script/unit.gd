@@ -18,6 +18,7 @@ var current_target_path_node: Node2D  # Current node in path being targeted
 var path_target_index := 0  # Index tracking progress along path
 var next_pos: Vector2
 var movement_delta: float
+var targeting_goal: bool = false
 
 # Combat variables
 var target_obstacle = null  # Current obstacle being attacked (null if none)
@@ -57,7 +58,7 @@ func initialize_unit_data(_unit_data : UnitData):
 func initialize_components():
 	# Calculate max health from all body part modifiers
 	health_component.max_health = unit_data.max_health
-	print(health_component.max_health)
+	#print(health_component.max_health)
 	return
 
 # Called when node enters scene tree
@@ -83,6 +84,15 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 # Handle reaching a target (path node or obstacle)
 func _target_reached():
+	if targeting_goal:
+		for goal in get_tree().get_nodes_in_group("goal"):
+			goal.unit_reached_goal(damage)
+		queue_free()
+	
+	# Always check for nearby obstacles
+	if !target_obstacle || target_obstacle.global_position.distance_to(global_position) > 32:
+		get_new_target_obstacle()
+	
 	if target_obstacle:
 		# If we reached an obstacle, start attacking
 		attack_cooldown.start()
@@ -90,14 +100,13 @@ func _target_reached():
 	else:
 		# If we reached a path node, advance to next node
 		path_target_index += 1
-		if path_target_index > path.get_child_count():
-			path_target_index = 0  # Loop path (TODO: Better end handling, not just a loop)
+		if path_target_index >= path.get_child_count():
+			for goal in get_tree().get_nodes_in_group("goal"):
+				nav_agent.target_position = goal.global_position
+				targeting_goal = true
 		
 		move_to_next_pathfinding_node()
-	
-	# Always check for nearby obstacles
-	if !target_obstacle || target_obstacle.global_position.distance_to(global_position) > 32:
-		get_new_target_obstacle()
+
 
 # Find and target nearest obstacle within range
 func get_new_target_obstacle():
@@ -107,7 +116,7 @@ func get_new_target_obstacle():
 			# Connect to obstacle's death signal
 			if !target_obstacle.health_component.health_below_zero.is_connected(_target_obstacle_destroyed):
 				target_obstacle.health_component.health_below_zero.connect(_target_obstacle_destroyed)
-			print("found nearby obstacle " + str(obstacle))
+			#print("found nearby obstacle " + str(obstacle))
 			# Move toward the obstacle
 			nav_agent.target_position = target_obstacle.global_position
 			
@@ -150,4 +159,7 @@ func move_to_next_pathfinding_node():
 			$StateChart.send_event("NewPathFound")
 		else:
 			# Handle path completion (#TODO: Implement end of path behaviour)
-			pass
+			for goal in get_tree().get_nodes_in_group("goal"):
+				nav_agent.target_position = goal.global_position
+				targeting_goal = true
+				

@@ -8,6 +8,5 @@ script = ExtResource("1_ab0uj")
 health_component = NodePath("HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-centered = false
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_n27sn")]
