@@ -9,7 +9,6 @@ class_name DebugLabel
 
 
 func _ready() -> void:
-	print("debug here")
 	if !show_debug:
 		queue_free()
 

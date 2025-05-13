@@ -6,10 +6,12 @@
 [resource]
 script = ExtResource("1_js5ht")
 sprite = ExtResource("2_0451i")
-priority = 0
+display_priority = 0
+creature_type = 1
 health_modifier = 2.0
 speed_modifier = -5.0
 count_modifier = 3
+damage_modifier = 1
 rarity = 0
 body_type = 0
 metadata/_custom_type_script = "uid://60krhj2toyet"

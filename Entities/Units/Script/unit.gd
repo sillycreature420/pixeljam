@@ -2,10 +2,7 @@
 extends Node2D
 class_name Unit
 
-# Body part exports - these define the unit's appearance and stats
-@export var head_part : BodyPart  # Head component affecting unit properties
-@export var body_part : BodyPart  # Body component affecting unit properties  
-@export var legs_part : BodyPart  # Legs component affecting movement properties
+@export var unit_data : UnitData
 
 # Pathfinding reference - the predefined path this unit will follow
 @export var path: Node2D
@@ -21,33 +18,9 @@ var path_target_index := 0  # Index tracking progress along path
 
 # Combat variables
 var target_obstacle = null  # Current obstacle being attacked (null if none)
-var health: float  # Current health (TODO: Link to body parts)
+var health: float  # Current health
 var damage: float = 1.0  # Base damage output
-var speed: float  # Movement speed (TODO: Link to body parts)
-
-# Initialize unit with optional body parts
-func _init(_head_part : BodyPart = null, _body_part : BodyPart = null, _legs_part : BodyPart = null) -> void:
-	# Set body parts with fallback warnings
-	if _head_part: 
-		head_part = _head_part
-	else: 
-		push_warning("Initialized without headpart")
-	
-	if _body_part: 
-		body_part = _body_part
-	else: 
-		push_warning("Initialized without bodypart")
-	
-	if _legs_part: 
-		legs_part = _legs_part
-	else: 
-		push_warning("Initialized without legspart")
-
-	if !health_component:
-		health_component = HealthComponent.new()
-	# Defer component initialization until scene is ready
-	initialize_components.call_deferred()
-	return
+var speed: float  # Movement speed
 
 # Debug input handler
 func _process(_delta: float) -> void:
@@ -55,14 +28,26 @@ func _process(_delta: float) -> void:
 		pathfinding.move_to(current_target_path_node.global_position)
 		$StateChart.send_event("NewPathFound")
 
+
+func initialize_unit_data(_unit_data : UnitData):
+	assert(_unit_data, name + " initialized without any unit data.")
+	
+	unit_data = _unit_data
+	damage = unit_data.damage #Not sure if you want this to be + or just assigning
+	speed = unit_data.speed
+	
+	return
+
 # Initialize unit stats based on body parts
 func initialize_components():
 	# Calculate max health from all body part modifiers
-	health_component.max_health = head_part.health_modifier + body_part.health_modifier + legs_part.health_modifier
+	health_component.max_health = unit_data.max_health
+	print(health_component.max_health)
 	return
 
 # Called when node enters scene tree
 func _ready():
+	initialize_components()
 	# Connect pathfinding completion signal
 	pathfinding.target_reached.connect(_target_reached)
 	
