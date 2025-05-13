@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+#TODO: Implement level completed logic
 func _on_destroyed():
 	pass
 

@@ -158,7 +158,7 @@ func move_to_next_pathfinding_node():
 			
 			$StateChart.send_event("NewPathFound")
 		else:
-			# Handle path completion (#TODO: Implement end of path behaviour)
+			# Target the goal if the end of path was reached
 			for goal in get_tree().get_nodes_in_group("goal"):
 				nav_agent.target_position = goal.global_position
 				targeting_goal = true
