@@ -36,6 +36,7 @@ func spawn_group(group: UnitGroup):
 		if target_path:
 			#DEPRECATED
 			#new_unit.pathfinding.move_to(target_path.get_child(0).global_position)
+			new_unit.nav_agent.target_position = target_path.get_child(0).global_position
 			new_unit.get_node("StateChart").send_event("NewPathFound")
 		
 		spawn_delay.start(1)

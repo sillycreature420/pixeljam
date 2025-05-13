@@ -13,6 +13,8 @@ script = ExtResource("1_0rvlb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 centered = false
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
 
 [node name="AttackCooldown" type="Timer" parent="."]

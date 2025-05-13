@@ -46,6 +46,7 @@ folder_colors={
 [global_group]
 
 obstacles=""
+nav_polygon_source=""
 
 [input]
 

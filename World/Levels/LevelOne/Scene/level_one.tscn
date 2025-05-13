@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=9 format=3 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
-[ext_resource type="TileSet" uid="uid://c3k7kwagy0sky" path="res://World/Environment/TileSet/debug_tile_set.tres" id="3_idf41"]
 [ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
 [ext_resource type="PackedScene" uid="uid://bc2fk7cxexec3" path="res://Entities/Obstacles/BasicWall/basic_wall.tscn" id="5_dudjm"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
@@ -13,27 +12,25 @@ script = ExtResource("2_2pata")
 scene_path = "res://World/Levels/LevelOne/Scene/level_one.tscn"
 metadata/_custom_type_script = "uid://cnh045qwybtfk"
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j8u8f"]
+vertices = PackedVector2Array(951.008, 9.97656, 951.977, 533.938, 7.03125, 529.047, 8.96094, 9.00781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, -1, 961, 0, 962, 544, -3, 539)])
+source_geometry_mode = 1
+source_geometry_group_name = &"nav_polygon_source"
+
 [node name="Level" type="Node2D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_j6ojo")
 level_name = "Level One"
 level_data = SubResource("Resource_idf41")
 paths = [NodePath("Path1"), NodePath("Path2"), NodePath("Path3")]
 
-[node name="Background" type="TileMapLayer" parent="."]
-tile_set = ExtResource("3_idf41")
-
-[node name="Terrain" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAfAAcAAAASAAEAAAAfAAYAAAASAAEAAAAfAAgAAAASAAEAAAAcAAYAAAAUAAEAAAAcAAcAAAAUAAEAAAAcAAgAAAAUAAEAAAAcAAkAAAAUAAEAAAAdAAwAAAATAAAAAAAeAAwAAAATAAAAAAAfAAwAAAATAAAAAAAhAAwAAAAUAAAAAAAgAAwAAAATAAAAAAAhAA0AAAAUAAEAAAAcAAoAAAAUAAEAAAAcAAsAAAAUAAEAAAAcAAwAAAASAAQAAAAfAAkAAAASAAIAAAAgAAkAAAATAAIAAAAhAAkAAAATAAIAAAAiAAkAAAATAAIAAAAjAAkAAAATAAIAAAAkAAoAAAASAAEAAAAkAAsAAAASAAEAAAAkAAwAAAASAAEAAAAkAA0AAAASAAEAAAAkAAkAAAATAAMAAAAQAAMAAAASAAEAAAAPAAQAAAATAAAAAAAOAAQAAAATAAAAAAANAAQAAAASAAAAAAANAAYAAAASAAIAAAANAAUAAAASAAEAAAAOAAYAAAATAAIAAAAPAAYAAAATAAIAAAALAAMAAAAUAAEAAAALAAQAAAAUAAEAAAALAAUAAAAUAAEAAAALAAYAAAAUAAEAAAALAAcAAAAUAAEAAAALAAgAAAAUAAEAAAAMAAkAAAATAAAAAAANAAkAAAATAAAAAAAOAAkAAAATAAAAAAAuAAQAAAATAAAAAAAvAAQAAAATAAAAAAAwAAQAAAATAAAAAAAtAAMAAAAUAAEAAAAuAAkAAAATAAAAAAAvAAkAAAATAAAAAAAwAAkAAAATAAAAAAAuAAYAAAATAAIAAAAvAAYAAAATAAIAAAAwAAYAAAATAAIAAAAxAAQAAAAUAAAAAAAxAAYAAAAUAAIAAAAxAAUAAAAUAAEAAAAtAAQAAAASAAQAAAAQAAQAAAATAAQAAAALAAkAAAASAAQAAAAzAAQAAAASAAEAAAAzAAUAAAASAAEAAAAzAAYAAAASAAEAAAAzAAcAAAASAAEAAAAzAAgAAAASAAEAAAAxAAkAAAATAAAAAAAyAAkAAAATAAAAAAAzAAkAAAATAAQAAAARAAIAAAATAAAAAAASAAIAAAATAAAAAAATAAIAAAATAAAAAAAUAAIAAAATAAAAAAAVAAIAAAATAAAAAAAWAAIAAAATAAAAAAAXAAIAAAATAAAAAAAYAAIAAAATAAAAAAAZAAIAAAATAAAAAAAaAAIAAAATAAAAAAAbAAIAAAATAAAAAAAgAAIAAAATAAAAAAAhAAIAAAATAAAAAAAiAAIAAAATAAAAAAAjAAIAAAATAAAAAAAkAAIAAAATAAAAAAAlAAIAAAATAAAAAAAmAAIAAAATAAAAAAAnAAIAAAATAAAAAAAoAAIAAAATAAAAAAApAAIAAAATAAAAAAAqAAIAAAATAAAAAAArAAIAAAATAAAAAAAsAAIAAAATAAAAAAAcAAIAAAAUAAAAAAAtAAIAAAAUAAAAAAAQAAIAAAASAAAAAAAfAAIAAAASAAAAAAAfAAMAAAASAAEAAAAfAAQAAAASAAEAAAAfAAUAAAASAAEAAAAcAAMAAAAUAAEAAAAcAAQAAAAUAAEAAAAcAAUAAAAUAAEAAAALAAIAAAAUAAEAAAAzAAMAAAASAAEAAAAzAAIAAAASAAEAAAAQAAYAAAATAAIAAAARAAcAAAASAAEAAAARAAgAAAASAAEAAAARAAkAAAASAAEAAAAPAAkAAAAUAAAAAAARAAoAAAASAAEAAAAPAAoAAAAUAAEAAAARAAYAAAATAAMAAAAkAA4AAAASAAEAAAAkAA8AAAASAAEAAAAkABAAAAASAAEAAAAkABEAAAASAAEAAAAhAA4AAAAUAAEAAAAhAA8AAAAUAAEAAAAhABAAAAAUAAEAAAAhABEAAAAUAAEAAAA=")
-tile_set = ExtResource("3_idf41")
-
-[node name="Decor" type="TileMapLayer" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
-
-[node name="Detail" type="TileMapLayer" parent="."]
-visible = false
+navigation_polygon = SubResource("NavigationPolygon_j8u8f")
 
 [node name="SpawnPoint" parent="." node_paths=PackedStringArray("unit_container") instance=ExtResource("4_a3qh1")]
-position = Vector2(480, 0)
+position = Vector2(101, 77)
 unit_container = NodePath("../Units")
 
 [node name="Units" type="Node2D" parent="."]
@@ -41,39 +38,42 @@ unit_container = NodePath("../Units")
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Path1" type="Node2D" parent="Obstacles"]
-position = Vector2(240, 32)
+
+[node name="Obstacle" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
+position = Vector2(116, 321)
 
 [node name="Path2" type="Node2D" parent="Obstacles"]
-position = Vector2(480, 16)
 
 [node name="Obstacle" parent="Obstacles/Path2" instance=ExtResource("5_dudjm")]
-position = Vector2(64, 176)
+position = Vector2(267, 193)
 
 [node name="Obstacle2" parent="Obstacles/Path2" instance=ExtResource("5_dudjm")]
-position = Vector2(80, 176)
+position = Vector2(280, 180)
 
 [node name="Path3" type="Node2D" parent="Obstacles"]
-position = Vector2(752, 32)
+
+[node name="Obstacle" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
+position = Vector2(393, 41)
 
 [node name="Path1" type="Node2D" parent="."]
-position = Vector2(240, 32)
+position = Vector2(75, 200)
 
 [node name="PathfindingNode" parent="Path1" instance=ExtResource("6_dd4mq")]
-position = Vector2(16, 96)
+position = Vector2(28, 109)
 
 [node name="Path2" type="Node2D" parent="."]
-position = Vector2(480, 16)
+position = Vector2(162, 116)
 
 [node name="PathfindingNode" parent="Path2" instance=ExtResource("6_dd4mq")]
-position = Vector2(64, 160)
+position = Vector2(100, 62)
 
 [node name="PathfindingNode2" parent="Path2" instance=ExtResource("6_dd4mq")]
-position = Vector2(64, 240)
+position = Vector2(199, 112)
 
 [node name="Path3" type="Node2D" parent="."]
-position = Vector2(752, 32)
+position = Vector2(244, 46)
 
 [node name="PathfindingNode" parent="Path3" instance=ExtResource("6_dd4mq")]
-position = Vector2(48, 48)
+position = Vector2(135, -14)
 
 [node name="GroupManagerComponent" parent="." instance=ExtResource("6_dudjm")]
