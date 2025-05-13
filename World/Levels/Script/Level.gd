@@ -7,9 +7,6 @@ extends Node2D
 
 @onready var hud: Control = $"../UILayer/HUD"
 
-# Reference to the group management system (initialized when level loads)
-var group_manager_component: Node
-
 # Spawn point for units (initialized when level loads)
 var spawn_point: Node2D
 
@@ -28,7 +25,7 @@ func _ready() -> void:
 
 func start_action_phase():
 	# Spawn units, the spawn_point handles the path assignment
-	for group in group_manager_component.groups:
+	for group in GroupManager.groups:
 		spawn_point.spawn_group(group)
 
 
@@ -48,7 +45,6 @@ func end_action_phase():
 func _level_loaded():
 	# Cache reference to spawn point for later use
 	spawn_point = $SpawnPoint
-	group_manager_component = GroupManager
 	
 	# Special initialization for first level
 	if level_name == "Level One":
@@ -58,7 +54,7 @@ func _level_loaded():
 		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
 		
 		# Add to group manager's tracking system
-		group_manager_component.groups.append(first_unit_group)
+		GroupManager.groups.append(first_unit_group)
 	
 	# Update the HUD to reflect the current level's status
 	build_groups_container()
@@ -67,15 +63,15 @@ func _level_loaded():
 
 
 func _group_selected(group):
-	group_manager_component.currently_selected_group = group
+	GroupManager.currently_selected_group = group
 	EventBus.emit_prep_phase_group_selected(group)
 	print(str(group) + " selected")
 
 
 func _path_selected(path):
-	group_manager_component.assign_path(group_manager_component.currently_selected_group, path)
+	GroupManager.assign_path(GroupManager.currently_selected_group, path)
 	EventBus.emit_prep_phase_path_selected(path)
-	print(str(path) + " assigned to group " + str(group_manager_component.currently_selected_group))
+	print(str(path) + " assigned to group " + str(GroupManager.currently_selected_group))
 
 
 func build_groups_container():
@@ -84,9 +80,9 @@ func build_groups_container():
 		child.queue_free()
 	
 	# Add buttons for each group found in the group manager component
-	for group in group_manager_component.groups:
+	for group in GroupManager.groups:
 		var new_group_button = Button.new()
-		new_group_button.text = "Group " + str(group_manager_component.groups.find(group) + 1)
+		new_group_button.text = "Group " + str(GroupManager.groups.find(group) + 1)
 		
 		new_group_button.pressed.connect(_group_selected.bind(group))
 		
