@@ -260,8 +260,8 @@ text = "READY"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" method="_input_event"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3/PickupableComponent" method="_input_event"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]
