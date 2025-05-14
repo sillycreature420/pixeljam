@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_db1gm"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_f6oxd"]
 
-[node name="Unit" type="Node2D"]
+[node name="Unit" type="Node2D" groups=["units"]]
 script = ExtResource("1_0rvlb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

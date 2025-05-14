@@ -30,6 +30,8 @@ func damage(amount_damage_taken : float):
 	current_health -= amount_damage_taken
 	if current_health < 0: 
 		health_below_zero.emit()
+		#FIXME This is probably sketchy! I should move this queue_free() to the callback in each
+		# individual script that uses a health_component
 		get_parent().queue_free()
 	
 	damage_taken.emit(amount_damage_taken)

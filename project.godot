@@ -49,6 +49,7 @@ folder_colors={
 obstacles=""
 nav_polygon_source=""
 goal=""
+units=""
 
 [input]
 

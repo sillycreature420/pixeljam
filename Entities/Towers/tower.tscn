@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://b55sowd0pdqfu"]
+
+[ext_resource type="Script" uid="uid://5kx8yiac4u5b" path="res://Entities/Towers/tower.gd" id="1_lqjbc"]
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="2_m7y1c"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_w36c6"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_w36c6"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_s2tcc"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_vrpxm"]
+[ext_resource type="Script" uid="uid://le5w1cm0ul8p" path="res://addons/godot_state_charts/expression_guard.gd" id="7_50v4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2tcc"]
+atlas = ExtResource("2_m7y1c")
+region = Rect2(656, 304, 16, 16)
+
+[sub_resource type="Resource" id="Resource_50v4x"]
+script = ExtResource("7_50v4x")
+expression = "!unit_in_range"
+metadata/_custom_type_script = "uid://le5w1cm0ul8p"
+
+[sub_resource type="Resource" id="Resource_t5kyh"]
+script = ExtResource("7_50v4x")
+expression = "unit_in_range"
+metadata/_custom_type_script = "uid://le5w1cm0ul8p"
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_lqjbc")
+damage = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_s2tcc")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_w36c6")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_w36c6")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_s2tcc")
+
+[node name="OnAlert" type="Node" parent="StateChart/Root/Idle"]
+script = ExtResource("6_vrpxm")
+to = NodePath("../../Alert")
+event = &"Alert"
+delay_in_seconds = "0.0"
+
+[node name="Attacking" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_s2tcc")
+
+[node name="OnKill" type="Node" parent="StateChart/Root/Attacking"]
+script = ExtResource("6_vrpxm")
+to = NodePath("../../Alert")
+event = &"UnitKilled"
+delay_in_seconds = "0.0"
+
+[node name="NoUnitInRange" type="Node" parent="StateChart/Root/Attacking"]
+script = ExtResource("6_vrpxm")
+to = NodePath("../../Alert")
+guard = SubResource("Resource_50v4x")
+delay_in_seconds = "0.0"
+
+[node name="Alert" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_s2tcc")
+
+[node name="AttackDelay" type="Node" parent="StateChart/Root/Alert"]
+script = ExtResource("6_vrpxm")
+to = NodePath("../../Attacking")
+guard = SubResource("Resource_t5kyh")
+delay_in_seconds = "0.5"
+
+[node name="IdleDelay" type="Node" parent="StateChart/Root/Alert"]
+script = ExtResource("6_vrpxm")
+to = NodePath("../../Idle")
+delay_in_seconds = "2.0"
+
+[connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_processing" from="StateChart/Root/Attacking" to="." method="_on_attacking_state_processing"]
+[connection signal="state_entered" from="StateChart/Root/Alert" to="." method="_on_alert_state_entered"]
