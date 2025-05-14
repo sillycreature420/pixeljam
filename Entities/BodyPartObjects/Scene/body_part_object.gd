@@ -1,9 +1,9 @@
-extends RigidBody2D
+extends Node2D
 class_name BodyPartObject
 @export var body_part_resource : BodyPart
 
 var body_type
-@onready var sprite_node : Sprite2D = $%ObjectSprite
+@onready var sprite_node : Sprite2D = $Sprite2D
 @onready var pickupable_component : PickupableComponent = $PickupableComponent
 
 func _ready() -> void:

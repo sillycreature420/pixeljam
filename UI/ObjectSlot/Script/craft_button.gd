@@ -20,8 +20,8 @@ func on_button_press():
 		print("Attempted to craft, but there was not enough objects in the slots")
 	else: 
 		var new_unit_data = craft_unit_data(object_slot_1.object_held, object_slot_2.object_held, object_slot_3.object_held)
-		instantiate_new_unit(new_unit_data)
-	
+		GroupManager.assign_unit_data(GroupManager.currently_selected_group, new_unit_data)
+		
 	
 	return
 
@@ -35,13 +35,3 @@ func craft_unit_data(_part_head_object : BodyPartObject, _part_body_object : Bod
 	var new_unit_data : UnitData = UnitData.new(_part_head, _part_body, _part_legs)
 	
 	return new_unit_data
-
-##Useless test function, should be replaced with creating a new group to be used else where
-func instantiate_new_unit(_new_unit_data :UnitData):
-	var new_instance = scene.instantiate()
-	if !new_instance is Unit:
-		return
-		
-	new_instance.initialize_unit_data(_new_unit_data)
-	add_child(new_instance)
-	return
