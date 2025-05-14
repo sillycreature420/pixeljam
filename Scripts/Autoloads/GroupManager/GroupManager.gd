@@ -15,8 +15,11 @@ func assign_path(group: UnitGroup, path: Node2D):
 
 
 func assign_unit_data(group: UnitGroup, unit_data: UnitData):
-	group.unit_data = unit_data
-	print("Successfully assigned unit data")
+	if group:
+		group.unit_data = unit_data
+		print("Successfully assigned unit data")
+	else:
+		push_warning("No group selected!")
 
 
 func _new_group_added(group: UnitGroup, type: String):

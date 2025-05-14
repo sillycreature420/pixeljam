@@ -86,36 +86,6 @@ script = ExtResource("2_lk7k5")
 [node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent"]
 shape = SubResource("RectangleShape2D_lk7k5")
 
-[node name="CurrentPart2" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart"]
-unique_name_in_owner = true
-z_index = 1
-script = ExtResource("2_nwngi")
-body_part_resource = ExtResource("3_y70dw")
-
-[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2"]
-texture = SubResource("PlaceholderTexture2D_nwngi")
-
-[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2"]
-script = ExtResource("2_lk7k5")
-
-[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent"]
-shape = SubResource("RectangleShape2D_lk7k5")
-
-[node name="CurrentPart3" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart"]
-unique_name_in_owner = true
-z_index = 1
-script = ExtResource("2_nwngi")
-body_part_resource = ExtResource("3_y70dw")
-
-[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3"]
-texture = SubResource("PlaceholderTexture2D_nwngi")
-
-[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3"]
-script = ExtResource("2_lk7k5")
-
-[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3/PickupableComponent"]
-shape = SubResource("RectangleShape2D_lk7k5")
-
 [node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
@@ -260,8 +230,6 @@ text = "READY"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
-[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart2/PickupableComponent" method="_input_event"]
-[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart3/PickupableComponent" method="_input_event"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]
