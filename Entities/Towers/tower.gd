@@ -21,10 +21,9 @@ func _physics_process(_delta: float) -> void:
 				units_in_range.append(unit)
 	
 	for i in units_in_range.size():
-		var unit = units_in_range[i]
-		if unit:
-			if unit.global_position.distance_to(global_position) > 64:
-				units_in_range.remove_at(i)
+		var unit = units_in_range[i-1]
+		if unit.global_position.distance_to(global_position) > 64:
+			units_in_range.remove_at(i)
 			
 	if units_in_range.size() == 0:
 		state_chart.set_expression_property("unit_in_range", false)
@@ -39,7 +38,6 @@ func _on_attacking_state_processing(_delta: float) -> void:
 func _on_attack_cooldown_timeout() -> void:
 	if targeted_unit:
 		targeted_unit.health_component.damage(damage)
-		print("Tower hit unit")
 	else:
 		state_chart.set_expression_property("unit_in_range", false)
 		attack_cooldown.stop()
