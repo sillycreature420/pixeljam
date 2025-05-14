@@ -90,13 +90,13 @@ shape = SubResource("RectangleShape2D_lk7k5")
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="SelectPrev" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+[node name="SelectPrevPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Previous"
 
-[node name="SelectNext" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+[node name="SelectNextPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
@@ -230,4 +230,6 @@ text = "READY"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

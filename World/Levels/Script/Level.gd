@@ -5,6 +5,9 @@ extends Node2D
 @export var level_data: LevelData             # Data asset containing level config and info
 @export var paths: Array[Node2D]              # Array of currently available paths in this level
 
+@export_group("Debug")
+@export var test_parts: Array[BodyPart]
+
 @onready var hud: Control = $"../UILayer/HUD"
 
 # Spawn point for units (initialized when level loads)
@@ -21,6 +24,10 @@ func _ready() -> void:
 	EventBus.action_phase_done.connect(end_action_phase)
 	EventBus.points_added.connect(_update_points_total)
 	LevelManager.transition_completed.connect(_level_loaded)
+	
+	#HACK Load in some test parts to start the level with
+	PartsManager.parts = test_parts
+	PartsManager.selected_part = 0
 
 
 func start_action_phase():
