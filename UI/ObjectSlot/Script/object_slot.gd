@@ -10,7 +10,7 @@ var object_held : BodyPart
 
 
 func _ready() -> void:
-	input_pickable = false
+	input_pickable = true
 
 
 func snap_object_to_self():
@@ -31,8 +31,15 @@ func store_object_info(new_part : BodyPart):
 	snap_object_to_self()
 	return
 
-
 func clear_object_info():
 	object_held = null
 	slot_texture.texture = default_texture
+	return
+
+func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	
+	if event is InputEventMouseButton:
+		if event.button_index == 1 && event.pressed:
+			clear_object_info()
+
 	return
