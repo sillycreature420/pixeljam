@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfcxjta6sfeie"]
+[gd_scene load_steps=8 format=3 uid="uid://cfcxjta6sfeie"]
 
 [ext_resource type="Script" uid="uid://cwvp6lyququh7" path="res://Entities/Units/Script/unit.gd" id="1_0rvlb"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_8h3iq"]
@@ -7,10 +7,16 @@
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_db1gm"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_f6oxd"]
 
-[node name="Unit" type="Node2D" groups=["units"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rvlb"]
+radius = 8.0
+
+[node name="Unit" type="Area2D" groups=["units"]]
 script = ExtResource("1_0rvlb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0rvlb")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

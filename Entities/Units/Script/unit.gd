@@ -1,5 +1,5 @@
 # Base class for units in the game, handles movement, combat, and body part management
-extends Node2D
+extends Area2D
 class_name Unit
 
 @export var unit_data : UnitData
