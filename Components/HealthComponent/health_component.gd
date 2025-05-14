@@ -45,3 +45,6 @@ func heal(amount_heal_given : float):
 	
 	heal_given.emit(amount_heal_given)
 	return
+
+#TODO Make _flash_red() a function inside health_component.gd to reduce
+# code duplication
