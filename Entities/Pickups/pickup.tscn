@@ -18,3 +18,5 @@ shape = SubResource("RectangleShape2D_42njl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_r0f6v")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

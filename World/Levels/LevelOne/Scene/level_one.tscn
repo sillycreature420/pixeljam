@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=15 format=3 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://b6uamga6cage8" path="res://Resources/Data/BodyPart/LegParts/TestLeg.tres" id="6_c3ji1"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
 [ext_resource type="PackedScene" uid="uid://viml08d7w1pc" path="res://World/Environment/Features/Goal/goal.tscn" id="6_dudjm"]
+[ext_resource type="PackedScene" uid="uid://cqwml2pfkjwgt" path="res://Entities/Pickups/pickup.tscn" id="8_2nvf8"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -39,6 +40,17 @@ navigation_polygon = SubResource("NavigationPolygon_j8u8f")
 position = Vector2(101, 77)
 unit_container = NodePath("../Units")
 
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Path1" type="Node2D" parent="Pickups"]
+
+[node name="Pickup" parent="Pickups/Path1" instance=ExtResource("8_2nvf8")]
+position = Vector2(337, 195)
+
+[node name="Path2" type="Node2D" parent="Pickups"]
+
+[node name="Path3" type="Node2D" parent="Pickups"]
+
 [node name="Units" type="Node2D" parent="."]
 
 [node name="Obstacles" type="Node2D" parent="."]
@@ -63,17 +75,23 @@ position = Vector2(393, 41)
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="Tower" parent="Towers" instance=ExtResource("5_mp0tl")]
-position = Vector2(297, 157)
+[node name="Path1" type="Node2D" parent="Towers"]
 
-[node name="Tower2" parent="Towers" instance=ExtResource("5_mp0tl")]
-position = Vector2(492, 186)
-
-[node name="Tower3" parent="Towers" instance=ExtResource("5_mp0tl")]
+[node name="Tower" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(131, 291)
 
-[node name="Tower4" parent="Towers" instance=ExtResource("5_mp0tl")]
+[node name="Tower2" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(229, 444)
+
+[node name="Path2" type="Node2D" parent="Towers"]
+
+[node name="Tower" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
+position = Vector2(297, 157)
+
+[node name="Tower2" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
+position = Vector2(492, 186)
+
+[node name="Path3" type="Node2D" parent="Towers"]
 
 [node name="Path1" type="Node2D" parent="."]
 position = Vector2(75, 200)
