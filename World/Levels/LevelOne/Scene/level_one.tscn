@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=10 format=3 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
 [ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
 [ext_resource type="PackedScene" uid="uid://bc2fk7cxexec3" path="res://Entities/Obstacles/BasicWall/basic_wall.tscn" id="5_dudjm"]
+[ext_resource type="PackedScene" uid="uid://b55sowd0pdqfu" path="res://Entities/Towers/tower.tscn" id="5_mp0tl"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
 [ext_resource type="PackedScene" uid="uid://viml08d7w1pc" path="res://World/Environment/Features/Goal/goal.tscn" id="6_dudjm"]
 
@@ -54,6 +55,11 @@ position = Vector2(280, 180)
 
 [node name="Obstacle" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
 position = Vector2(393, 41)
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="Tower" parent="Towers" instance=ExtResource("5_mp0tl")]
+position = Vector2(297, 157)
 
 [node name="Path1" type="Node2D" parent="."]
 position = Vector2(75, 200)

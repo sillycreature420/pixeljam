@@ -176,18 +176,9 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "DummyGroup"
 
-[node name="DummyGroup2" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "DummyGroup"
-
-[node name="DummyGroup3" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "DummyGroup"
-
 [node name="Units" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="DummyUnit" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]

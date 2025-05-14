@@ -71,6 +71,10 @@ func _ready():
 	nav_agent.navigation_finished.connect(_target_reached)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 	
+	# Connect to health component signals
+	health_component.damage_taken.connect(_on_damage_taken)
+	health_component.health_below_zero.connect(_on_death)
+	
 	# Set initial path target
 	if path:
 		current_target_path_node = path.get_child(path_target_index)
@@ -162,4 +166,22 @@ func move_to_next_pathfinding_node():
 			for goal in get_tree().get_nodes_in_group("goal"):
 				nav_agent.target_position = goal.global_position
 				targeting_goal = true
-				
+
+
+func _on_damage_taken(_damage_value):
+	_flash_red()
+
+func _on_death():
+	print("Unit died!")
+
+func _flash_red():
+	# Create a new tween
+	var tween = create_tween()
+	
+	# Store the original modulate color
+	var original_color = modulate
+	
+	# Flash to red
+	tween.tween_property(self, "modulate", Color.RED, 0.1)
+	# Flash back to original color
+	tween.tween_property(self, "modulate", original_color, 0.1)
