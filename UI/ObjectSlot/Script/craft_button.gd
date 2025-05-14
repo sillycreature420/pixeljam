@@ -21,7 +21,6 @@ func on_button_press():
 	else: 
 		var new_unit_data = craft_unit_data(object_slot_1.object_held, object_slot_2.object_held, object_slot_3.object_held)
 		GroupManager.assign_unit_data(GroupManager.currently_selected_group, new_unit_data)
-		
 	
 	return
 
@@ -34,4 +33,20 @@ func craft_unit_data(_part_head_object : BodyPartObject, _part_body_object : Bod
 	
 	var new_unit_data : UnitData = UnitData.new(_part_head, _part_body, _part_legs)
 	
+	consume_parts([_part_head, _part_body, _part_legs])
+	
 	return new_unit_data
+
+func consume_parts(array_of_parts : Array[BodyPart]):
+	
+	for part in array_of_parts:
+		print(part.resource_name)
+		#remove from parts autoload
+		pass
+	
+	
+	object_slot_1.object_held.queue_free()
+	object_slot_2.object_held.queue_free()
+	object_slot_3.object_held.queue_free()
+	
+	return

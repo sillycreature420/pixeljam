@@ -26,5 +26,6 @@ func on_released():
 		if area is Object_Slot:
 			print("Found object slot")
 			area.store_object_info(self)
+			return
 	
 	return

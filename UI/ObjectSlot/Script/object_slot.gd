@@ -12,6 +12,9 @@ func snap_object_to_self():
 
 #this could be replaced or made more reusable by changing the BodyPartObject to something more general
 func store_object_info(new_object : BodyPartObject):
+	if object_held: print("Rejecting item! A previous item is already stored."); return
+	
+	
 	object_held = new_object
 	
 	object_held.pickupable_component.picked_up.connect(clear_object_info)
