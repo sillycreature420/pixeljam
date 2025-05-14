@@ -10,13 +10,13 @@
 position = Vector2(144, 139)
 
 [node name="ObjectSlot2" parent="." instance=ExtResource("1_2ew45")]
-position = Vector2(143, 109)
+position = Vector2(145, 267)
 
 [node name="ObjectSlot3" parent="." instance=ExtResource("1_2ew45")]
-position = Vector2(143, 81)
+position = Vector2(143, 15)
 
 [node name="BodyPartObject" parent="." instance=ExtResource("2_68532")]
-position = Vector2(65, 80)
+position = Vector2(64, 74)
 
 [node name="BodyPartObject2" parent="." instance=ExtResource("2_68532")]
 position = Vector2(65, 111)

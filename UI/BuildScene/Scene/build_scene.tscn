@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=13 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
 [ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
+[ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
+[ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
+[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/TestHead.tres" id="3_y70dw"]
+[ext_resource type="Script" uid="uid://c3p4s2jm6kg2l" path="res://UI/ObjectSlot/Script/craft_button.gd" id="4_stjvo"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
 
@@ -70,6 +74,8 @@ size_flags_stretch_ratio = 5.0
 [node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart"]
 unique_name_in_owner = true
 z_index = 1
+script = ExtResource("2_nwngi")
+body_part_resource = ExtResource("3_y70dw")
 
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart"]
 texture = SubResource("PlaceholderTexture2D_nwngi")
@@ -130,6 +136,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("PlaceholderTexture2D_lk7k5")
 
+[node name="ObjectSlotHead" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
+
 [node name="Body" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -142,6 +151,9 @@ text = "Body"
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = SubResource("PlaceholderTexture2D_imtg7")
+
+[node name="ObjectSlotBody" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
 
 [node name="Legs" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -156,11 +168,18 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = SubResource("PlaceholderTexture2D_4iico")
 
-[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+[node name="ObjectSlotLegs" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer" node_paths=PackedStringArray("object_slot_1", "object_slot_2", "object_slot_3")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Finish"
+script = ExtResource("4_stjvo")
+object_slot_1 = NodePath("../CenterContainer/VBoxContainer/Head/ObjectSlotHead")
+object_slot_2 = NodePath("../CenterContainer/VBoxContainer/Body/ObjectSlotBody")
+object_slot_3 = NodePath("../CenterContainer/VBoxContainer/Legs/ObjectSlotLegs")
 
 [node name="UnitSelect" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
 layout_mode = 2

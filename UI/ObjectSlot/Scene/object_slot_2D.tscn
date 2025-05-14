@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnys2m08eksd0" path="res://UI/ObjectSlot/Asset/object_slot_sprite.png" id="2_ivre6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jpdq"]
+size = Vector2(128, 128)
 
 [node name="ObjectSlot" type="Area2D"]
 input_pickable = false
@@ -13,6 +14,7 @@ script = ExtResource("1_5x2bd")
 shape = SubResource("RectangleShape2D_4jpdq")
 
 [node name="SlotTexture" type="TextureRect" parent="."]
+visible = false
 offset_left = -12.0
 offset_top = -12.0
 offset_right = 12.0
