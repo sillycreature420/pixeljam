@@ -51,9 +51,8 @@ func consume_parts(array_of_parts : Array[BodyPart]):
 		PartsManager.parts.erase(part)
 		pass
 	
-	
-	#object_slot_1.object_held.queue_free()
-	#object_slot_2.object_held.queue_free()
-	#object_slot_3.object_held.queue_free()
+	object_slot_1.clear_object_info()
+	object_slot_2.clear_object_info()
+	object_slot_3.clear_object_info()
 	
 	return
