@@ -8,10 +8,6 @@ func _ready() -> void:
 	health_component.health_below_zero.connect(_on_destroyed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 #TODO: Implement level completed logic
 func _on_destroyed():
 	pass
