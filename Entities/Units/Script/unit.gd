@@ -49,8 +49,7 @@ func initialize_unit_data(_unit_data : UnitData):
 	unit_data.initialize_unit_stats()
 	
 	health = unit_data.max_health
-	health_component.set_max_health(health)
-	health_component.set_health_to_max_health()
+
 	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed * base_speed
 	
@@ -73,10 +72,11 @@ func _ready():
 	nav_agent.navigation_finished.connect(_target_reached)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
 	
-	# Connect to health component signals
+	# Set up health component
 	health_component.damage_taken.connect(_on_damage_taken)
 	health_component.health_below_zero.connect(_on_death)
-	
+	health_component.set_max_health(health)
+	health_component.set_health_to_max_health()
 	# Set initial path target
 	if path:
 		current_target_path_node = path.get_child(path_target_index)

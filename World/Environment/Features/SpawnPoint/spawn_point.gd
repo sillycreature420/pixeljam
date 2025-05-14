@@ -19,8 +19,11 @@ func spawn_group(group: UnitGroup):
 	# Get the packed scene (unit entity) to spawn
 	var unit_scene = group.unit_scene
 	
+	spawn_delay.start(1)
+	
 	# Spawn the specified number of units
-	for i in range(group.unit_count):
+	for i in range(group.unit_data.count):
+		await spawn_delay.timeout
 		# Create a new instance of the unit
 		var new_unit = unit_scene.instantiate()
 		
@@ -30,7 +33,7 @@ func spawn_group(group: UnitGroup):
 		# Position the unit at the spawn location
 		new_unit.global_position = spawn_location.global_position
 		
-		#new_unit.initialize_unit_data(group.unit_data)
+		new_unit.initialize_unit_data(group.unit_data)
 		
 		# Add the unit to the game world by making it a child of unit_container
 		unit_container.add_child(new_unit)
@@ -40,6 +43,3 @@ func spawn_group(group: UnitGroup):
 			#new_unit.pathfinding.move_to(target_path.get_child(0).global_position)
 			new_unit.nav_agent.target_position = target_path.get_child(0).global_position
 			new_unit.get_node("StateChart").send_event("NewPathFound")
-		
-		spawn_delay.start(1)
-		await spawn_delay.timeout

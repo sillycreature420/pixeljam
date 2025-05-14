@@ -57,7 +57,7 @@ func _level_loaded():
 	if level_name == "Level One":
 		# Create default unit group for new players
 		var first_unit_group = UnitGroup.new()
-		first_unit_group.unit_count = 1  # Starting with just one unit
+		first_unit_group.unit_data = preload("res://Resources/Data/UnitData/ZombieUnitData/DebugZombieUnitData.tres")
 		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
 		
 		# Add to group manager's tracking system

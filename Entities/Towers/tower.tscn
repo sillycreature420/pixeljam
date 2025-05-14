@@ -30,6 +30,7 @@ damage = 1.0
 texture = SubResource("AtlasTexture_s2tcc")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [node name="StateChart" type="Node" parent="."]
