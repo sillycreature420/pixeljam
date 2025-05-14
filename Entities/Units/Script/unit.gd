@@ -49,6 +49,8 @@ func initialize_unit_data(_unit_data : UnitData):
 	unit_data.initialize_unit_stats()
 	
 	health = unit_data.max_health
+	health_component.set_max_health(health)
+	health_component.set_health_to_max_health()
 	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed * base_speed
 	
