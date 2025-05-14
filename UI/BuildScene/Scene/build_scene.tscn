@@ -12,8 +12,8 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7k5"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwngi"]
+radius = 24.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
 
@@ -84,7 +84,7 @@ texture = SubResource("PlaceholderTexture2D_nwngi")
 script = ExtResource("2_lk7k5")
 
 [node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent"]
-shape = SubResource("RectangleShape2D_lk7k5")
+shape = SubResource("CircleShape2D_nwngi")
 
 [node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
 layout_mode = 2
