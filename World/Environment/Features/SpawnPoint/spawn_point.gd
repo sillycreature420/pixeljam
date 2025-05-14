@@ -30,6 +30,8 @@ func spawn_group(group: UnitGroup):
 		# Position the unit at the spawn location
 		new_unit.global_position = spawn_location.global_position
 		
+		new_unit.initialize_unit_data(group.unit_data)
+		
 		# Add the unit to the game world by making it a child of unit_container
 		unit_container.add_child(new_unit)
 		
