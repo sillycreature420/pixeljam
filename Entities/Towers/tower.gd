@@ -31,16 +31,15 @@ func _physics_process(_delta: float) -> void:
 			# Add new units to tracking list
 			if !units_in_range.has(unit):
 				units_in_range.append(unit)
+				if !unit.health_component.health_below_zero.is_connected(_unit_killed):
+					unit.health_component.health_below_zero.connect(_unit_killed.bind(unit))
 	
 	# Clean up units that moved out of range
 	for i in units_in_range.size():
 		var unit = units_in_range[i-1]
-		if unit:
-			if unit.global_position.distance_to(global_position) > 64:
-				units_in_range.remove_at(i)
-		else:
+		if unit.global_position.distance_to(global_position) > 64:
 			units_in_range.remove_at(i)
-	
+
 	# If no units left in range, update state
 	if units_in_range.size() == 0:
 		state_chart.set_expression_property("unit_in_range", false)
@@ -65,3 +64,10 @@ func _on_attack_cooldown_timeout() -> void:
 		# No valid target - return to idle state
 		state_chart.set_expression_property("unit_in_range", false)
 		attack_cooldown.stop()
+
+
+func _unit_killed(unit):
+	units_in_range.erase(unit)
+	state_chart.send_event("UnitKilled")
+	if unit.health_component.health_below_zero.is_connected(_unit_killed):
+		unit.health_component.health_below_zero.disconnect(_unit_killed)

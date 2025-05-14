@@ -72,7 +72,7 @@ script = ExtResource("5_s2tcc")
 script = ExtResource("6_vrpxm")
 to = NodePath("../../Attacking")
 guard = SubResource("Resource_t5kyh")
-delay_in_seconds = "0.5"
+delay_in_seconds = "0.3"
 
 [node name="IdleDelay" type="Node" parent="StateChart/Root/Alert"]
 script = ExtResource("6_vrpxm")
