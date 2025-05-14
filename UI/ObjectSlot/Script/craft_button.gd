@@ -47,8 +47,8 @@ func craft_unit_data(_part_head : BodyPart, _part_body : BodyPart, _part_legs : 
 func consume_parts(array_of_parts : Array[BodyPart]):
 	
 	for part in array_of_parts:
-		#print("parts at least")
-		#remove from parts autoload
+		print("Removing part")
+		PartsManager.parts.erase(part)
 		pass
 	
 	
