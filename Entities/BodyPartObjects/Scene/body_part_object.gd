@@ -25,7 +25,7 @@ func on_released():
 	for area in areas:
 		if area is Object_Slot:
 			print("Found object slot")
-			area.store_object_info(self)
+			area.store_object_info(self.body_part_resource)
 			return
 	
 	return

@@ -4,6 +4,7 @@ extends Button
 @export var object_slot_2 : Object_Slot
 @export var object_slot_3 : Object_Slot
 
+var held_unit_data : UnitData
 ##Useful for adding graphics/sounds/polish
 signal CannotCraft
 
@@ -19,34 +20,40 @@ func on_button_press():
 		CannotCraft.emit()
 		print("Attempted to craft, but there was not enough objects in the slots")
 	else: 
-		var new_unit_data = craft_unit_data(object_slot_1.object_held, object_slot_2.object_held, object_slot_3.object_held)
-		GroupManager.assign_unit_data(GroupManager.currently_selected_group, new_unit_data)
+		held_unit_data = craft_unit_data(object_slot_1.object_held, object_slot_2.object_held, object_slot_3.object_held)
+		
+		call_assign_unit_data.call_deferred()
 	
 	return
 
+func call_assign_unit_data():
+	print(held_unit_data.speed)
+	GroupManager.assign_unit_data(GroupManager.currently_selected_group, held_unit_data)
+	return
+
 ##Returns a new unit data with the parts from the slots assigned
-func craft_unit_data(_part_head_object : BodyPartObject, _part_body_object : BodyPartObject, _part_legs_object : BodyPartObject) -> UnitData:
+func craft_unit_data(_part_head : BodyPart, _part_body : BodyPart, _part_legs : BodyPart) -> UnitData:
 	
-	var _part_head : BodyPart =  _part_head_object.body_part_resource
-	var _part_body : BodyPart =  _part_body_object.body_part_resource
-	var _part_legs : BodyPart =  _part_legs_object.body_part_resource
+	print(_part_head.speed_modifier)
+	print(_part_body.speed_modifier)
+	print(_part_legs.speed_modifier)
 	
 	var new_unit_data : UnitData = UnitData.new(_part_head, _part_body, _part_legs)
-	
 	consume_parts([_part_head, _part_body, _part_legs])
 	
 	return new_unit_data
 
+
 func consume_parts(array_of_parts : Array[BodyPart]):
 	
 	for part in array_of_parts:
-		print(part.resource_name)
+		#print("parts at least")
 		#remove from parts autoload
 		pass
 	
 	
-	object_slot_1.object_held.queue_free()
-	object_slot_2.object_held.queue_free()
-	object_slot_3.object_held.queue_free()
+	#object_slot_1.object_held.queue_free()
+	#object_slot_2.object_held.queue_free()
+	#object_slot_3.object_held.queue_free()
 	
 	return
