@@ -232,4 +232,7 @@ text = "READY"
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head/ObjectSlotHead" to="." method="_on_object_slot_head_object_info_stored"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody" to="." method="_on_object_slot_body_object_info_stored"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs" to="." method="_on_object_slot_legs_object_info_stored"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

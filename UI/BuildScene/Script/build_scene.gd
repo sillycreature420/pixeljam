@@ -43,20 +43,34 @@ func show_currently_selected_part():
 func _on_select_prev_part_pressed() -> void:
 	# Select the previous part, unless at the start of the array, in which case,
 	# select the last part in the array
-	if PartsManager.selected_part > 0:
-		PartsManager.selected_part -= 1
-	else:
-		PartsManager.selected_part = PartsManager.parts.size() - 1
-		
-	show_currently_selected_part()
+	if PartsManager.parts.size() > 0:
+		if PartsManager.selected_part > 0:
+			PartsManager.selected_part -= 1
+			show_currently_selected_part()
+		else:
+			PartsManager.selected_part = PartsManager.parts.size() - 1
+			show_currently_selected_part()
+	
 
 func _on_select_next_part_pressed() -> void:
 	# Select the next part, unless at the end of the array, in which case, select
 	# the first part in the array
-	if PartsManager.selected_part < PartsManager.parts.size() - 1:
-		PartsManager.selected_part += 1
-	else:
-		PartsManager.selected_part = 0
-		
-	show_currently_selected_part()
-	
+	if PartsManager.parts.size() > 0:
+		if PartsManager.selected_part < PartsManager.parts.size() - 1:
+			PartsManager.selected_part += 1
+			show_currently_selected_part()
+		else:
+			PartsManager.selected_part = 0
+			show_currently_selected_part()
+
+
+func _on_object_slot_head_object_info_stored() -> void:
+	%CurrentPart.position = Vector2(0, 0)
+
+
+func _on_object_slot_body_object_info_stored() -> void:
+	%CurrentPart.position = Vector2(0, 0)
+
+
+func _on_object_slot_legs_object_info_stored() -> void:
+	%CurrentPart.position = Vector2(0, 0)
