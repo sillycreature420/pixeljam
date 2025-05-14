@@ -3,8 +3,9 @@ class_name Object_Slot
 
 signal object_info_stored()
 
-@onready var slot_texture: TextureRect = $SlotTexture
+@export var default_texture : Texture
 
+@onready var slot_texture: TextureRect = $SlotTexture
 var object_held : BodyPart
 
 
@@ -32,7 +33,6 @@ func store_object_info(new_part : BodyPart):
 
 
 func clear_object_info():
-	#object_held.pickupable_component.picked_up.disconnect(clear_object_info)
-	#object_held.queue_free()
 	object_held = null
+	slot_texture.texture = default_texture
 	return
