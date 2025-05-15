@@ -16,6 +16,7 @@ func _on_damage_taken(_amount_damage_taken):
 
 func _on_destroyed():
 	EventBus.emit_points_added(point_value)
+	queue_free()
 
 func _flash_red():
 	# Create a new tween

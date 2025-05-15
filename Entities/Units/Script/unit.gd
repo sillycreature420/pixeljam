@@ -192,6 +192,7 @@ func _on_damage_taken(_damage_value):
 func _on_death():
 	print("Unit died!")
 	check_if_final_unit()
+	queue_free()
 
 func _flash_red():
 	# Create a new tween

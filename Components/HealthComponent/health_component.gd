@@ -32,7 +32,7 @@ func damage(amount_damage_taken : float):
 		health_below_zero.emit()
 		#FIXME This is probably sketchy! I should move this queue_free() to the callback in each
 		# individual script that uses a health_component
-		get_parent().queue_free()
+		#get_parent().queue_free()
 	
 	damage_taken.emit(amount_damage_taken)
 	return
