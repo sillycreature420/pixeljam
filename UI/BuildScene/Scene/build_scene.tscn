@@ -56,45 +56,98 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="PartsVat" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat"]
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Shop" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop"]
 layout_mode = 2
 
-[node name="CurrentPart" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/VBoxContainer"]
+layout_mode = 2
+text = "Shop:"
+
+[node name="ShopSelectPrev" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Previous"
+
+[node name="ShopSelectNext" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Next"
+
+[node name="ShopReroll" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Reroll"
+
+[node name="Control" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/Control"]
+layout_mode = 2
+
+[node name="ShopBodyPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PanelContainer/Shop/Control/Control"]
+
+[node name="HSeparator" type="HSeparator" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="PartsVat" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.75
+mouse_filter = 1
+
+[node name="VatLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "The Vat:"
+
+[node name="CurrentPart" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.0
 
-[node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart"]
+[node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart"]
 unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2_nwngi")
 
-[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart"]
+[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart/CurrentPart"]
 texture = SubResource("PlaceholderTexture2D_nwngi")
 
-[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart"]
+[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart/CurrentPart"]
 script = ExtResource("2_lk7k5")
 
-[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent"]
+[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart/CurrentPart/PickupableComponent"]
 shape = SubResource("CircleShape2D_nwngi")
 
-[node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer"]
+[node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="SelectPrevPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+[node name="SelectPrevPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/SelectButtons"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Previous"
 
-[node name="SelectNextPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons"]
+[node name="SelectNextPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/SelectButtons"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
@@ -111,6 +164,11 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
+
+[node name="AssemblyLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Assembly:"
 
 [node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
 layout_mode = 2
@@ -229,9 +287,9 @@ layout_mode = 2
 text = "READY"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
+[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVat/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
 [connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head/ObjectSlotHead" to="." method="_on_object_slot_head_object_info_stored"]
 [connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody" to="." method="_on_object_slot_body_object_info_stored"]
 [connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs" to="." method="_on_object_slot_legs_object_info_stored"]
