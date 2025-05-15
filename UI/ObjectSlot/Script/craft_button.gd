@@ -58,4 +58,5 @@ func consume_parts(array_of_parts : Array[BodyPart]):
 	object_slot_2.clear_object_info()
 	object_slot_3.clear_object_info()
 	
+	if PartsManager.parts.size() <= 0: PartsManager.no_more_parts.emit()
 	return

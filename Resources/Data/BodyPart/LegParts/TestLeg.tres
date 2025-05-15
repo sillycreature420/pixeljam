@@ -13,5 +13,5 @@ speed_modifier = 4.0
 count_modifier = 1
 damage_modifier = 1
 rarity = 0
-body_type = 0
+body_type = 2
 metadata/_custom_type_script = "uid://60krhj2toyet"

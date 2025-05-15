@@ -21,9 +21,9 @@ func snap_object_to_self():
 
 
 #this could be replaced or made more reusable by changing the BodyPartObject to something more general
-func store_object_info(new_part : BodyPart):
-	if !new_part.body_type == body_type: print("This part type does not match the slot type");return
-	if object_held: print("Rejecting item! A previous item is already stored."); return
+func store_object_info(new_part : BodyPart) -> bool:
+	if !new_part.body_type == body_type: print("This part type does not match the slot type");return false
+	if object_held: print("Rejecting item! A previous item is already stored."); return false
 	
 	
 	object_held = new_part
@@ -32,7 +32,7 @@ func store_object_info(new_part : BodyPart):
 	object_info_stored.emit()
 	#object_held.pickupable_component.picked_up.connect(clear_object_info)
 	snap_object_to_self()
-	return
+	return true
 
 func clear_object_info():
 	object_held = null

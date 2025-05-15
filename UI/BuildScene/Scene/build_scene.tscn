@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=12 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
 [ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
 [ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
 [ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
-[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/TestHead.tres" id="3_y70dw"]
 [ext_resource type="Script" uid="uid://c3p4s2jm6kg2l" path="res://UI/ObjectSlot/Script/craft_button.gd" id="4_stjvo"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
@@ -75,7 +74,6 @@ size_flags_stretch_ratio = 5.0
 unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2_nwngi")
-body_part_resource = ExtResource("3_y70dw")
 
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsVat/VBoxContainer/CurrentPart/CurrentPart"]
 texture = SubResource("PlaceholderTexture2D_nwngi")
