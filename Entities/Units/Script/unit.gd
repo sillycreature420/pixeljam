@@ -87,12 +87,27 @@ func _ready():
 func _on_velocity_computed(safe_velocity: Vector2):
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
 
+func check_if_final_unit():
+	var all_units = get_parent().get_children()
+	if all_units.size() <= 1:
+		#Do level end logic here
+		print("everyone is dead!")
+		EventBus.emit_action_phase_done()
+		EventBus.hud.preparing_scene.show()
+		EventBus.hud.playing_scene.hide()
+		pass
+	else: 
+		for unit in all_units:
+			print(unit.name)
+		
+	return
 
 # Handle reaching a target (path node or obstacle)
 func _target_reached():
 	if targeting_goal:
 		for goal in get_tree().get_nodes_in_group("goal"):
 			goal.unit_reached_goal(damage)
+		
 		queue_free()
 	
 	# Always check for nearby obstacles
@@ -175,6 +190,7 @@ func _on_damage_taken(_damage_value):
 
 func _on_death():
 	print("Unit died!")
+	check_if_final_unit()
 
 func _flash_red():
 	# Create a new tween

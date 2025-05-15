@@ -7,6 +7,7 @@ signal prep_phase_path_selected(path: Node2D)
 signal new_group_added(group: UnitGroup, type: String)
 signal points_added(points: int)
 
+var hud : HUD
 var current_object_held : Node2D
 
 

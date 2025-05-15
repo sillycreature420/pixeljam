@@ -1,5 +1,5 @@
 extends Control
-
+class_name HUD
 # Reference to the playing phase UI element
 @onready var playing_scene: Control = $Playing
 # Reference to the preparation phase UI element
@@ -13,6 +13,7 @@ extends Control
 func _ready() -> void:
 	# Connect to the LevelManager's signal for when a level transition completes
 	LevelManager.transition_completed.connect(_level_transition_completed)
+	EventBus.hud = self
 	# Initially hide both UI scenes
 	playing_scene.hide()
 	preparing_scene.hide()
@@ -40,7 +41,6 @@ func _on_play_button_pressed() -> void:
 	# Switch to playing phase UI
 	preparing_scene.hide()
 	playing_scene.show()
-
 
 func update_round_display(current_round: int):
 	%CurrentRound.text = str(current_round)

@@ -27,7 +27,7 @@ func initialize_object():
 	#body_part_resource.body_type is an enum option, so assigning it here outputs an int
 	#0 is head, 1 is body, 2 is legs
 	body_type = body_part_resource.body_type
-	print(body_type)
+	#print(body_type)
 	return
 
 func change_resource(parts_index : int):
@@ -46,7 +46,7 @@ func on_released():
 	
 	for area in areas:
 		if area is Object_Slot:
-			print("Found object slot")
+			#print("Found object slot")
 			if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1)
 			return
 	
