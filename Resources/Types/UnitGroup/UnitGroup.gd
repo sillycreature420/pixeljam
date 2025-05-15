@@ -6,4 +6,10 @@ class_name UnitGroup extends Resource
 #@export var level: int = 1
 var target_path: Node2D
 
-#TODO Create default UnitData so that the game can run even if no custom UnitData is passed
+
+func _init(
+	_unit_scene := load("res://Entities/Units/ZOMBIEUnit/zombie_unit.tscn") , 
+	_unit_data := load("res://Resources/Data/UnitData/ZombieUnitData/DebugZombieUnitData.tres")
+	) -> void:
+	unit_scene = _unit_scene
+	unit_data = _unit_data
