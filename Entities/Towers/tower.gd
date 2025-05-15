@@ -11,6 +11,7 @@ extends Node2D
 var units_in_range: Array[Unit]  # List of units within detection range
 var targeted_unit: Unit  # Currently focused unit for attacking
 
+#TODO: Create projectiles that shoot towards units when a tower attacks
 
 func _ready() -> void:
 	# Initialize state machine properties
