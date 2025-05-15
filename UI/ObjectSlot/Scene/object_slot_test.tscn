@@ -8,6 +8,7 @@
 
 [node name="ObjectSlot" parent="." instance=ExtResource("1_2ew45")]
 position = Vector2(144, 139)
+body_type = 1
 
 [node name="ObjectSlot2" parent="." instance=ExtResource("1_2ew45")]
 position = Vector2(148, 465)

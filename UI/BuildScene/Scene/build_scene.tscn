@@ -154,6 +154,7 @@ texture = SubResource("PlaceholderTexture2D_imtg7")
 
 [node name="ObjectSlotBody" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body" instance=ExtResource("3_4iico")]
 position = Vector2(107, 63)
+body_type = 1
 
 [node name="Legs" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -170,6 +171,7 @@ texture = SubResource("PlaceholderTexture2D_4iico")
 
 [node name="ObjectSlotLegs" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs" instance=ExtResource("3_4iico")]
 position = Vector2(107, 63)
+body_type = 2
 
 [node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer" node_paths=PackedStringArray("object_slot_1", "object_slot_2", "object_slot_3")]
 layout_mode = 2

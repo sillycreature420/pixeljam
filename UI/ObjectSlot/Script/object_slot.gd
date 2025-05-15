@@ -3,6 +3,8 @@ class_name Object_Slot
 
 signal object_info_stored()
 
+enum BODY_TYPE{HEAD, BODY, LEGS}
+@export var body_type: BODY_TYPE
 @export var default_texture : Texture
 
 @onready var slot_texture: TextureRect = $SlotTexture
@@ -20,6 +22,7 @@ func snap_object_to_self():
 
 #this could be replaced or made more reusable by changing the BodyPartObject to something more general
 func store_object_info(new_part : BodyPart):
+	if !new_part.body_type == body_type: print("This part type does not match the slot type");return
 	if object_held: print("Rejecting item! A previous item is already stored."); return
 	
 	
