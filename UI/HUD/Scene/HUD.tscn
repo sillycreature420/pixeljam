@@ -73,10 +73,35 @@ layout_mode = 2
 layout_mode = 2
 text = "Zombie"
 
-[node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
+[node name="UnitPurchaseDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
+
+[node name="BuyUnitsLabel" type="Label" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
+layout_mode = 2
+text = "Buy More Unit Groups:"
+
+[node name="TypeToBuy" type="Button" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Zombie"
+
+[node name="BuyGroup" type="Button" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
+layout_mode = 2
+text = "Buy Group"
+
+[node name="GroupCostLabel" type="Label" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
+layout_mode = 2
+text = "20 Points"
+
+[node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 size_flags_stretch_ratio = 5.0
+
+[node name="GroupPathLabel" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+text = "Assign Groups to Paths:"
 
 [node name="Groups" type="GridContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
 layout_mode = 2
@@ -96,36 +121,38 @@ columns = 3
 layout_mode = 2
 text = "DummyPath"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Preparing/VBoxContainer"]
+[node name="BottomRowControls" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 8
 
-[node name="PlayButton" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="PlayButton" type="Button" parent="Preparing/VBoxContainer/BottomRowControls"]
 layout_mode = 2
 text = "READY"
 
-[node name="BuildButton" type="Button" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="BuildButton" type="Button" parent="Preparing/VBoxContainer/BottomRowControls"]
 layout_mode = 2
 text = "BUILD"
 
-[node name="RoundLabel" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="RoundLabel" type="Label" parent="Preparing/VBoxContainer/BottomRowControls"]
 layout_mode = 2
 text = "Round: "
 
-[node name="CurrentRound" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="CurrentRound" type="Label" parent="Preparing/VBoxContainer/BottomRowControls"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PointsLabel" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="PointsLabel" type="Label" parent="Preparing/VBoxContainer/BottomRowControls"]
 layout_mode = 2
 text = "Points: "
 
-[node name="CurrentPoints" type="Label" parent="Preparing/VBoxContainer/HBoxContainer"]
+[node name="CurrentPoints" type="Label" parent="Preparing/VBoxContainer/BottomRowControls"]
 unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/HBoxContainer/AddGroupDebugButton" to="." method="_on_add_group_debug_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/DebugGroupOptions/ZombieGroup" to="." method="debug_new_group_type_selected" binds= ["Zombie"]]
-[connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Preparing/VBoxContainer/HBoxContainer/BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="Preparing/VBoxContainer/UnitPurchaseDialog/TypeToBuy" to="." method="_on_type_to_buy_pressed"]
+[connection signal="pressed" from="Preparing/VBoxContainer/UnitPurchaseDialog/BuyGroup" to="." method="_on_buy_group_pressed"]
+[connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/BuildButton" to="." method="_on_build_button_pressed"]

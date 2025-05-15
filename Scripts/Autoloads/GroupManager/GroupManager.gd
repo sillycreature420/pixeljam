@@ -25,4 +25,5 @@ func assign_unit_data(group: UnitGroup, unit_data: UnitData):
 func _new_group_added(group: UnitGroup, type: String):
 	var type_lower = type.to_lower()
 	group.unit_scene = load("res://Entities/Units/" + type + "Unit/" + type_lower + "_unit.tscn")
+	
 	groups.append(group)

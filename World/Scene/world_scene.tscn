@@ -21,3 +21,5 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("6_75yel")
+
+[connection signal="unit_group_purchased" from="UILayer/HUD" to="Level" method="_on_hud_unit_group_purchased"]

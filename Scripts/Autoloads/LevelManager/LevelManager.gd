@@ -83,6 +83,8 @@ func change_level(new_scene_path: String) -> void:
 		#print("Current level's containers: " + str(current_level_data.containers))
 		#print("Current level's enemies: " + str(current_level_data.enemies))
 	
+	$"../World/UILayer/HUD".unit_group_purchased.connect(_current_level._on_hud_unit_group_purchased)
+	
 	#DEPRECATED
 	## Update pathfinding for new level
 	#var pathfinding = world_node.get_node("AStarGrid2D")
