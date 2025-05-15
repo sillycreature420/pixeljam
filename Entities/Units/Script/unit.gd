@@ -108,7 +108,8 @@ func _target_reached():
 		for goal in get_tree().get_nodes_in_group("goal"):
 			goal.unit_reached_goal(damage)
 		
-		queue_free()
+		#HACK Unit takes 1000 damage when it reaches the goal instead of just queue_free()
+		health_component.damage(1000.0)
 	
 	# Always check for nearby obstacles
 	if !target_obstacle || target_obstacle.global_position.distance_to(global_position) > 32:
