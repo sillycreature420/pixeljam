@@ -9,4 +9,5 @@ region = Rect2(416, 224, 16, 16)
 [node name="PathfindingNode" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("AtlasTexture_tmqo5")
