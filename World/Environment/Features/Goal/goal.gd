@@ -15,17 +15,3 @@ func _on_destroyed():
 func unit_reached_goal(damage_taken: float):
 	EventBus.emit_points_added(100)
 	health_component.damage(damage_taken)
-	_flash_red()
-
-
-func _flash_red():
-	# Create a new tween
-	var tween = create_tween()
-	
-	# Store the original modulate color
-	var original_color = modulate
-	
-	# Flash to red
-	tween.tween_property(self, "modulate", Color.RED, 0.1)
-	# Flash back to original color
-	tween.tween_property(self, "modulate", original_color, 0.1)

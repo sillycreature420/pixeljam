@@ -32,6 +32,7 @@ func damage(amount_damage_taken : float):
 		health_below_zero.emit()
 	
 	damage_taken.emit(amount_damage_taken)
+	_flash_red()
 	return
 
 
@@ -43,5 +44,15 @@ func heal(amount_heal_given : float):
 	heal_given.emit(amount_heal_given)
 	return
 
-#TODO Make _flash_red() a function inside health_component.gd to reduce
-# code duplication
+
+func _flash_red():
+	# Create a new tween
+	var tween = create_tween()
+	
+	# Store the original modulate color
+	var original_color = modulate
+	
+	# Flash to red
+	tween.tween_property(get_parent(), "modulate", Color.RED, 0.1)
+	# Flash back to original color
+	tween.tween_property(get_parent(), "modulate", original_color, 0.1)

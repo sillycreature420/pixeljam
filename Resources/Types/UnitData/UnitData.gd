@@ -12,8 +12,8 @@ var damage: float = 1.0  # Base damage output
 var speed: float  # Movement speed
 var count: float = 1
 
-#TODO Populate these with the actual types of units we will have
-enum CREATURE_TYPE{ZOMBIE, SKELETON, GHOST}
+#TODO Populate this with the actual types of units we will have
+enum CREATURE_TYPE{ZOMBIE}
 @export var creature_type : CREATURE_TYPE
 
 # Initialize unit with optional body parts

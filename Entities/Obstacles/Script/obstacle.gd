@@ -12,20 +12,8 @@ func _ready() -> void:
 	#print(health_component)
 
 func _on_damage_taken(_amount_damage_taken):
-	_flash_red()
+	pass
 
 func _on_destroyed():
 	EventBus.emit_points_added(point_value)
 	queue_free()
-
-func _flash_red():
-	# Create a new tween
-	var tween = create_tween()
-	
-	# Store the original modulate color
-	var original_color = modulate
-	
-	# Flash to red
-	tween.tween_property(self, "modulate", Color.RED, 0.1)
-	# Flash back to original color
-	tween.tween_property(self, "modulate", original_color, 0.1)

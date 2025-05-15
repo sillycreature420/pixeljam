@@ -187,21 +187,9 @@ func move_to_next_pathfinding_node():
 
 
 func _on_damage_taken(_damage_value):
-	_flash_red()
+	pass
 
 func _on_death():
 	print("Unit died!")
 	check_if_final_unit()
 	queue_free()
-
-func _flash_red():
-	# Create a new tween
-	var tween = create_tween()
-	
-	# Store the original modulate color
-	var original_color = modulate
-	
-	# Flash to red
-	tween.tween_property(self, "modulate", Color.RED, 0.1)
-	# Flash back to original color
-	tween.tween_property(self, "modulate", original_color, 0.1)

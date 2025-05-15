@@ -43,7 +43,9 @@ func _physics_process(delta: float) -> void:
 			if unit.global_position.distance_to(global_position) > 64:
 				units_in_range.remove_at(i)
 		else:
-			units_in_range.remove_at(i)
+			if i < units_in_range.size():
+				units_in_range.remove_at(i)
+				
 	# If no units left in range, update state
 	if units_in_range.size() == 0:
 		state_chart.set_expression_property("unit_in_range", false)
@@ -70,8 +72,6 @@ func _on_attacking_state_processing(_delta: float) -> void:
 func _on_attack_cooldown_timeout() -> void:
 	
 	if targeted_unit:
-		# Deal damage to the targeted unit
-		#targeted_unit.health_component.damage(damage)
 		# Fire a projectile
 		var new_projectile = projectile_scene.instantiate()
 		new_projectile.damage = damage

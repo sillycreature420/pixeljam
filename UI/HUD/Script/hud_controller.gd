@@ -13,6 +13,7 @@ signal unit_group_purchased(type: String)
 
 var group_type_to_purchase: String
 var group_type_to_purchase_index: int
+var ready_to_play: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,7 +44,9 @@ func _on_build_button_pressed() -> void:
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
 	#TODO Check that all groups have both a path selected and UnitData assigned
+	# change ready_to_play to true if they do
 	
+	#if ready_to_play:
 	# Emit signal indicating preparation phase is done
 	EventBus.emit_prep_phase_done()
 	
