@@ -15,6 +15,11 @@ var group_type_to_purchase: String
 var group_type_to_purchase_index: int
 var ready_to_play: bool = true
 
+#TODO:
+# Create a pop-up system that pushes warnings to the UI for players to see
+# rather than just outputting warnings in the console.
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect to the LevelManager's signal for when a level transition completes
