@@ -90,7 +90,7 @@ func _on_velocity_computed(safe_velocity: Vector2):
 func check_if_final_unit():
 	var all_units = get_parent().get_children()
 	if all_units.size() <= 1:
-		#Do level end logic here
+		#Do round end logic here
 		print("everyone is dead!")
 		EventBus.emit_action_phase_done()
 		EventBus.hud.preparing_scene.show()

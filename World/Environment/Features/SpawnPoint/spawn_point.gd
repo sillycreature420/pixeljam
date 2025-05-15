@@ -10,9 +10,6 @@ extends Node2D
 # Spawns a group of units based on the provided UnitGroup configuration
 # @param group: The UnitGroup resource containing spawn configuration and Unit stats
 func spawn_group(group: UnitGroup):
-	#TODO Talk to maddie about how we can combine this group spawning with the unitdata to spawn
-	#units that have custom data
-	
 	# Get the path this group of units should follow
 	var target_path = group.target_path
 	
