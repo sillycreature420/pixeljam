@@ -13,7 +13,7 @@ signal unit_group_purchased(type: String)
 
 var group_type_to_purchase: String
 var group_type_to_purchase_index: int
-var ready_to_play: bool = false
+var ready_to_play: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,16 +43,22 @@ func _on_build_button_pressed() -> void:
 
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
-	#TODO Check that all groups have both a path selected and UnitData assigned
-	# change ready_to_play to true if they do
-	
-	#if ready_to_play:
-	# Emit signal indicating preparation phase is done
-	EventBus.emit_prep_phase_done()
-	
-	# Switch to playing phase UI
-	preparing_scene.hide()
-	playing_scene.show()
+	# Check if the action phase is ready to start
+	for group in GroupManager.groups:
+		if group.target_path == null:
+			ready_to_play = false
+			push_warning("A group does not have a path selected!")
+		if group.unit_data == null:
+			ready_to_play = false
+			push_warning("A group does not have unit data assigned!")
+			
+	if ready_to_play:
+		# Emit signal indicating preparation phase is done
+		EventBus.emit_prep_phase_done()
+		
+		# Switch to playing phase UI
+		preparing_scene.hide()
+		playing_scene.show()
 
 func update_round_display(current_round: int):
 	%CurrentRound.text = str(current_round)
