@@ -6,4 +6,4 @@ class_name UnitGroup extends Resource
 #@export var level: int = 1
 var target_path: Node2D
 
-#TODO Pass in UnitData that will tell the group what stats to spawn with
+#TODO Create default UnitData so that the game can run even if no custom UnitData is passed
