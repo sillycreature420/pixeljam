@@ -45,7 +45,7 @@ func initialize_unit_stats():
 	count = head_part.count_modifier + body_part.count_modifier + legs_part.count_modifier
 	
 	if max_health <= 0: max_health = 1
-	if damage <= 0: damage = 0
+	if damage <= 0: damage = 1
 	if speed <= 0: speed = 1
 	if count <= 0: count = 1
 	var type = body_part.creature_type

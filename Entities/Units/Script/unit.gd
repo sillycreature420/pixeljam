@@ -191,17 +191,14 @@ func drop_new_part():
 	var drop_weight = 100 / unit_data.count
 	if randf_range(0, 100) > drop_weight: return
 	print("Drop success")
+	var new_part_drop : BodyPart
 	
 	var rarity : int = PartsManager.calculate_new_rarity(0)
+	var type : int = PartsManager.calculate_new_type()
 	
-	
-	#TODO logic for which part type and rarity to drop
-	var new_part_drop = PartsManager.generate_new_head(rarity)
-	print(new_part_drop.health_modifier)
-	
-	
-	
-	
+	if type == 0: new_part_drop = PartsManager.generate_new_head(rarity)
+	if type == 1: new_part_drop = PartsManager.generate_new_body(rarity)
+	if type == 2: new_part_drop = PartsManager.generate_new_legs(rarity)
 	
 	#can be used for ui and visuals to show a new drop has occured
 	PartsManager.new_part_dropped.emit(new_part_drop)
