@@ -102,10 +102,10 @@ position = Vector2(415, 200)
 [node name="Path1" type="Node2D" parent="Obstacles"]
 
 [node name="Obstacle" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
-position = Vector2(180, 315)
+position = Vector2(182, 313)
 
 [node name="Obstacle2" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
-position = Vector2(195, 305)
+position = Vector2(197, 304)
 
 [node name="Path2" type="Node2D" parent="Obstacles"]
 

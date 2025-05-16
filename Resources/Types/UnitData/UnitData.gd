@@ -44,6 +44,8 @@ func initialize_unit_stats():
 	speed = head_part.speed_modifier + body_part.speed_modifier + legs_part.speed_modifier
 	count = head_part.count_modifier + body_part.count_modifier + legs_part.count_modifier
 	
+	if max_health <= 0: max_health = 1
+	
 	var type = body_part.creature_type
 	creature_type = type
 	return
