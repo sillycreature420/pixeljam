@@ -50,6 +50,7 @@ func calculate_new_type() -> int:
 	elif body_weight + head_weight < random_number && random_number <= legs_weight + body_weight + head_weight: new_type = 2
 	
 	last_type_dropped = new_type
+	print("New type created: " + str(new_type))
 	return new_type
 
 func calculate_new_rarity(round_modifier : int) -> int:
@@ -72,7 +73,7 @@ func calculate_new_rarity(round_modifier : int) -> int:
 	elif common_weight < random_number && random_number <= uncommon_weight + common_weight: new_rarity = 1
 	elif uncommon_weight + common_weight < random_number && random_number <= rare_weight + uncommon_weight + common_weight: new_rarity = 2
 	
-	
+	print("New rarity created: " + str(new_rarity))
 	return new_rarity
 
 func generate_new_head(rarity : int) -> BodyPart:
