@@ -48,6 +48,7 @@ func end_action_phase():
 	build_groups_container()
 	build_paths_container()
 	hud.update_round_display(current_round)
+	EventBus.current_round = current_round
 	
 # Callback when level transition completes
 func _level_loaded():

@@ -185,6 +185,28 @@ func move_to_next_pathfinding_node():
 				nav_agent.target_position = goal.global_position
 				targeting_goal = true
 
+#TODO avoid overloading with new parts, maybe a % chance to drop based off the count of the group
+func drop_new_part():
+	##generates a random number 0, 100. If the number is larger than the weight, then no part will drop
+	var drop_weight = 100 / unit_data.count
+	if randf_range(0, 100) > drop_weight: return
+	print("Drop success")
+	
+	var rarity : int = PartsManager.calculate_new_rarity(0)
+	
+	
+	#TODO logic for which part type and rarity to drop
+	var new_part_drop = PartsManager.generate_new_head(rarity)
+	print(new_part_drop.health_modifier)
+	
+	
+	
+	
+	
+	#can be used for ui and visuals to show a new drop has occured
+	PartsManager.new_part_dropped.emit(new_part_drop)
+	PartsManager.parts.append(new_part_drop)
+	return
 
 func _on_damage_taken(_damage_value):
 	pass
@@ -192,4 +214,5 @@ func _on_damage_taken(_damage_value):
 func _on_death():
 	print("Unit died!")
 	check_if_final_unit()
+	drop_new_part()
 	queue_free()

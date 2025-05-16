@@ -9,7 +9,7 @@ signal points_added(points: int)
 
 var hud : HUD
 var current_object_held : Node2D
-
+var current_round : int
 
 func emit_prep_phase_done():
 	prep_phase_done.emit()
