@@ -9,7 +9,6 @@ var selected_part: int = 0
 var last_type_dropped : int = 3
 
 
-
 var head_resource_parts = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/")
 var head_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Common/")
 var head_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/")

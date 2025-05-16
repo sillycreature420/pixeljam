@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://8adewwn5hngw" path="res://World/Levels/LevelOne/Scene/level_one.tscn" id="4_b8c1i"]
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="5_abtoq"]
 [ext_resource type="Script" uid="uid://c2fotwxg0p3ea" path="res://Scripts/WorldComponents/CameraController.gd" id="6_75yel"]
-[ext_resource type="Resource" uid="uid://yvmqr837teko" path="res://Resources/Data/BodyPart/HeadParts/Parts/Common/GnasherHead.tres" id="6_87llb"]
-[ext_resource type="Resource" uid="uid://csju1e2xfuifj" path="res://Resources/Data/BodyPart/BodyParts/Parts/Common/GnasherBody.tres" id="7_va36u"]
-[ext_resource type="Resource" uid="uid://dfpihn8nnaamo" path="res://Resources/Data/BodyPart/LegParts/Parts/Common/GnasherLegs.tres" id="8_00lfx"]
+[ext_resource type="Resource" uid="uid://yvmqr837teko" path="res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/GnasherHead.tres" id="6_87llb"]
+[ext_resource type="Resource" uid="uid://csju1e2xfuifj" path="res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/GnasherBody.tres" id="7_va36u"]
+[ext_resource type="Resource" uid="uid://dfpihn8nnaamo" path="res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/GnasherLegs.tres" id="8_00lfx"]
 
 [node name="World" type="Node"]
 

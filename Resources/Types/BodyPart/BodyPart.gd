@@ -12,7 +12,8 @@ enum CREATURE_TYPE{ZOMBIE}
 @export var health_modifier : float = 1
 @export var speed_modifier : float = 1
 @export var count_modifier : int = 1
-@export var damage_modifier : int = 1
+@export var damage_modifier : float = 1
+@export var attack_speed_modifier : float = 1
 
 @export_group("Typing")
 enum RARITY{COMMON, UNCOMMON, RARE}

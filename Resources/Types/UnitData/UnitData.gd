@@ -11,6 +11,7 @@ var max_health: float  # Current health
 var damage: float = 1.0  # Base damage output
 var speed: float  # Movement speed
 var count: float = 1
+var attack_speed: float = 0
 
 #TODO Populate this with the actual types of units we will have
 enum CREATURE_TYPE{ZOMBIE}
@@ -43,11 +44,13 @@ func initialize_unit_stats():
 	damage = head_part.damage_modifier + body_part.damage_modifier + legs_part.damage_modifier
 	speed = head_part.speed_modifier + body_part.speed_modifier + legs_part.speed_modifier
 	count = head_part.count_modifier + body_part.count_modifier + legs_part.count_modifier
+	attack_speed = head_part.attack_speed_modifier + body_part.attack_speed_modifier + legs_part.attack_speed_modifier
 	
 	if max_health <= 0: max_health = 1
 	if damage <= 0: damage = 1
 	if speed <= 0: speed = 1
 	if count <= 0: count = 1
+	if attack_speed <= 0: attack_speed = 1
 	var type = body_part.creature_type
 	creature_type = type
 	return

@@ -10,7 +10,7 @@ class_name Unit
 # Component references
 @onready var health_component : HealthComponent = $HealthComponent  # Health management system
 #@onready var pathfinding: PathfindingComponent = $PathfindingComponent  # Navigation handler
-@onready var attack_cooldown: Timer = $AttackCooldown  # Timer between attacks
+@export var attack_cooldown: Timer  # Timer between attacks
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
 # Pathfinding variables
@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		_on_velocity_computed(new_velocity)
 
-
 func initialize_unit_data(_unit_data : UnitData):
 	assert(_unit_data, name + " initialized without any unit data.")
 	
@@ -52,7 +51,8 @@ func initialize_unit_data(_unit_data : UnitData):
 
 	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed * base_speed
-	
+	attack_cooldown.wait_time = 1 / unit_data.attack_speed
+	print("attack speed: " + str(unit_data.attack_speed))
 	return
 
 # Initialize unit stats based on body parts
@@ -86,6 +86,7 @@ func _ready():
 
 func _on_velocity_computed(safe_velocity: Vector2):
 	global_position = global_position.move_toward(global_position + safe_velocity, movement_delta)
+
 
 func check_if_final_unit():
 	var all_units = get_parent().get_children()
@@ -129,7 +130,6 @@ func _target_reached():
 		
 		move_to_next_pathfinding_node()
 
-
 # Find and target nearest obstacle within range
 func get_new_target_obstacle():
 	for obstacle in get_tree().get_nodes_in_group("obstacles"):
@@ -158,7 +158,6 @@ func _target_obstacle_destroyed():
 	attack_cooldown.stop()
 	# Look for new obstacles
 	get_new_target_obstacle()
-
 
 # Advance to next node in path
 func move_to_next_pathfinding_node():

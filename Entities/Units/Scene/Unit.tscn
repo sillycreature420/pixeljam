@@ -10,8 +10,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rvlb"]
 radius = 8.0
 
-[node name="Unit" type="Area2D" groups=["units"]]
+[node name="Unit" type="Area2D" node_paths=PackedStringArray("attack_cooldown") groups=["units"]]
 script = ExtResource("1_0rvlb")
+attack_cooldown = NodePath("AttackCooldown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

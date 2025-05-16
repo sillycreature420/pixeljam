@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkkmxwiw1ph67"]
+[gd_scene load_steps=5 format=3 uid="uid://dkkmxwiw1ph67"]
 
 [ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="1_g3f5j"]
-[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/TestHead.tres" id="2_bhnwa"]
+[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/Parts/Common/TestHead.tres" id="2_bhnwa"]
 [ext_resource type="PackedScene" uid="uid://dout5pb06he0q" path="res://Components/PickupableComponent/pickupable_component.tscn" id="3_jsa15"]
-[ext_resource type="Script" uid="uid://obbalstmtig6" path="res://Scripts/DebugHelper/debug_list.gd" id="4_2oxq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bhnwa"]
 radius = 4.0
@@ -20,13 +19,8 @@ shape = SubResource("CircleShape2D_bhnwa")
 
 [node name="PickupableComponent" parent="." instance=ExtResource("3_jsa15")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." node_paths=PackedStringArray("list_of_nodes")]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 40.0
 offset_top = 2.0
 offset_right = 151.0
 offset_bottom = 89.0
-script = ExtResource("4_2oxq4")
-show_debug = false
-list_of_nodes = {
-NodePath("../PickupableComponent"): ["held"]
-}
