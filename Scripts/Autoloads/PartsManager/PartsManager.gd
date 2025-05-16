@@ -65,8 +65,14 @@ func calculate_new_rarity(round_modifier : int) -> int:
 	if current_round >= 5: uncommon_weight = 50
 	if current_round >= 10: rare_weight = 50
 	
-	print(str(common_weight)); print(str(uncommon_weight)); print(str(rare_weight))
-	print(new_rarity)
+	var max_range = common_weight + uncommon_weight + rare_weight
+	var random_number = randi_range(0, max_range)
+	
+	if 0 <= random_number && random_number <= common_weight: new_rarity = 0
+	elif common_weight < random_number && random_number <= uncommon_weight + common_weight: new_rarity = 1
+	elif uncommon_weight + common_weight < random_number && random_number <= rare_weight + uncommon_weight + common_weight: new_rarity = 2
+	
+	
 	return new_rarity
 
 func generate_new_head(rarity : int) -> BodyPart:
