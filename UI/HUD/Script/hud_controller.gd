@@ -15,7 +15,7 @@ var group_type_to_purchase: String
 var group_type_to_purchase_index: int
 var ready_to_play: bool = true
 
-#TODO:
+#TODO: Pop-up system
 # Create a pop-up system that pushes warnings to the UI for players to see
 # rather than just outputting warnings in the console.
 

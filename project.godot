@@ -21,6 +21,7 @@ LevelManager="*res://Scripts/Autoloads/LevelManager/LevelManager.gd"
 EventBus="*res://Scripts/Autoloads/EventBus/EventBus.gd"
 GroupManager="*res://Scripts/Autoloads/GroupManager/GroupManager.gd"
 PartsManager="*res://Scripts/Autoloads/PartsManager/PartsManager.gd"
+PickupManager="*res://Scripts/Autoloads/PickupManager/PickupManager.gd"
 
 [display]
 

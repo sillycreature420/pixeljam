@@ -1,9 +1,9 @@
-extends Node2D
+class_name Pickup extends Area2D
 
 #TODO Extend pickup script
 # - Should describe what the pickup is
 # - Should add itself to a list of collected pickups once picked up
-
+enum PickupType {BODY_PART, POINTS, ABILITY}
 
 
 

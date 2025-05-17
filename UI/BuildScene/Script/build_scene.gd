@@ -59,6 +59,7 @@ func _on_select_prev_part_pressed() -> void:
 	else:
 		print("There are no parts left")
 
+
 func _on_select_next_part_pressed() -> void:
 	# Select the next part, unless at the end of the array, in which case, select
 	# the first part in the array
