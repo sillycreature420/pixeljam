@@ -32,6 +32,7 @@ func update_stats_text():
 	elif body_part_being_sold.body_type == 2: body_type_text = "Legs"
 	
 	stats_text.text = "Price: " + str(cost)
+	stats_text.text += "\n" + body_part_being_sold.name
 	stats_text.text += "\nType: " + body_type_text
 	stats_text.text += "\nDamage: " + str(body_part_being_sold.damage_modifier)
 	return

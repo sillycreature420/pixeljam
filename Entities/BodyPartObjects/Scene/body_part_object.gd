@@ -62,6 +62,7 @@ func update_stats_text():
 	elif body_part_resource.body_type == 2: body_type_text = "Legs"
 	
 	stats_text.text = ""
+	stats_text.text += "\n" + body_part_resource.name
 	stats_text.text += "\nType: " + body_type_text
 	stats_text.text += "\nDamage: " + str(body_part_resource.damage_modifier)
 	return
