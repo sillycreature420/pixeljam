@@ -1,7 +1,7 @@
 extends Node2D
 
 # The value of this obstacle in points, awarded when it is destroyed
-@export var point_value: int = 20
+@export var point_value: int = 500
 
 # This obstacle's health component
 @export var health_component: HealthComponent
