@@ -6,6 +6,10 @@ var body_part_being_sold : BodyPart
 var cost : int = 0
 @export var stats_text : RichTextLabel
 
+const COMMON_PRICE : int = 100
+const UNCOMMON_PRICE : int = 200
+const RARE_PRICE : int = 500
+
 func supply_new_body_part():
 	body_part_being_sold = PartsManager.generate_new_body_part(PartsManager.calculate_new_type(), PartsManager.calculate_new_rarity(1))
 	calculate_cost(body_part_being_sold.rarity)
@@ -43,9 +47,9 @@ func update_stats_text():
 
 
 func calculate_cost(_rarity : int):
-	if _rarity == 0: cost = 300
-	if _rarity == 1: cost = 800
-	if _rarity == 2: cost = 2000
+	if _rarity == 0: cost = COMMON_PRICE
+	if _rarity == 1: cost = UNCOMMON_PRICE
+	if _rarity == 2: cost = RARE_PRICE
 	return
 
 func check_if_item_purchasable() -> bool:
