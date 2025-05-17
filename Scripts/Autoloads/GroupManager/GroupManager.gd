@@ -27,3 +27,4 @@ func _new_group_added(group: UnitGroup, type: String):
 	group.unit_scene = load("res://Entities/Units/" + type + "Unit/" + type_lower + "_unit.tscn")
 	
 	groups.append(group)
+	if !currently_selected_group: currently_selected_group = group; print("assigned a default group")
