@@ -64,7 +64,6 @@ func _level_loaded():
 		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
 		
 		# Add to group manager's tracking system
-		#GroupManager.groups.append(first_unit_group)
 		GroupManager._new_group_added(first_unit_group, "Zombie")
 	
 	# Update the HUD to reflect the current level's status
@@ -125,6 +124,7 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		EventBus.emit_new_group_added(new_group, type)
 		current_points -= new_group_cost
 		new_group_cost += 50
+		LevelManager.hud.group_cost_label.text = str(new_group_cost) + " Points" 
 		_update_points_total(current_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")

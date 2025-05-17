@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d05eds26ys34f" path="res://UI/HUD/Script/hud_controller.gd" id="1_hs5f0"]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" node_paths=PackedStringArray("group_cost_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hs5f0")
+group_cost_label = NodePath("Preparing/VBoxContainer/UnitPurchaseDialog/GroupCostLabel")
 
 [node name="Playing" type="Control" parent="."]
 layout_mode = 1
@@ -94,7 +95,7 @@ text = "Buy Group"
 
 [node name="GroupCostLabel" type="Label" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
 layout_mode = 2
-text = "20 Points"
+text = "50 Points"
 
 [node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
