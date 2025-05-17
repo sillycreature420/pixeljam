@@ -15,6 +15,9 @@ var level_data: Dictionary[String, LevelData]  # Collection of all level data
 var _loading_screen: Control               # Reference to loading screen instance
 var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/loading_screen.tscn")
 
+# Points management
+@onready var hud: HUD = $"../World/UILayer/HUD"
+
 var total_points : int
 
 # DEPRECATED - Kept for potential backward compatibility
@@ -117,3 +120,8 @@ func _show_loading_screen():
 func _hide_loading_screen():
 	if _loading_screen:
 		_loading_screen.hide()
+
+
+func update_points_total(points: int):
+	total_points += points
+	hud.update_points_display(total_points)
