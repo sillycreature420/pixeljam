@@ -3,10 +3,12 @@ class_name ShopSlot
 
 var body_part_being_sold : BodyPart
 @onready var shop_texture : TextureRect = $ShopTexture
-var cost : int
+var cost : int = 0
+@export var stats_text : RichTextLabel
 
 func supply_new_body_part():
 	body_part_being_sold = PartsManager.generate_new_body_part(PartsManager.calculate_new_type(), PartsManager.calculate_new_rarity(1))
+	calculate_cost(body_part_being_sold.rarity)
 	update_display()
 	return
 
@@ -20,6 +22,18 @@ func update_display():
 	if !body_part_being_sold: shop_texture.texture = null; return
 	
 	shop_texture.texture = body_part_being_sold.sprite
+	return
+
+func update_stats_text():
+	if !body_part_being_sold: stats_text.text = ""; return
+	var body_type_text : String
+	if body_part_being_sold.body_type == 0: body_type_text = "Head"
+	elif body_part_being_sold.body_type == 1: body_type_text = "Body"
+	elif body_part_being_sold.body_type == 2: body_type_text = "Legs"
+	
+	stats_text.text = "Price: " + str(cost)
+	stats_text.text += "\nType: " + body_type_text
+	stats_text.text += "\nDamage: " + str(body_part_being_sold.damage_modifier)
 	return
 
 func calculate_cost(_rarity : int):
@@ -41,3 +55,8 @@ func item_purchased():
 	update_display()
 	LevelManager.update_points_total(-cost)
 	return
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		print("hovering")
+		update_stats_text()
