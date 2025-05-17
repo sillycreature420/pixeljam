@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		var unit = units_in_range[i-1]
 		if unit:
 			if unit.global_position.distance_to(global_position) > 64:
-				units_in_range.remove_at(i)
+				units_in_range.remove_at(i-1)
 		else:
 			if i < units_in_range.size():
 				units_in_range.remove_at(i-1)
