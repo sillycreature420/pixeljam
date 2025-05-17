@@ -3,11 +3,14 @@ class_name BodyPartObject
 
 @export var body_part_resource : BodyPart
 @export var default_sprite : Texture
+@export var stats_text : RichTextLabel
 
 @onready var sprite_node : Sprite2D = $Sprite2D
 @onready var pickupable_component : PickupableComponent = $PickupableComponent
+
 var body_type
 var no_more_parts : bool = false
+
 func _ready() -> void:
 	pickupable_component.placed_down.connect(on_released)
 	PartsManager.no_more_parts.connect(set_to_default)
@@ -49,5 +52,21 @@ func on_released():
 			#print("Found object slot")
 			if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1)
 			return
+	return
+
+func update_stats_text():
+	if !body_part_resource: stats_text.text = ""; return
+	var body_type_text : String
+	if body_part_resource.body_type == 0: body_type_text = "Head"
+	elif body_part_resource.body_type == 1: body_type_text = "Body"
+	elif body_part_resource.body_type == 2: body_type_text = "Legs"
 	
+	stats_text.text = "Price: " + str(cost)
+	stats_text.text += "\nType: " + body_type_text
+	stats_text.text += "\nDamage: " + str(body_part_resource.damage_modifier)
+	return
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		update_stats_text()
 	return

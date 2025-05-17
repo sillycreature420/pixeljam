@@ -36,6 +36,7 @@ func update_stats_text():
 	stats_text.text += "\nDamage: " + str(body_part_being_sold.damage_modifier)
 	return
 
+
 func calculate_cost(_rarity : int):
 	if _rarity == 0: cost = 300
 	if _rarity == 1: cost = 800
@@ -56,7 +57,6 @@ func item_purchased():
 	LevelManager.update_points_total(-cost)
 	return
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		print("hovering")
 		update_stats_text()

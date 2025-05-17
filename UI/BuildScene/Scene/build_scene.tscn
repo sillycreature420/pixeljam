@@ -272,6 +272,7 @@ layout_mode = 1
 anchor_right = 0.5
 anchor_bottom = 0.304
 offset_bottom = -0.160004
+mouse_filter = 2
 
 [node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3")]
 layout_mode = 2
