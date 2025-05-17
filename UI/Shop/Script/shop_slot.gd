@@ -34,7 +34,11 @@ func update_stats_text():
 	stats_text.text = "Price: " + str(cost)
 	stats_text.text += "\n" + body_part_being_sold.name
 	stats_text.text += "\nType: " + body_type_text
+	stats_text.text += "\nHealth: " + str(body_part_being_sold.health_modifier)
 	stats_text.text += "\nDamage: " + str(body_part_being_sold.damage_modifier)
+	stats_text.text += "\nSpeed: " + str(body_part_being_sold.speed_modifier)
+	stats_text.text += "\nCount: " + str(body_part_being_sold.count_modifier)
+	stats_text.text += "\nAttack Speed: " + str(body_part_being_sold.attack_speed_modifier)
 	return
 
 

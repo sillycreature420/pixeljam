@@ -63,7 +63,11 @@ func update_stats_text():
 	stats_text.text = ""
 	stats_text.text += "\n" + body_part_resource.name
 	stats_text.text += "\nType: " + body_type_text
+	stats_text.text += "\nHealth: " + str(body_part_resource.health_modifier)
 	stats_text.text += "\nDamage: " + str(body_part_resource.damage_modifier)
+	stats_text.text += "\nSpeed: " + str(body_part_resource.speed_modifier)
+	stats_text.text += "\nCount: " + str(body_part_resource.count_modifier)
+	stats_text.text += "\nAttack Speed: " + str(body_part_resource.attack_speed_modifier)
 	return
 
 func _input(event: InputEvent) -> void:
