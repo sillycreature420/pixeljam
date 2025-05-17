@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd8wub4pox5o6"]
+
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="1_a0yo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmqo5"]
+atlas = ExtResource("1_a0yo2")
+region = Rect2(416, 224, 16, 16)
+
+[node name="PathfindingNode" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_tmqo5")

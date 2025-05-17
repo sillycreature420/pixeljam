@@ -1,0 +1,34 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnql4xsdf4yqp"]
+
+[ext_resource type="PackedScene" uid="uid://c32gnxi2b8mbq" path="res://UI/MainMenu/Scene/main_menu.tscn" id="1_fbpti"]
+[ext_resource type="PackedScene" uid="uid://dt44ewa43ei5s" path="res://UI/HUD/Scene/HUD.tscn" id="2_ldy0v"]
+[ext_resource type="PackedScene" uid="uid://cdno5nencn4p8" path="res://UI/BuildScene/Scene/build_scene.tscn" id="2_urue2"]
+[ext_resource type="PackedScene" uid="uid://8adewwn5hngw" path="res://World/Levels/LevelOne/Scene/level_one.tscn" id="4_b8c1i"]
+[ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="5_abtoq"]
+[ext_resource type="Script" uid="uid://c2fotwxg0p3ea" path="res://Scripts/WorldComponents/CameraController.gd" id="6_75yel"]
+[ext_resource type="Resource" uid="uid://yvmqr837teko" path="res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/GnasherHead.tres" id="6_87llb"]
+[ext_resource type="Resource" uid="uid://csju1e2xfuifj" path="res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/GnasherBody.tres" id="7_va36u"]
+[ext_resource type="Resource" uid="uid://dfpihn8nnaamo" path="res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/GnasherLegs.tres" id="8_00lfx"]
+
+[node name="World" type="Node"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("2_ldy0v")]
+unique_name_in_owner = true
+
+[node name="BuildScene" parent="UILayer" instance=ExtResource("2_urue2")]
+
+[node name="MainMenu" parent="UILayer" instance=ExtResource("1_fbpti")]
+
+[node name="Level" parent="." instance=ExtResource("4_b8c1i")]
+test_parts = Array[ExtResource("5_abtoq")]([ExtResource("6_87llb"), ExtResource("7_va36u"), ExtResource("8_00lfx")])
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("6_75yel")
+
+[connection signal="unit_group_purchased" from="UILayer/HUD" to="Level" method="_on_hud_unit_group_purchased"]
+
+[editable path="Level"]
+[editable path="Level/Towers/Path3/Tower"]

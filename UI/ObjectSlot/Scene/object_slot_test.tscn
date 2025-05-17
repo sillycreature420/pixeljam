@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://db1338ijexnqb"]
+
+[ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="1_2ew45"]
+[ext_resource type="PackedScene" uid="uid://dkkmxwiw1ph67" path="res://Entities/BodyPartObjects/Scene/BodyPartObject.tscn" id="2_68532"]
+[ext_resource type="PackedScene" uid="uid://crxjohyvi1beh" path="res://UI/ObjectSlot/Scene/craft_button.tscn" id="3_b6yp1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ObjectSlot" parent="." instance=ExtResource("1_2ew45")]
+position = Vector2(144, 139)
+body_type = 1
+
+[node name="ObjectSlot2" parent="." instance=ExtResource("1_2ew45")]
+position = Vector2(148, 465)
+
+[node name="ObjectSlot3" parent="." instance=ExtResource("1_2ew45")]
+position = Vector2(145, 312)
+
+[node name="BodyPartObject" parent="." instance=ExtResource("2_68532")]
+position = Vector2(64, 74)
+
+[node name="BodyPartObject2" parent="." instance=ExtResource("2_68532")]
+position = Vector2(65, 111)
+
+[node name="BodyPartObject3" parent="." instance=ExtResource("2_68532")]
+position = Vector2(64, 140)
+
+[node name="CraftButton" parent="." node_paths=PackedStringArray("object_slot_1", "object_slot_2", "object_slot_3") instance=ExtResource("3_b6yp1")]
+offset_left = 224.0
+offset_top = 76.0
+offset_right = 271.0
+offset_bottom = 117.0
+object_slot_1 = NodePath("../ObjectSlot")
+object_slot_2 = NodePath("../ObjectSlot2")
+object_slot_3 = NodePath("../ObjectSlot3")

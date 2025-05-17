@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc2fk7cxexec3"]
+
+[ext_resource type="PackedScene" uid="uid://cy1cf7in5chmm" path="res://Entities/Obstacles/Scene/obstacle.tscn" id="1_t5svq"]
+[ext_resource type="Texture2D" uid="uid://xf4t15pwoc57" path="res://Assets/Gate sprite .png" id="2_rs3cs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3wfs"]
+atlas = ExtResource("2_rs3cs")
+region = Rect2(48, 0, 32, 32)
+
+[node name="Obstacle" instance=ExtResource("1_t5svq")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_b3wfs")
+
+[node name="HealthComponent" parent="." index="1"]
+max_health = 120.0

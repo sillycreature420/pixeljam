@@ -1,0 +1,353 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdno5nencn4p8"]
+
+[ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
+[ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
+[ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
+[ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
+[ext_resource type="Script" uid="uid://c3p4s2jm6kg2l" path="res://UI/ObjectSlot/Script/craft_button.gd" id="4_stjvo"]
+[ext_resource type="PackedScene" uid="uid://dqvy1msy0pyyi" path="res://UI/Shop/Scene/shop_slot.tscn" id="6_nwngi"]
+[ext_resource type="Script" uid="uid://dgc0nafcuckh7" path="res://UI/Shop/Script/shop_reroll.gd" id="6_y70dw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwngi"]
+radius = 50.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imtg7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4iico"]
+
+[node name="BuildScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_auprv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_auprv")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopPanel" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Shop" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ShopPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ShopPanel/Shop"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ShopPanel/Shop/Control"]
+layout_mode = 2
+
+[node name="ShopBodyPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ShopPanel/Shop/Control/Control"]
+
+[node name="HSeparator" type="HSeparator" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="PartsVatPanel" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.75
+mouse_filter = 1
+
+[node name="VatLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "The Vat:"
+
+[node name="CurrentPart" type="Control" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.0
+
+[node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart" node_paths=PackedStringArray("stats_text")]
+unique_name_in_owner = true
+z_index = 1
+script = ExtResource("2_nwngi")
+stats_text = NodePath("../../../../../../../Shop/RichTextLabel")
+
+[node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
+scale = Vector2(8, 8)
+texture = SubResource("PlaceholderTexture2D_nwngi")
+
+[node name="PickupableComponent" type="Area2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
+script = ExtResource("2_lk7k5")
+
+[node name="PickupAreaShape2D" type="CollisionShape2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent"]
+shape = SubResource("CircleShape2D_nwngi")
+
+[node name="SelectButtons" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="SelectPrevPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/SelectButtons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Previous"
+
+[node name="SelectNextPart" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/SelectButtons"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Next"
+
+[node name="PartsAssembly" type="PanelContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="AssemblyLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Assembly:"
+
+[node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Head" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HeadLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Head"
+
+[node name="HeadTexture" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("PlaceholderTexture2D_lk7k5")
+
+[node name="ObjectSlotHead" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
+
+[node name="Body" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BodyLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Body"
+
+[node name="Body" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_imtg7")
+
+[node name="ObjectSlotBody" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
+body_type = 1
+
+[node name="Legs" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LegsLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Legs"
+
+[node name="Legs" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_4iico")
+
+[node name="ObjectSlotLegs" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs" instance=ExtResource("3_4iico")]
+position = Vector2(107, 63)
+body_type = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer" node_paths=PackedStringArray("object_slot_1", "object_slot_2", "object_slot_3")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Finish"
+script = ExtResource("4_stjvo")
+object_slot_1 = NodePath("../CenterContainer/VBoxContainer/Head/ObjectSlotHead")
+object_slot_2 = NodePath("../CenterContainer/VBoxContainer/Body/ObjectSlotBody")
+object_slot_3 = NodePath("../CenterContainer/VBoxContainer/Legs/ObjectSlotLegs")
+
+[node name="UnitSelect" type="VBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Groups" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="DummyGroup" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "DummyGroup"
+
+[node name="Units" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="DummyUnit" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "DummyUnit"
+
+[node name="DummyUnit2" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
+[node name="DummyUnit3" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
+[node name="DummyUnit4" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Units"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DummyUnit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ReadyButton" type="Button" parent="AspectRatioContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "READY"
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 0.304
+offset_bottom = -0.160004
+mouse_filter = 2
+
+[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3")]
+layout_mode = 2
+offset_left = 21.0
+offset_top = 122.0
+offset_right = 75.0
+offset_bottom = 153.0
+size_flags_vertical = 8
+text = "Reroll"
+script = ExtResource("6_y70dw")
+shop_slot1 = NodePath("../ShopSlot1")
+shop_slot2 = NodePath("../ShopSlot2")
+shop_slot3 = NodePath("../ShopSlot3")
+
+[node name="RerollCostLabel" type="Label" parent="Shop"]
+layout_mode = 2
+offset_left = 79.0
+offset_top = 129.0
+offset_right = 126.0
+offset_bottom = 152.0
+text = "50 Pts"
+
+[node name="Label" type="Label" parent="Shop"]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 9.0
+offset_right = 67.0
+offset_bottom = 32.0
+text = "Shop:"
+
+[node name="ShopSlot1" parent="Shop" node_paths=PackedStringArray("stats_text") instance=ExtResource("6_nwngi")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 44.0
+offset_right = 94.0
+offset_bottom = 118.0
+stats_text = NodePath("../RichTextLabel")
+
+[node name="ShopSlot2" parent="Shop" node_paths=PackedStringArray("stats_text") instance=ExtResource("6_nwngi")]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 44.0
+offset_right = 183.0
+offset_bottom = 118.0
+stats_text = NodePath("../RichTextLabel")
+
+[node name="ShopSlot3" parent="Shop" node_paths=PackedStringArray("stats_text") instance=ExtResource("6_nwngi")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 44.0
+offset_right = 275.0
+offset_bottom = 118.0
+stats_text = NodePath("../RichTextLabel")
+
+[node name="Label2" type="Label" parent="Shop"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 8.0
+offset_right = 366.0
+offset_bottom = 31.0
+text = "Stats:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Shop"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 36.0
+offset_right = 461.0
+offset_bottom = 123.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/SelectButtons/SelectNextPart" to="." method="_on_select_next_part_pressed"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head/ObjectSlotHead" to="." method="_on_object_slot_head_object_info_stored"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody" to="." method="_on_object_slot_body_object_info_stored"]
+[connection signal="object_info_stored" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs" to="." method="_on_object_slot_legs_object_info_stored"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

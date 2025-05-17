@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqwml2pfkjwgt"]
+
+[ext_resource type="Script" uid="uid://drdriyv0wh6cc" path="res://Entities/Pickups/pickup.gd" id="1_bebek"]
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="2_42njl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42njl"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0f6v"]
+atlas = ExtResource("2_42njl")
+region = Rect2(528, 160, 16, 16)
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_bebek")
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_42njl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_r0f6v")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

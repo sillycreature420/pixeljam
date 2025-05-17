@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://viml08d7w1pc"]
+
+[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="1_am0wf"]
+[ext_resource type="Script" uid="uid://b41vt3k452dhb" path="res://World/Environment/Features/Goal/goal.gd" id="1_yldyy"]
+[ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="3_ufa6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyd80"]
+atlas = ExtResource("1_am0wf")
+region = Rect2(656, 288, 16, 16)
+
+[node name="Goal" type="Node2D"]
+script = ExtResource("1_yldyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_oyd80")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_ufa6t")]
+max_health = 100.0

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=3 format=3 uid="uid://b6uamga6cage8"]
+
+[ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_7me3y"]
+[ext_resource type="Texture2D" uid="uid://vga3avpb4gyh" path="res://addons/godot_state_charts/toggle_sidebar.svg" id="2_a7ugr"]
+
+[resource]
+script = ExtResource("1_7me3y")
+sprite = ExtResource("2_a7ugr")
+display_priority = 0
+creature_type = 0
+health_modifier = 2.0
+speed_modifier = 4.0
+count_modifier = 1
+damage_modifier = 1.0
+attack_speed_modifier = 1.0
+rarity = 0
+body_type = 2
+metadata/_custom_type_script = "uid://60krhj2toyet"
