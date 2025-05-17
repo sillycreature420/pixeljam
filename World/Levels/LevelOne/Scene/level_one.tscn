@@ -193,7 +193,7 @@ position = Vector2(477, 286)
 position = Vector2(217, 146)
 
 [node name="PathfindingNode" parent="Path2" instance=ExtResource("6_dd4mq")]
-position = Vector2(136, 39)
+position = Vector2(137, 37)
 
 [node name="PathfindingNode10" parent="Path2" instance=ExtResource("6_dd4mq")]
 position = Vector2(104, 58)
