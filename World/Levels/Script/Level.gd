@@ -17,7 +17,7 @@ var spawn_point: Node2D
 var current_round: int = 1
 # Current number of points the player has
 var current_points: int = 500
-var new_group_cost: int = 20
+var new_group_cost: int = 50
 
 func _ready() -> void:
 	# Connect to global event bus signals
@@ -123,6 +123,7 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		var new_group = UnitGroup.new()
 		EventBus.emit_new_group_added(new_group, type)
 		current_points -= new_group_cost
+		new_group_cost += 50
 		_update_points_total(current_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")

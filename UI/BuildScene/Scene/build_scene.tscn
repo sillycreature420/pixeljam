@@ -276,7 +276,7 @@ anchor_bottom = 0.304
 offset_bottom = -0.160004
 mouse_filter = 2
 
-[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3")]
+[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3", "label")]
 layout_mode = 2
 offset_left = 21.0
 offset_top = 122.0
@@ -288,6 +288,7 @@ script = ExtResource("6_y70dw")
 shop_slot1 = NodePath("../ShopSlot1")
 shop_slot2 = NodePath("../ShopSlot2")
 shop_slot3 = NodePath("../ShopSlot3")
+label = NodePath("../RerollCostLabel")
 
 [node name="RerollCostLabel" type="Label" parent="Shop"]
 layout_mode = 2

@@ -177,7 +177,7 @@ func move_to_next_pathfinding_node():
 				nav_agent.target_position = goal.global_position
 				targeting_goal = true
 
-#TODO avoid overloading with new parts, maybe a % chance to drop based off the count of the group
+
 func drop_new_part():
 	##generates a random number 0, 100. If the number is larger than the weight, then no part will drop
 	var drop_weight = 100 / unit_data.count
