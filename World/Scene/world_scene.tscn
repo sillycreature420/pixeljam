@@ -15,6 +15,7 @@
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UILayer" instance=ExtResource("2_ldy0v")]
+unique_name_in_owner = true
 
 [node name="BuildScene" parent="UILayer" instance=ExtResource("2_urue2")]
 

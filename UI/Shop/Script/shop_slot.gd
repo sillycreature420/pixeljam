@@ -36,8 +36,8 @@ func check_if_item_purchasable() -> bool:
 func item_purchased():
 	if !check_if_item_purchasable(): return
 	
-	LevelManager.total_points -= cost
 	PartsManager.parts.append(body_part_being_sold)
 	body_part_being_sold = null
 	update_display()
+	LevelManager.update_points_total(-cost)
 	return

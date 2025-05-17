@@ -13,7 +13,7 @@ func _ready() -> void:
 func try_reroll() -> bool:
 	if cost > LevelManager.total_points: return false
 	
-	LevelManager.total_points -= cost
+	LevelManager.update_points_total(-cost)
 	
 	shop_slot1.supply_new_body_part()
 	shop_slot2.supply_new_body_part()
