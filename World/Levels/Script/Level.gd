@@ -16,7 +16,7 @@ var spawn_point: Node2D
 # Current round of the current level
 var current_round: int = 1
 # Current number of points the player has
-var current_points: int = 0
+var current_points: int = 5000
 var new_group_cost: int = 20
 
 func _ready() -> void:
@@ -30,6 +30,7 @@ func _ready() -> void:
 	PartsManager.parts = test_parts
 	PartsManager.selected_part = 0
 
+	LevelManager.total_points = current_points
 
 func start_action_phase():
 	# Spawn units, the spawn_point handles the path assignment
