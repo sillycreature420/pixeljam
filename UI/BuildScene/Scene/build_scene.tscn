@@ -103,10 +103,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.0
 
-[node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart"]
+[node name="CurrentPart" type="Node2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart" node_paths=PackedStringArray("stats_text")]
 unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2_nwngi")
+stats_text = NodePath("../../../../../../../Shop/RichTextLabel")
 
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
 scale = Vector2(8, 8)
