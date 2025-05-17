@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_qob2f")
+name = "Shambler Legs"
 display_priority = 0
 creature_type = 0
 health_modifier = 20.0

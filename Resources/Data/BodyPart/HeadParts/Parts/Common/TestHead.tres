@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_p4r83")
+name = "Test Skull"
 sprite = ExtResource("2_g05ar")
 display_priority = 0
 creature_type = 0

@@ -30,7 +30,6 @@ func initialize_object():
 	#body_part_resource.body_type is an enum option, so assigning it here outputs an int
 	#0 is head, 1 is body, 2 is legs
 	body_type = body_part_resource.body_type
-	#print(body_type)
 	return
 
 func change_resource(parts_index : int):

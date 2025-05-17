@@ -27,7 +27,7 @@ func update_display():
 func update_stats_text():
 	if !body_part_being_sold: stats_text.text = ""; return
 	var body_type_text : String
-	if body_part_being_sold.body_type == 0: body_type_text = "Head"
+	if body_part_being_sold.body_type == 0: body_type_text = "Skull"
 	elif body_part_being_sold.body_type == 1: body_type_text = "Body"
 	elif body_part_being_sold.body_type == 2: body_type_text = "Legs"
 	

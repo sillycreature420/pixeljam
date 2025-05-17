@@ -48,6 +48,9 @@ func _on_build_button_pressed() -> void:
 
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
+	
+	ready_to_play = true
+	
 	# Check if the action phase is ready to start
 	for group in GroupManager.groups:
 		if group.target_path == null:

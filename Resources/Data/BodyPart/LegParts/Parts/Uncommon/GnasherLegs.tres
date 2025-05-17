@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_qbles")
+name = "Gnasher Legs"
 sprite = ExtResource("2_1dxsu")
 display_priority = 0
 creature_type = 0
