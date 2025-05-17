@@ -49,9 +49,8 @@ func on_released():
 	
 	for area in areas:
 		if area is Object_Slot:
-			#print("Found object slot")
-			if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1)
-			return
+			if area.body_type == body_part_resource.body_type:
+				if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1); return
 	return
 
 func update_stats_text():
