@@ -114,9 +114,11 @@ func build_paths_container():
 
 
 func _update_points_total(points: int):
+	current_points = LevelManager.total_points
 	current_points += points
 	hud.update_points_display(current_points)
-
+	LevelManager.total_points = current_points
+	
 
 func _on_hud_unit_group_purchased(type: String) -> void:
 	if current_points >= new_group_cost:

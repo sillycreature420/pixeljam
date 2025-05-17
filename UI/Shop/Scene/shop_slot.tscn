@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqvy1msy0pyyi"]
+
+[ext_resource type="Script" uid="uid://ma7tg5dalupi" path="res://UI/Shop/Script/shop_slot.gd" id="1_n50mx"]
+
+[node name="ShopSlot1" type="Button"]
+offset_left = 23.0
+offset_top = 37.0
+offset_right = 96.0
+offset_bottom = 111.0
+script = ExtResource("1_n50mx")
+
+[node name="ShopTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.986
+offset_bottom = 1.036

@@ -15,6 +15,8 @@ var level_data: Dictionary[String, LevelData]  # Collection of all level data
 var _loading_screen: Control               # Reference to loading screen instance
 var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/loading_screen.tscn")
 
+var total_points : int
+
 # DEPRECATED - Kept for potential backward compatibility
 var tile_data: TileMapLayer
 
