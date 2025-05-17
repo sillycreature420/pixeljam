@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 				units_in_range.remove_at(i)
 		else:
 			if i < units_in_range.size():
-				units_in_range.remove_at(i)
+				units_in_range.remove_at(i-1)
 				
 	# If no units left in range, update state
 	if units_in_range.size() == 0:
