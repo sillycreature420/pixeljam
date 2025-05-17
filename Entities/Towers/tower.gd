@@ -38,15 +38,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Clean up units that moved out of range
 	if units_in_range.size() > 0:
-		for i in units_in_range.size():
-			var unit_index = i - 1
-			var unit = units_in_range[unit_index]
+		# Iterate backwards to avoid index issues when removing elements
+		for i in range(units_in_range.size() - 1, -1, -1):
+			var unit = units_in_range[i]
 			if unit:
 				if unit.global_position.distance_to(global_position) > 64:
 					units_in_range.remove_at(i)
 			else:
-				if i < units_in_range.size():
-					units_in_range.remove_at(i)
+				units_in_range.remove_at(i)
 				
 	# If no units left in range, update state
 	if units_in_range.size() == 0:

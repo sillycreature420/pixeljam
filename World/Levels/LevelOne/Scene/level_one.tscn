@@ -150,6 +150,9 @@ position = Vector2(568, 182)
 
 [node name="Path3" type="Node2D" parent="Towers"]
 
+[node name="Tower" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(448, 65)
+
 [node name="Path1" type="Node2D" parent="."]
 position = Vector2(129, 167)
 
