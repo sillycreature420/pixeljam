@@ -24,6 +24,18 @@ var legs_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/Bo
 var legs_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/")
 var legs_resource_parts_rare = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/Parts/Rare/")
 
+func generate_new_body_part(_type : int, _rarity : int) -> BodyPart:
+	var new_body_part : BodyPart
+	
+	if _type == 0:
+		new_body_part = generate_new_head(_rarity)
+	if _type == 1:
+		new_body_part = generate_new_body(_rarity)
+	if _type == 2:
+		new_body_part = generate_new_legs(_rarity)
+	
+	return new_body_part
+
 func calculate_new_type() -> int:
 	var new_type
 	var head_weight = 33

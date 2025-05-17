@@ -211,4 +211,5 @@ func _on_death():
 	print("Unit died!")
 	check_if_final_unit()
 	drop_new_part()
+	LevelManager.update_points_total(50)
 	queue_free()

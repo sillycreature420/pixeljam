@@ -13,5 +13,5 @@ func _on_destroyed():
 
 
 func unit_reached_goal(damage_taken: float):
-	EventBus.emit_points_added(100)
+	EventBus.emit_points_added(1000)
 	health_component.damage(damage_taken)

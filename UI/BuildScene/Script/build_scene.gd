@@ -2,10 +2,6 @@ extends Control
 
 #TODO: Create button to reset/clear assembly, putting parts back into the list
 
-#TODO: Create parts shop
-# - Should randomly populate from list of premade parts
-# - Should be able to reroll the shop with a selection of different parts
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

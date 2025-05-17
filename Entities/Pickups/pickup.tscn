@@ -12,6 +12,7 @@ region = Rect2(528, 160, 16, 16)
 
 [node name="Pickup" type="Area2D"]
 script = ExtResource("1_bebek")
+type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_42njl")
