@@ -16,7 +16,7 @@ var spawn_point: Node2D
 # Current round of the current level
 var current_round: int = 1
 # Current number of points the player has
-var current_points: int = 5000
+var current_points: int = 500
 var new_group_cost: int = 20
 
 func _ready() -> void:
@@ -115,10 +115,7 @@ func build_paths_container():
 
 
 func _update_points_total(points: int):
-	current_points = LevelManager.total_points
-	current_points += points
 	hud.update_points_display(current_points)
-	LevelManager.total_points = current_points
 	
 
 func _on_hud_unit_group_purchased(type: String) -> void:
