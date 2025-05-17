@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://b4s0p05o5jyx2"]
+
+[ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_e060i"]
+
+[resource]
+script = ExtResource("1_e060i")
+name = "Big Boned Legs"
+display_priority = 0
+creature_type = 0
+health_modifier = 5.0
+speed_modifier = 2.0
+count_modifier = 1
+damage_modifier = 2.0
+attack_speed_modifier = 0.0
+rarity = 1
+body_type = 2
+metadata/_custom_type_script = "uid://60krhj2toyet"
