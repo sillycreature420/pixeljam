@@ -1,3 +1,3 @@
 extends Node
 
-var pickups = Array[Pickup]
+var pickups: Array[Pickup]

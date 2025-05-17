@@ -37,14 +37,15 @@ func _physics_process(delta: float) -> void:
 					unit.health_component.health_below_zero.connect(_unit_killed.bind(unit))
 	
 	# Clean up units that moved out of range
-	for i in units_in_range.size():
-		var unit = units_in_range[i-1]
-		if unit:
-			if unit.global_position.distance_to(global_position) > 64:
-				units_in_range.remove_at(i)
-		else:
-			if i < units_in_range.size():
-				units_in_range.remove_at(i)
+	if units_in_range.size() > 0:
+		for i in units_in_range.size():
+			var unit = units_in_range[i]
+			if unit:
+				if unit.global_position.distance_to(global_position) > 64:
+					units_in_range.remove_at(i)
+			else:
+				if i < units_in_range.size():
+					units_in_range.remove_at(i)
 				
 	# If no units left in range, update state
 	if units_in_range.size() == 0:
