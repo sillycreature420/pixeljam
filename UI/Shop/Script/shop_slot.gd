@@ -17,6 +17,8 @@ func _ready() -> void:
 	return
 
 func update_display():
+	if !body_part_being_sold: shop_texture.texture = null; return
+	
 	shop_texture.texture = body_part_being_sold.sprite
 	return
 
@@ -28,6 +30,7 @@ func calculate_cost(_rarity : int):
 
 func check_if_item_purchasable() -> bool:
 	if cost > LevelManager.total_points: return false
+	if body_part_being_sold == null: return false
 	return true
 
 func item_purchased():
@@ -36,4 +39,5 @@ func item_purchased():
 	LevelManager.total_points -= cost
 	PartsManager.parts.append(body_part_being_sold)
 	body_part_being_sold = null
+	update_display()
 	return

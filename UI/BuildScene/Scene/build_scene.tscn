@@ -14,7 +14,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwngi"]
-radius = 24.0
+radius = 50.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
 
@@ -273,7 +273,7 @@ anchor_right = 0.5
 anchor_bottom = 0.304
 offset_bottom = -0.160004
 
-[node name="ShopReroll" type="Button" parent="Shop"]
+[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3")]
 layout_mode = 2
 offset_left = 21.0
 offset_top = 122.0
@@ -282,6 +282,9 @@ offset_bottom = 153.0
 size_flags_vertical = 8
 text = "Reroll"
 script = ExtResource("6_y70dw")
+shop_slot1 = NodePath("../ShopSlot1")
+shop_slot2 = NodePath("../ShopSlot2")
+shop_slot3 = NodePath("../ShopSlot3")
 
 [node name="RerollCostLabel" type="Label" parent="Shop"]
 layout_mode = 2
@@ -301,24 +304,24 @@ text = "Shop:"
 
 [node name="ShopSlot1" parent="Shop" instance=ExtResource("6_nwngi")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 73.0
-offset_bottom = 74.0
+offset_left = 21.0
+offset_top = 44.0
+offset_right = 94.0
+offset_bottom = 118.0
 
 [node name="ShopSlot2" parent="Shop" instance=ExtResource("6_nwngi")]
 layout_mode = 0
-offset_left = 115.0
-offset_top = 0.0
-offset_right = 188.0
-offset_bottom = 74.0
+offset_left = 110.0
+offset_top = 44.0
+offset_right = 183.0
+offset_bottom = 118.0
 
 [node name="ShopSlot3" parent="Shop" instance=ExtResource("6_nwngi")]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 0.0
-offset_right = 281.0
-offset_bottom = 74.0
+offset_left = 202.0
+offset_top = 44.0
+offset_right = 275.0
+offset_bottom = 118.0
 
 [node name="Label2" type="Label" parent="Shop"]
 layout_mode = 0
