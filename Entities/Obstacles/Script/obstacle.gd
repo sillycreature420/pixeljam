@@ -11,6 +11,8 @@ func _ready() -> void:
 	health_component.health_below_zero.connect(_on_destroyed)
 	#print(health_component)
 
+
+#TODO: When health reaches a certain threshold, change to the broken gate sprite
 func _on_damage_taken(_amount_damage_taken):
 	pass
 

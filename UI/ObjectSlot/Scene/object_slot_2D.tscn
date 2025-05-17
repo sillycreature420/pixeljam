@@ -15,10 +15,11 @@ default_texture = ExtResource("2_ivre6")
 shape = SubResource("RectangleShape2D_4jpdq")
 
 [node name="SlotTexture" type="TextureRect" parent="."]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -64.0
+offset_top = -63.0
+offset_right = -48.0
+offset_bottom = -47.0
+scale = Vector2(8, 8)
 texture = ExtResource("2_ivre6")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
