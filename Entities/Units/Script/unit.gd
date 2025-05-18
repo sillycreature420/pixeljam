@@ -7,6 +7,11 @@ class_name Unit
 # Pathfinding reference - the predefined path this unit will follow
 @export var path: Node2D
 
+#Graphics
+@export var animated_head : AnimatedSprite2D
+@onready var animated_body : AnimatedSprite2D = $AnimatedSpriteBody
+@onready var animated_legs : AnimatedSprite2D = $AnimatedSpriteLegs
+
 # Component references
 @onready var health_component : HealthComponent = $HealthComponent  # Health management system
 #@onready var pathfinding: PathfindingComponent = $PathfindingComponent  # Navigation handler
@@ -52,6 +57,13 @@ func initialize_unit_data(_unit_data : UnitData):
 	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed * base_speed
 	attack_cooldown.wait_time = 1 / unit_data.attack_speed
+	
+	initialize_unit_graphics()
+	return
+
+func initialize_unit_graphics():
+	animated_head.sprite_frames = unit_data.head_part.sprite_frames
+	animated_head.play()
 	return
 
 # Initialize unit stats based on body parts

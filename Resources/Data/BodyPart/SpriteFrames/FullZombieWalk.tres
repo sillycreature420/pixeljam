@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://lbfsenpamq5r"]
+
+[ext_resource type="Texture2D" uid="uid://ddkaho4gf8ipv" path="res://Assets/zombie anim test .png" id="1_blfvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njmgg"]
+atlas = ExtResource("1_blfvk")
+region = Rect2(72, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj5gx"]
+atlas = ExtResource("1_blfvk")
+region = Rect2(200, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4o4"]
+atlas = ExtResource("1_blfvk")
+region = Rect2(328, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s0sg"]
+atlas = ExtResource("1_blfvk")
+region = Rect2(456, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njmgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj5gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st4o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s0sg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -19,11 +19,16 @@ gradient = SubResource("Gradient_osqk6")
 fill = 1
 fill_from = Vector2(0.472477, 0.509174)
 
-[node name="Unit" type="Area2D" node_paths=PackedStringArray("attack_cooldown") groups=["units"]]
+[node name="Unit" type="Area2D" node_paths=PackedStringArray("animated_head", "attack_cooldown") groups=["units"]]
 script = ExtResource("1_0rvlb")
+animated_head = NodePath("AnimatedSpriteHead")
 attack_cooldown = NodePath("AttackCooldown")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSpriteHead" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimatedSpriteBody" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimatedSpriteLegs" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0rvlb")

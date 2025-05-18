@@ -4,6 +4,7 @@ class_name BodyPart
 @export_group("Graphics")
 @export var name : String
 @export var sprite : Texture2D
+@export var sprite_frames : SpriteFrames
 @export var display_priority : int = 0
 #TODO Populate this with the actual types of units we will have
 enum CREATURE_TYPE{ZOMBIE}
