@@ -52,7 +52,7 @@ func update_rarity_glow():
 	elif body_part_being_sold.rarity == 1: gradient.colors[0] = Color.CHARTREUSE
 	elif body_part_being_sold.rarity == 2: gradient.colors[0] = Color.CRIMSON
 	
-	gradient.colors[0].a = 0.2
+	gradient.colors[0].a = 0.3
 	return
 
 func update_stats_text():

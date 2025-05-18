@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dac4fjxush10d"]
+
+[ext_resource type="Texture2D" uid="uid://xe57dgxjaef8" path="res://Assets/HelmetZombie/HelmetZombieSpriteSheet.png" id="1_v0cgn"]
+
+[resource]
+atlas = ExtResource("1_v0cgn")
+region = Rect2(208, 32, 16, 16)

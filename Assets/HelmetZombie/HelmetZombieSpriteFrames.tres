@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://4o0gaybtyutm"]
+
+[ext_resource type="Texture2D" uid="uid://xe57dgxjaef8" path="res://Assets/HelmetZombie/HelmetZombieSpriteSheet.png" id="1_h0hq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21jwv"]
+atlas = ExtResource("1_h0hq6")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mw20"]
+atlas = ExtResource("1_h0hq6")
+region = Rect2(208, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlrkr"]
+atlas = ExtResource("1_h0hq6")
+region = Rect2(336, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbxgg"]
+atlas = ExtResource("1_h0hq6")
+region = Rect2(464, 32, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21jwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mw20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlrkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbxgg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

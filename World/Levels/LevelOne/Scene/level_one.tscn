@@ -113,9 +113,30 @@ unit_container = NodePath("../Units")
 [node name="Path1" type="Node2D" parent="Pickups"]
 
 [node name="Pickup" parent="Pickups/Path1" instance=ExtResource("8_2nvf8")]
-position = Vector2(415, 200)
+position = Vector2(268, 352)
+
+[node name="Pickup2" parent="Pickups/Path1" instance=ExtResource("8_2nvf8")]
+position = Vector2(224, 421)
+type = 0
+
+[node name="Pickup3" parent="Pickups/Path1" instance=ExtResource("8_2nvf8")]
+position = Vector2(250, 437)
+type = 0
+
+[node name="Pickup4" parent="Pickups/Path1" instance=ExtResource("8_2nvf8")]
+position = Vector2(225, 457)
+type = 0
 
 [node name="Path2" type="Node2D" parent="Pickups"]
+
+[node name="Pickup5" parent="Pickups/Path2" instance=ExtResource("8_2nvf8")]
+position = Vector2(321, 202)
+
+[node name="Pickup7" parent="Pickups/Path2" instance=ExtResource("8_2nvf8")]
+position = Vector2(295, 155)
+
+[node name="Pickup6" parent="Pickups/Path2" instance=ExtResource("8_2nvf8")]
+position = Vector2(410, 200)
 
 [node name="Path3" type="Node2D" parent="Pickups"]
 
@@ -130,6 +151,15 @@ position = Vector2(187, 241)
 
 [node name="Obstacle2" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
 position = Vector2(146, 265)
+
+[node name="Obstacle3" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
+position = Vector2(236, 362)
+
+[node name="Obstacle4" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
+position = Vector2(217, 373)
+
+[node name="Obstacle5" parent="Obstacles/Path1" instance=ExtResource("5_dudjm")]
+position = Vector2(197, 384)
 
 [node name="Path2" type="Node2D" parent="Obstacles"]
 

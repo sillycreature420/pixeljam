@@ -75,6 +75,7 @@ event = &"NewPathFound"
 delay_in_seconds = "0.0"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(-1, 2.00003)
 scale = Vector2(1.67187, 1.65243)
 energy = 0.1
