@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dbuh1q5bh5o6s"]
+
+[ext_resource type="Texture2D" uid="uid://dnfi24scwkklj" path="res://Assets/ZombieSprites/Legs anim test .png" id="1_dei83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypxya"]
+atlas = ExtResource("1_dei83")
+region = Rect2(72, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkngh"]
+atlas = ExtResource("1_dei83")
+region = Rect2(200, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnmjq"]
+atlas = ExtResource("1_dei83")
+region = Rect2(328, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gvox"]
+atlas = ExtResource("1_dei83")
+region = Rect2(456, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypxya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkngh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnmjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gvox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

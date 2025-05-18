@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddkaho4gf8ipv"
-path="res://.godot/imported/zombie anim test .png-ef2c8b95867941736d1622b769c395d3.ctex"
+uid="uid://dnfi24scwkklj"
+path="res://.godot/imported/Legs anim test .png-0f3bbdfc9c14bd5bb763c407a3e54ba8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/zombie anim test .png"
-dest_files=["res://.godot/imported/zombie anim test .png-ef2c8b95867941736d1622b769c395d3.ctex"]
+source_file="res://Assets/ZombieSprites/Legs anim test .png"
+dest_files=["res://.godot/imported/Legs anim test .png-0f3bbdfc9c14bd5bb763c407a3e54ba8.ctex"]
 
 [params]
 

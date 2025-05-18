@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cmobgtadj3a34"]
+
+[ext_resource type="Texture2D" uid="uid://by6ap7w3o6cpd" path="res://Assets/ZombieSprites/Head anim test .png" id="1_av0uj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rwoj"]
+atlas = ExtResource("1_av0uj")
+region = Rect2(72, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3aai"]
+atlas = ExtResource("1_av0uj")
+region = Rect2(200, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crenp"]
+atlas = ExtResource("1_av0uj")
+region = Rect2(328, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmr2w"]
+atlas = ExtResource("1_av0uj")
+region = Rect2(456, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rwoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3aai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crenp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmr2w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

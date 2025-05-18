@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dpvi8lpgeqcyq"]
+
+[ext_resource type="Texture2D" uid="uid://b7ybk1sww4wok" path="res://Assets/ZombieSprites/Torso anim test .png" id="1_yfrm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3dw8"]
+atlas = ExtResource("1_yfrm0")
+region = Rect2(72, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj1o2"]
+atlas = ExtResource("1_yfrm0")
+region = Rect2(200, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjhud"]
+atlas = ExtResource("1_yfrm0")
+region = Rect2(328, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s31vk"]
+atlas = ExtResource("1_yfrm0")
+region = Rect2(456, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3dw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj1o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjhud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s31vk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -9,8 +9,8 @@ class_name Unit
 
 #Graphics
 @export var animated_head : AnimatedSprite2D
-@onready var animated_body : AnimatedSprite2D = $AnimatedSpriteBody
-@onready var animated_legs : AnimatedSprite2D = $AnimatedSpriteLegs
+@export var animated_body : AnimatedSprite2D
+@export var animated_legs : AnimatedSprite2D
 
 # Component references
 @onready var health_component : HealthComponent = $HealthComponent  # Health management system
@@ -63,7 +63,16 @@ func initialize_unit_data(_unit_data : UnitData):
 
 func initialize_unit_graphics():
 	animated_head.sprite_frames = unit_data.head_part.sprite_frames
+	animated_body.sprite_frames = unit_data.body_part.sprite_frames
+	animated_legs.sprite_frames = unit_data.legs_part.sprite_frames
+	
+	animated_head.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
+	animated_body.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
+	animated_legs.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
+	
 	animated_head.play()
+	animated_body.play()
+	animated_legs.play()
 	return
 
 # Initialize unit stats based on body parts

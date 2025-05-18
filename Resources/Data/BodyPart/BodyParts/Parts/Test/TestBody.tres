@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=3 format=3 uid="uid://daogfxhxn8e02"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://daogfxhxn8e02"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_6dq42"]
 [ext_resource type="Texture2D" uid="uid://bnsri4fr2bbu0" path="res://addons/godot_state_charts/utilities/state_chart_debugger.svg" id="2_abrdd"]
+[ext_resource type="SpriteFrames" uid="uid://dpvi8lpgeqcyq" path="res://Resources/Data/BodyPart/SpriteFrames/ZombieWalkBody.tres" id="3_hpgyd"]
 
 [resource]
 script = ExtResource("1_6dq42")
 name = "Test Body"
 sprite = ExtResource("2_abrdd")
+sprite_frames = ExtResource("3_hpgyd")
 display_priority = 0
 creature_type = 0
 health_modifier = 10.0
 speed_modifier = -2.0
 count_modifier = 1
 damage_modifier = 1.0
-attack_speed_modifier = 1.0
+attack_speed_modifier = 5.0
 rarity = 0
 body_type = 1
 metadata/_custom_type_script = "uid://60krhj2toyet"
