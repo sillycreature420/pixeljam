@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqvy1msy0pyyi"]
+[gd_scene load_steps=4 format=3 uid="uid://dqvy1msy0pyyi"]
 
 [ext_resource type="Script" uid="uid://ma7tg5dalupi" path="res://UI/Shop/Script/shop_slot.gd" id="1_n50mx"]
+
+[sub_resource type="Gradient" id="Gradient_n50mx"]
+offsets = PackedFloat32Array(0, 0.694805)
+colors = PackedColorArray(1, 1, 1, 0.207843, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smp38"]
+gradient = SubResource("Gradient_n50mx")
+fill = 1
+fill_from = Vector2(0.490826, 0.504587)
 
 [node name="ShopSlot1" type="Button"]
 offset_left = 23.0
@@ -8,6 +17,15 @@ offset_top = 37.0
 offset_right = 96.0
 offset_bottom = 111.0
 script = ExtResource("1_n50mx")
+
+[node name="RarityGlow" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 94.0
+offset_bottom = 91.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_smp38")
 
 [node name="ShopTexture" type="TextureRect" parent="."]
 layout_mode = 1

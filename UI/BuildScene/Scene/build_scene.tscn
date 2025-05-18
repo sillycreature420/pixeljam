@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=18 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
 [ext_resource type="Texture2D" uid="uid://cvridgrgida3n" path="res://Assets/Build_phase_test.png" id="2_com0n"]
@@ -9,6 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dqvy1msy0pyyi" path="res://UI/Shop/Scene/shop_slot.tscn" id="6_nwngi"]
 [ext_resource type="Script" uid="uid://dgc0nafcuckh7" path="res://UI/Shop/Script/shop_reroll.gd" id="6_y70dw"]
 [ext_resource type="Script" uid="uid://dvabdordyrvux" path="res://UI/Shop/Script/merged_stats.gd" id="9_d4yl2"]
+
+[sub_resource type="Gradient" id="Gradient_d4yl2"]
+offsets = PackedFloat32Array(0, 0.694805)
+colors = PackedColorArray(1, 1, 1, 0.207843, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anxpf"]
+gradient = SubResource("Gradient_d4yl2")
+fill = 1
+fill_from = Vector2(0.490826, 0.504587)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
 size = Vector2(16, 16)
@@ -110,6 +119,14 @@ unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2_nwngi")
 stats_text = NodePath("../../../../../../../Shop/HoveredStats")
+
+[node name="RarityGlow" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
+offset_left = -66.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_anxpf")
 
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
 scale = Vector2(8, 8)

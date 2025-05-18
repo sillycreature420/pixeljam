@@ -7,7 +7,7 @@ class_name BodyPartObject
 
 @onready var sprite_node : Sprite2D = $Sprite2D
 @onready var pickupable_component : PickupableComponent = $PickupableComponent
-
+@onready var rarity_glow : TextureRect = $RarityGlow
 var body_type
 var no_more_parts : bool = false
 
@@ -27,12 +27,37 @@ func set_to_default():
 	return
 
 func initialize_object():
+	update_rarity_glow()
 	if !body_part_resource: return
 	sprite_node.texture = body_part_resource.sprite
 	#body_part_resource.body_type is an enum option, so assigning it here outputs an int
 	#0 is head, 1 is body, 2 is legs
 	body_type = body_part_resource.body_type
+	
 	return
+
+func update_rarity_glow():
+	var rarity_glow_texture : GradientTexture2D = GradientTexture2D.new()
+	var gradient : Gradient = Gradient.new()
+	
+	rarity_glow_texture.gradient = gradient
+	rarity_glow.texture = rarity_glow_texture
+	
+	rarity_glow_texture.fill = GradientTexture2D.FILL_RADIAL
+	rarity_glow_texture.fill_from = Vector2(0.5, 0.5)
+	
+	gradient.colors[0] = Color.TRANSPARENT
+	gradient.colors[1] = Color.TRANSPARENT
+	
+	if !body_part_resource: gradient.colors[0] = Color.TRANSPARENT; return
+	
+	if body_part_resource.rarity == 0: gradient.colors[0] = Color.BISQUE
+	elif body_part_resource.rarity == 1: gradient.colors[0] = Color.CHARTREUSE
+	elif body_part_resource.rarity == 2: gradient.colors[0] = Color.CRIMSON
+	
+	gradient.colors[0].a = 0.2
+	return
+
 
 func switch_to_new_resource():
 	change_resource(PartsManager.parts.size() - 1)

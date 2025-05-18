@@ -6,6 +6,8 @@ var body_part_being_sold : BodyPart
 @onready var shop_texture : TextureRect = $ShopTexture
 var cost : int = 0
 @export var stats_text : RichTextLabel
+@onready var rarity_glow : TextureRect = $RarityGlow
+
 
 const COMMON_PRICE : int = 100
 const UNCOMMON_PRICE : int = 200
@@ -24,9 +26,33 @@ func _ready() -> void:
 	return
 
 func update_display():
+	update_rarity_glow()
 	if !body_part_being_sold: shop_texture.texture = null; return
 	
+	
 	shop_texture.texture = body_part_being_sold.sprite
+	return
+
+func update_rarity_glow():
+	var rarity_glow_texture : GradientTexture2D = GradientTexture2D.new()
+	var gradient : Gradient = Gradient.new()
+	
+	rarity_glow_texture.gradient = gradient
+	rarity_glow.texture = rarity_glow_texture
+	
+	rarity_glow_texture.fill = GradientTexture2D.FILL_RADIAL
+	rarity_glow_texture.fill_from = Vector2(0.5, 0.5)
+	
+	gradient.colors[0] = Color.TRANSPARENT
+	gradient.colors[1] = Color.TRANSPARENT
+	
+	if !body_part_being_sold: gradient.colors[0] = Color.TRANSPARENT; return
+	
+	if body_part_being_sold.rarity == 0: gradient.colors[0] = Color.BISQUE
+	elif body_part_being_sold.rarity == 1: gradient.colors[0] = Color.CHARTREUSE
+	elif body_part_being_sold.rarity == 2: gradient.colors[0] = Color.CRIMSON
+	
+	gradient.colors[0].a = 0.2
 	return
 
 func update_stats_text():
