@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bl8mhvtgacn3q"]
+
+[ext_resource type="Texture2D" uid="uid://dqx3sqbkmp5qd" path="res://Assets/GnasherSprites/Punk torso anim.png" id="1_b8n45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_141cn"]
+atlas = ExtResource("1_b8n45")
+region = Rect2(209, 43, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80yii"]
+atlas = ExtResource("1_b8n45")
+region = Rect2(337, 43, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mnu2"]
+atlas = ExtResource("1_b8n45")
+region = Rect2(465, 43, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xni1u"]
+atlas = ExtResource("1_b8n45")
+region = Rect2(593, 43, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_141cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80yii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mnu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xni1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

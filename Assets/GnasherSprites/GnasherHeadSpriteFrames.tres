@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://do6ib7vq32jvq"]
+
+[ext_resource type="Texture2D" uid="uid://ctu5ow5rxlmpb" path="res://Assets/GnasherSprites/Punk Head anime.png" id="1_ixrug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1sgf"]
+atlas = ExtResource("1_ixrug")
+region = Rect2(208, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfvw8"]
+atlas = ExtResource("1_ixrug")
+region = Rect2(336, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pswbj"]
+atlas = ExtResource("1_ixrug")
+region = Rect2(464, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmyxu"]
+atlas = ExtResource("1_ixrug")
+region = Rect2(592, 32, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1sgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfvw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pswbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmyxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

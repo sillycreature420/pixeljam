@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://p7fxataex5g5"]
+
+[ext_resource type="Texture2D" uid="uid://ctu5ow5rxlmpb" path="res://Assets/GnasherSprites/Punk Head anime.png" id="1_5jhkn"]
+
+[resource]
+atlas = ExtResource("1_5jhkn")
+region = Rect2(336, 32, 16, 16)

@@ -1,17 +1,19 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=3 format=3 uid="uid://csju1e2xfuifj"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://csju1e2xfuifj"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_ebtn6"]
-[ext_resource type="Texture2D" uid="uid://bnys2m08eksd0" path="res://UI/ObjectSlot/Asset/object_slot_sprite.png" id="2_8yv8k"]
+[ext_resource type="Texture2D" uid="uid://snxyctardgyp" path="res://Assets/GnasherSprites/GnasherBodySprite.tres" id="2_8yv8k"]
+[ext_resource type="SpriteFrames" uid="uid://bl8mhvtgacn3q" path="res://Assets/GnasherSprites/GnasherBodySpriteFrames.tres" id="3_60rhy"]
 
 [resource]
 script = ExtResource("1_ebtn6")
 name = "Gnasher Body"
 sprite = ExtResource("2_8yv8k")
+sprite_frames = ExtResource("3_60rhy")
 display_priority = 0
 creature_type = 0
 health_modifier = -15.0
 speed_modifier = 2.0
-count_modifier = 10
+count_modifier = 1.0
 damage_modifier = 1.0
 attack_speed_modifier = 1.0
 rarity = 1

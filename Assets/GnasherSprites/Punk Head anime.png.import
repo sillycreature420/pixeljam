@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx3sqbkmp5qd"
-path="res://.godot/imported/Punk torso anim.png-a59326fe1c4dffa30bc17b121fa70865.ctex"
+uid="uid://ctu5ow5rxlmpb"
+path="res://.godot/imported/Punk Head anime.png-1d31360e815da22a85d45bd7f46a5367.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Punk torso anim.png"
-dest_files=["res://.godot/imported/Punk torso anim.png-a59326fe1c4dffa30bc17b121fa70865.ctex"]
+source_file="res://Assets/GnasherSprites/Punk Head anime.png"
+dest_files=["res://.godot/imported/Punk Head anime.png-1d31360e815da22a85d45bd7f46a5367.ctex"]
 
 [params]
 
