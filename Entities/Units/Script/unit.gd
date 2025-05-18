@@ -62,6 +62,10 @@ func initialize_unit_data(_unit_data : UnitData):
 	return
 
 func initialize_unit_graphics():
+	assert(unit_data.head_part.sprite_frames, unit_data.head_part.name + " has no spriteframes! Fix this immediately!")
+	assert(unit_data.body_part.sprite_frames, unit_data.body_part.name + " has no spriteframes! Fix this immediately!")
+	assert(unit_data.legs_part.sprite_frames, unit_data.legs_part.name + " has no spriteframes! Fix this immediately!")
+	
 	animated_head.sprite_frames = unit_data.head_part.sprite_frames
 	animated_body.sprite_frames = unit_data.body_part.sprite_frames
 	animated_legs.sprite_frames = unit_data.legs_part.sprite_frames

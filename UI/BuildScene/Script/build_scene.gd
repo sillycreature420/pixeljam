@@ -23,7 +23,6 @@ func build_groups_container():
 		new_group_button.text = "Group " + str(GroupManager.groups.find(group) + 1)
 		
 		new_group_button.pressed.connect(_group_selected.bind(group))
-		
 		%Groups.add_child(new_group_button)
 
 

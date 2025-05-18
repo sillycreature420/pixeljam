@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=16 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
 [ext_resource type="Texture2D" uid="uid://cvridgrgida3n" path="res://Assets/Build_phase_test.png" id="2_com0n"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c3p4s2jm6kg2l" path="res://UI/ObjectSlot/Script/craft_button.gd" id="4_stjvo"]
 [ext_resource type="PackedScene" uid="uid://dqvy1msy0pyyi" path="res://UI/Shop/Scene/shop_slot.tscn" id="6_nwngi"]
 [ext_resource type="Script" uid="uid://dgc0nafcuckh7" path="res://UI/Shop/Script/shop_reroll.gd" id="6_y70dw"]
+[ext_resource type="Script" uid="uid://dvabdordyrvux" path="res://UI/Shop/Script/merged_stats.gd" id="9_d4yl2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
 size = Vector2(16, 16)
@@ -108,7 +109,7 @@ size_flags_stretch_ratio = 5.0
 unique_name_in_owner = true
 z_index = 1
 script = ExtResource("2_nwngi")
-stats_text = NodePath("../../../../../../../Shop/RichTextLabel")
+stats_text = NodePath("../../../../../../../Shop/HoveredStats")
 
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
 scale = Vector2(8, 8)
@@ -231,11 +232,11 @@ size_flags_vertical = 10
 [node name="Groups" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 
 [node name="DummyGroup" type="Button" parent="AspectRatioContainer/VBoxContainer/UnitSelect/Groups"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
 text = "DummyGroup"
 
 [node name="Units" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer/UnitSelect"]
@@ -314,7 +315,7 @@ offset_left = 21.0
 offset_top = 44.0
 offset_right = 94.0
 offset_bottom = 118.0
-stats_text = NodePath("../RichTextLabel")
+stats_text = NodePath("../HoveredStats")
 
 [node name="ShopSlot2" parent="Shop" node_paths=PackedStringArray("stats_text") instance=ExtResource("6_nwngi")]
 layout_mode = 0
@@ -322,7 +323,7 @@ offset_left = 110.0
 offset_top = 44.0
 offset_right = 183.0
 offset_bottom = 118.0
-stats_text = NodePath("../RichTextLabel")
+stats_text = NodePath("../HoveredStats")
 
 [node name="ShopSlot3" parent="Shop" node_paths=PackedStringArray("stats_text") instance=ExtResource("6_nwngi")]
 layout_mode = 0
@@ -330,7 +331,7 @@ offset_left = 202.0
 offset_top = 44.0
 offset_right = 275.0
 offset_bottom = 118.0
-stats_text = NodePath("../RichTextLabel")
+stats_text = NodePath("../HoveredStats")
 
 [node name="Label2" type="Label" parent="Shop"]
 layout_mode = 0
@@ -340,12 +341,23 @@ offset_right = 475.0
 offset_bottom = 67.0
 text = "Stats:"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Shop"]
+[node name="HoveredStats" type="RichTextLabel" parent="Shop"]
 layout_mode = 0
 offset_left = 482.0
 offset_top = 45.0
 offset_right = 620.0
 offset_bottom = 444.0
+
+[node name="MergedStats" type="RichTextLabel" parent="Shop" node_paths=PackedStringArray("object_slot_1", "object_slot_2", "object_slot_3")]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 28.0
+offset_right = 930.0
+offset_bottom = 398.0
+script = ExtResource("9_d4yl2")
+object_slot_1 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head/ObjectSlotHead")
+object_slot_2 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody")
+object_slot_3 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
