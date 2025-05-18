@@ -70,9 +70,9 @@ func initialize_unit_graphics():
 	animated_body.sprite_frames = unit_data.body_part.sprite_frames
 	animated_legs.sprite_frames = unit_data.legs_part.sprite_frames
 	
-	animated_head.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
-	animated_body.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
-	animated_legs.sprite_frames.set_animation_speed("default", unit_data.attack_speed)
+	animated_head.sprite_frames.set_animation_speed("default", 4 + unit_data.attack_speed)
+	animated_body.sprite_frames.set_animation_speed("default", 4 + unit_data.attack_speed)
+	animated_legs.sprite_frames.set_animation_speed("default", 4 + unit_data.attack_speed)
 	
 	animated_head.play()
 	animated_body.play()

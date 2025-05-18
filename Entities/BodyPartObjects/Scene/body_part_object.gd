@@ -12,8 +12,10 @@ var body_type
 var no_more_parts : bool = false
 
 func _ready() -> void:
+	set_to_default()
 	pickupable_component.placed_down.connect(on_released)
 	PartsManager.no_more_parts.connect(set_to_default)
+	EventBus.item_purchased_signal.connect(switch_to_new_resource)
 	
 	initialize_object.call_deferred()
 	return
@@ -25,11 +27,15 @@ func set_to_default():
 	return
 
 func initialize_object():
-	if !body_part_resource: body_part_resource = PartsManager.parts[0]; PartsManager.selected_part = 0
+	if !body_part_resource: return
 	sprite_node.texture = body_part_resource.sprite
 	#body_part_resource.body_type is an enum option, so assigning it here outputs an int
 	#0 is head, 1 is body, 2 is legs
 	body_type = body_part_resource.body_type
+	return
+
+func switch_to_new_resource():
+	change_resource(PartsManager.parts.size() - 1)
 	return
 
 func change_resource(parts_index : int):

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://dh7q1t4s30in8"]
 
-[ext_resource type="Resource" uid="uid://daogfxhxn8e02" path="res://Resources/Data/BodyPart/BodyParts/Parts/Test/TestBody.tres" id="1_2m5gu"]
-[ext_resource type="Resource" uid="uid://cakum8l17234p" path="res://Resources/Data/BodyPart/HeadParts/Parts/Rare/ShamblerHead.tres" id="2_2m5gu"]
-[ext_resource type="Resource" uid="uid://b6uamga6cage8" path="res://Resources/Data/BodyPart/LegParts/Parts/Test/TestLeg.tres" id="3_l5tc6"]
+[ext_resource type="Resource" uid="uid://bdsdrdl1b4604" path="res://Resources/Data/BodyPart/BodyParts/Parts/Common/FleshWalkerBody.tres" id="1_2m5gu"]
+[ext_resource type="Resource" uid="uid://bh6ilrx0leb2j" path="res://Resources/Data/BodyPart/HeadParts/Parts/Common/FleshWalkerHead.tres" id="2_qbwop"]
+[ext_resource type="Resource" uid="uid://db82aoldyriuh" path="res://Resources/Data/BodyPart/LegParts/Parts/Common/FleshWalkerLegs.tres" id="3_l5tc6"]
 [ext_resource type="Script" uid="uid://bjs8utoifo8vp" path="res://Resources/Types/UnitData/UnitData.gd" id="4_4u2te"]
 
 [resource]
 script = ExtResource("4_4u2te")
-head_part = ExtResource("2_2m5gu")
+head_part = ExtResource("2_qbwop")
 body_part = ExtResource("1_2m5gu")
 legs_part = ExtResource("3_l5tc6")
 creature_type = 0

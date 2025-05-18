@@ -9,7 +9,9 @@ func _ready() -> void:
 	object_slot_1.object_info_stored.connect(update_stats_text)
 	object_slot_2.object_info_stored.connect(update_stats_text)
 	object_slot_3.object_info_stored.connect(update_stats_text)
-	
+	object_slot_1.object_info_cleared.connect(update_stats_text)
+	object_slot_2.object_info_cleared.connect(update_stats_text)
+	object_slot_3.object_info_cleared.connect(update_stats_text)
 	return
 
 func update_stats_text():
@@ -42,11 +44,11 @@ func update_stats_text():
 		attack_speed_modifier += object_slot_3.object_held.attack_speed_modifier
 		
 	
-	if health_modifier <= 0: health_modifier = 1
-	if damage_modifier <= 0: damage_modifier = 1
-	if speed_modifier <= 0: speed_modifier = 1
-	if count_modifier <= 0: count_modifier = 1
-	if attack_speed_modifier <= 0: attack_speed_modifier = 1
+	if health_modifier <= 0: health_modifier = 1.0
+	if damage_modifier <= 0: damage_modifier = 1.0
+	if speed_modifier <= 0: speed_modifier = 1.0
+	if count_modifier <= 0: count_modifier = 1.0
+	if attack_speed_modifier <= 0: attack_speed_modifier = 1.0
 	
 	text = ""
 	
@@ -54,6 +56,6 @@ func update_stats_text():
 	text += "\nDamage: " + str(damage_modifier)
 	text += "\nSpeed: " + str(speed_modifier)
 	text += "\nCount: " + str(count_modifier)
-	text += "\nAttack Speed: " + str(attack_speed_modifier)
+	text += "\nAttack Rate: " + str(attack_speed_modifier)
 	
 	return

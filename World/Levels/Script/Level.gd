@@ -27,8 +27,8 @@ func _ready() -> void:
 	LevelManager.transition_completed.connect(_level_loaded)
 	
 	#HACK Load in some test parts to start the level with
-	PartsManager.parts = test_parts
-	PartsManager.selected_part = 0
+	#PartsManager.parts = test_parts
+	#PartsManager.selected_part = 0
 
 	LevelManager.total_points = current_points
 

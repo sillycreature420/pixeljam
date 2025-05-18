@@ -26,14 +26,14 @@ animated_body = NodePath("AnimatedSpriteBody")
 animated_legs = NodePath("AnimatedSpriteLegs")
 attack_cooldown = NodePath("AttackCooldown")
 
-[node name="AnimatedSpriteHead" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+[node name="AnimatedSpriteLegs" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
 
 [node name="AnimatedSpriteBody" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2.5)
 
-[node name="AnimatedSpriteLegs" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+[node name="AnimatedSpriteHead" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0rvlb")

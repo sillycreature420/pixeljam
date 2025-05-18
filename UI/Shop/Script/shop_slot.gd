@@ -1,6 +1,7 @@
 extends Button
 class_name ShopSlot
 
+
 var body_part_being_sold : BodyPart
 @onready var shop_texture : TextureRect = $ShopTexture
 var cost : int = 0
@@ -64,6 +65,7 @@ func item_purchased():
 	body_part_being_sold = null
 	update_display()
 	LevelManager.update_points_total(-cost)
+	EventBus.item_purchased_signal.emit()
 	return
 
 func _gui_input(event: InputEvent) -> void:

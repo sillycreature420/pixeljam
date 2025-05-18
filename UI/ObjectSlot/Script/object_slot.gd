@@ -2,6 +2,7 @@ extends Area2D
 class_name Object_Slot
 
 signal object_info_stored()
+signal object_info_cleared()
 
 enum BODY_TYPE{HEAD, BODY, LEGS}
 @export var body_type: BODY_TYPE
@@ -37,6 +38,7 @@ func store_object_info(new_part : BodyPart) -> bool:
 func clear_object_info():
 	object_held = null
 	slot_texture.texture = default_texture
+	object_info_cleared.emit()
 	return
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
