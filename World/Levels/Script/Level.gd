@@ -16,8 +16,8 @@ var spawn_point: Node2D
 # Current round of the current level
 var current_round: int = 1
 # Current number of points the player has
-var current_points: int = 5000
-var new_group_cost: int = 20
+var current_points: int = 500
+var new_group_cost: int = 50
 
 func _ready() -> void:
 	# Connect to global event bus signals
@@ -64,7 +64,7 @@ func _level_loaded():
 		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
 		
 		# Add to group manager's tracking system
-		GroupManager.groups.append(first_unit_group)
+		GroupManager._new_group_added(first_unit_group, "Zombie")
 	
 	# Update the HUD to reflect the current level's status
 	build_groups_container()
@@ -115,10 +115,7 @@ func build_paths_container():
 
 
 func _update_points_total(points: int):
-	current_points = LevelManager.total_points
-	current_points += points
 	hud.update_points_display(current_points)
-	LevelManager.total_points = current_points
 	
 
 func _on_hud_unit_group_purchased(type: String) -> void:
@@ -126,6 +123,8 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		var new_group = UnitGroup.new()
 		EventBus.emit_new_group_added(new_group, type)
 		current_points -= new_group_cost
+		new_group_cost += 50
+		LevelManager.hud.group_cost_label.text = str(new_group_cost) + " Points" 
 		_update_points_total(current_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")

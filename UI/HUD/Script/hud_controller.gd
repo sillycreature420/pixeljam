@@ -11,6 +11,8 @@ signal unit_group_purchased(type: String)
 @onready var groups_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Groups
 @onready var paths_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Paths
 
+@export var group_cost_label : Label
+
 var group_type_to_purchase: String
 var group_type_to_purchase_index: int
 var ready_to_play: bool = true
@@ -48,6 +50,9 @@ func _on_build_button_pressed() -> void:
 
 # Handler for when the play button is pressed
 func _on_play_button_pressed() -> void:
+	
+	ready_to_play = true
+	
 	# Check if the action phase is ready to start
 	for group in GroupManager.groups:
 		if group.target_path == null:

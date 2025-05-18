@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_wjmdx")
+name = "Gnasher Skull"
 sprite = ExtResource("2_pfcm2")
 display_priority = 0
 creature_type = 0

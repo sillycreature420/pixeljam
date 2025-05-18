@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func on_button_press():
 	
-	if !GroupManager.currently_selected_group: push_error("No group was selected"); CannotCraft.emit(); return
+	if !GroupManager.currently_selected_group: print("No group was selected"); CannotCraft.emit(); return
 	
 	##Checks if there is objects in the slots
 	if !object_slot_1.object_held or !object_slot_2.object_held or !object_slot_3.object_held:

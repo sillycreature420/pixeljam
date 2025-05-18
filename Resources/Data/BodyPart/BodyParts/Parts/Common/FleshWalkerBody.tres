@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_i51ey")
+name = "Flesh Walker Body"
 display_priority = 0
 creature_type = 0
 health_modifier = 3.0

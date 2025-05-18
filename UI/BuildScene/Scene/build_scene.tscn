@@ -14,7 +14,7 @@
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwngi"]
-radius = 50.0
+radius = 60.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
 
@@ -149,8 +149,9 @@ theme_override_constants/margin_bottom = 12
 
 [node name="AssemblyLabel" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Assembly:"
+text = "                    Assembly:"
 
 [node name="CenterContainer" type="CenterContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer"]
 layout_mode = 2
@@ -275,7 +276,7 @@ anchor_bottom = 0.304
 offset_bottom = -0.160004
 mouse_filter = 2
 
-[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3")]
+[node name="ShopReroll" type="Button" parent="Shop" node_paths=PackedStringArray("shop_slot1", "shop_slot2", "shop_slot3", "label")]
 layout_mode = 2
 offset_left = 21.0
 offset_top = 122.0
@@ -287,6 +288,7 @@ script = ExtResource("6_y70dw")
 shop_slot1 = NodePath("../ShopSlot1")
 shop_slot2 = NodePath("../ShopSlot2")
 shop_slot3 = NodePath("../ShopSlot3")
+label = NodePath("../RerollCostLabel")
 
 [node name="RerollCostLabel" type="Label" parent="Shop"]
 layout_mode = 2
@@ -330,18 +332,18 @@ stats_text = NodePath("../RichTextLabel")
 
 [node name="Label2" type="Label" parent="Shop"]
 layout_mode = 0
-offset_left = 322.0
-offset_top = 8.0
-offset_right = 366.0
-offset_bottom = 31.0
+offset_left = 431.0
+offset_top = 44.0
+offset_right = 475.0
+offset_bottom = 67.0
 text = "Stats:"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Shop"]
 layout_mode = 0
-offset_left = 323.0
-offset_top = 36.0
-offset_right = 461.0
-offset_bottom = 123.0
+offset_left = 482.0
+offset_top = 45.0
+offset_right = 620.0
+offset_bottom = 444.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]

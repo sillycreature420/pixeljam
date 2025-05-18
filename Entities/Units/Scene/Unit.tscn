@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfcxjta6sfeie"]
+[gd_scene load_steps=10 format=3 uid="uid://cfcxjta6sfeie"]
 
 [ext_resource type="Script" uid="uid://cwvp6lyququh7" path="res://Entities/Units/Script/unit.gd" id="1_0rvlb"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_8h3iq"]
@@ -9,6 +9,15 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0rvlb"]
 radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_osqk6"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0.498039, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0rvlb"]
+gradient = SubResource("Gradient_osqk6")
+fill = 1
+fill_from = Vector2(0.472477, 0.509174)
 
 [node name="Unit" type="Area2D" node_paths=PackedStringArray("attack_cooldown") groups=["units"]]
 script = ExtResource("1_0rvlb")
@@ -54,5 +63,12 @@ script = ExtResource("6_f6oxd")
 to = NodePath("../../Moving")
 event = &"NewPathFound"
 delay_in_seconds = "0.0"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 2.00003)
+scale = Vector2(1.67187, 1.65243)
+energy = 0.1
+blend_mode = 1
+texture = SubResource("GradientTexture2D_0rvlb")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

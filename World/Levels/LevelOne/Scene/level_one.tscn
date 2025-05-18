@@ -1,18 +1,19 @@
-[gd_scene load_steps=21 format=4 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=24 format=4 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="3_04xbx"]
-[ext_resource type="Resource" uid="uid://daogfxhxn8e02" path="res://Resources/Data/BodyPart/BodyParts/Parts/Common/TestBody.tres" id="4_2nvf8"]
+[ext_resource type="Resource" uid="uid://daogfxhxn8e02" path="res://Resources/Data/BodyPart/BodyParts/Parts/Test/TestBody.tres" id="4_2nvf8"]
 [ext_resource type="PackedScene" uid="uid://e7gffkw5l42p" path="res://World/Environment/Features/SpawnPoint/spawn_point.tscn" id="4_a3qh1"]
 [ext_resource type="PackedScene" uid="uid://bc2fk7cxexec3" path="res://Entities/Obstacles/BasicWall/basic_wall.tscn" id="5_dudjm"]
 [ext_resource type="PackedScene" uid="uid://b55sowd0pdqfu" path="res://Entities/Towers/tower.tscn" id="5_mp0tl"]
-[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/Parts/Common/TestHead.tres" id="5_osqk6"]
-[ext_resource type="Resource" uid="uid://b6uamga6cage8" path="res://Resources/Data/BodyPart/LegParts/Parts/Common/TestLeg.tres" id="6_c3ji1"]
+[ext_resource type="Resource" uid="uid://imht6iab5syd" path="res://Resources/Data/BodyPart/HeadParts/Parts/Test/TestHead.tres" id="5_osqk6"]
+[ext_resource type="Resource" uid="uid://b6uamga6cage8" path="res://Resources/Data/BodyPart/LegParts/Parts/Test/TestLeg.tres" id="6_c3ji1"]
 [ext_resource type="PackedScene" uid="uid://cd8wub4pox5o6" path="res://World/Environment/Features/PathfindingNode/pathfinding_node.tscn" id="6_dd4mq"]
 [ext_resource type="PackedScene" uid="uid://viml08d7w1pc" path="res://World/Environment/Features/Goal/goal.tscn" id="6_dudjm"]
 [ext_resource type="Texture2D" uid="uid://cgooqpyhmp3fu" path="res://Assets/tiles_sheet.png" id="7_osqk6"]
 [ext_resource type="PackedScene" uid="uid://cqwml2pfkjwgt" path="res://Entities/Pickups/pickup.tscn" id="8_2nvf8"]
+[ext_resource type="Script" uid="uid://coobm1jtf8org" path="res://Entities/Lighting/flicking_light.gd" id="14_c3ji1"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -68,6 +69,16 @@ tile_shape = 1
 tile_size = Vector2i(32, 16)
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_1kgdi")
+
+[sub_resource type="Gradient" id="Gradient_osqk6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.714286)
+colors = PackedColorArray(1, 0.498039, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c3ji1"]
+gradient = SubResource("Gradient_osqk6")
+fill = 1
+fill_from = Vector2(0.472477, 0.509174)
 
 [node name="Level" type="Node2D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_j6ojo")
@@ -260,3 +271,55 @@ position = Vector2(595, 249)
 
 [node name="Goal" parent="." groups=["goal"] instance=ExtResource("6_dudjm")]
 position = Vector2(727, 410)
+
+[node name="LightingSystem" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="LightingSystem"]
+color = Color(0, 0, 0.439216, 1)
+energy = 5.0
+max_distance = 16384.0
+
+[node name="PointLight2D" type="PointLight2D" parent="LightingSystem"]
+position = Vector2(727, 410)
+scale = Vector2(3.61719, 3.57513)
+energy = 0.86
+texture = SubResource("GradientTexture2D_c3ji1")
+script = ExtResource("14_c3ji1")
+wait_time_variation = 3.0
+light_tween_speed = 0.6
+
+[node name="PointLight2D2" type="PointLight2D" parent="LightingSystem"]
+position = Vector2(372, 158)
+scale = Vector2(3.61719, 3.57513)
+energy = 0.86
+texture = SubResource("GradientTexture2D_c3ji1")
+script = ExtResource("14_c3ji1")
+wait_time_variation = 3.0
+light_tween_speed = 0.6
+
+[node name="PointLight2D3" type="PointLight2D" parent="LightingSystem"]
+position = Vector2(212, 292)
+scale = Vector2(3.61719, 3.57513)
+energy = 0.86
+texture = SubResource("GradientTexture2D_c3ji1")
+script = ExtResource("14_c3ji1")
+wait_time_variation = 3.0
+light_tween_speed = 0.6
+
+[node name="PointLight2D4" type="PointLight2D" parent="LightingSystem"]
+position = Vector2(570, 184)
+scale = Vector2(3.61719, 3.57513)
+energy = 0.86
+texture = SubResource("GradientTexture2D_c3ji1")
+script = ExtResource("14_c3ji1")
+wait_time_variation = 3.0
+light_tween_speed = 0.6
+
+[node name="PointLight2D5" type="PointLight2D" parent="LightingSystem"]
+position = Vector2(290, 458)
+scale = Vector2(3.61719, 3.57513)
+energy = 0.86
+texture = SubResource("GradientTexture2D_c3ji1")
+script = ExtResource("14_c3ji1")
+wait_time_variation = 3.0
+light_tween_speed = 0.6

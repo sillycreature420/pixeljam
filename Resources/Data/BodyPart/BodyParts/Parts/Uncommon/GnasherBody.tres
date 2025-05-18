@@ -5,11 +5,12 @@
 
 [resource]
 script = ExtResource("1_ebtn6")
+name = "Gnasher Body"
 sprite = ExtResource("2_8yv8k")
 display_priority = 0
 creature_type = 0
-health_modifier = -8.0
-speed_modifier = 1.0
+health_modifier = -15.0
+speed_modifier = 2.0
 count_modifier = 10
 damage_modifier = 1.0
 attack_speed_modifier = 1.0

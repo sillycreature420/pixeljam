@@ -30,7 +30,6 @@ func initialize_object():
 	#body_part_resource.body_type is an enum option, so assigning it here outputs an int
 	#0 is head, 1 is body, 2 is legs
 	body_type = body_part_resource.body_type
-	#print(body_type)
 	return
 
 func change_resource(parts_index : int):
@@ -49,9 +48,8 @@ func on_released():
 	
 	for area in areas:
 		if area is Object_Slot:
-			#print("Found object slot")
-			if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1)
-			return
+			if area.body_type == body_part_resource.body_type:
+				if area.store_object_info(self.body_part_resource): change_resource(PartsManager.selected_part + 1); return
 	return
 
 func update_stats_text():
@@ -62,8 +60,13 @@ func update_stats_text():
 	elif body_part_resource.body_type == 2: body_type_text = "Legs"
 	
 	stats_text.text = ""
+	stats_text.text += "\n" + body_part_resource.name
 	stats_text.text += "\nType: " + body_type_text
+	stats_text.text += "\nHealth: " + str(body_part_resource.health_modifier)
 	stats_text.text += "\nDamage: " + str(body_part_resource.damage_modifier)
+	stats_text.text += "\nSpeed: " + str(body_part_resource.speed_modifier)
+	stats_text.text += "\nCount: " + str(body_part_resource.count_modifier)
+	stats_text.text += "\nAttack Speed: " + str(body_part_resource.attack_speed_modifier)
 	return
 
 func _input(event: InputEvent) -> void:

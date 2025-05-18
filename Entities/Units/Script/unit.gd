@@ -52,14 +52,12 @@ func initialize_unit_data(_unit_data : UnitData):
 	damage = unit_data.damage #Not sure if you want this to be + or just assigning / Assigning is fine - Cam
 	speed = unit_data.speed * base_speed
 	attack_cooldown.wait_time = 1 / unit_data.attack_speed
-	print("attack speed: " + str(unit_data.attack_speed))
 	return
 
 # Initialize unit stats based on body parts
 func initialize_components():
 	# Calculate max health from all body part modifiers
 	health_component.max_health = unit_data.max_health
-	#print(health_component.max_health)
 	return
 
 # Called when node enters scene tree
@@ -96,11 +94,6 @@ func check_if_final_unit():
 		EventBus.emit_action_phase_done()
 		EventBus.hud.preparing_scene.show()
 		EventBus.hud.playing_scene.hide()
-		pass
-	else: 
-		for unit in all_units:
-			print(unit.name)
-		
 	return
 
 # Handle reaching a target (path node or obstacle)
@@ -184,7 +177,7 @@ func move_to_next_pathfinding_node():
 				nav_agent.target_position = goal.global_position
 				targeting_goal = true
 
-#TODO avoid overloading with new parts, maybe a % chance to drop based off the count of the group
+
 func drop_new_part():
 	##generates a random number 0, 100. If the number is larger than the weight, then no part will drop
 	var drop_weight = 100 / unit_data.count

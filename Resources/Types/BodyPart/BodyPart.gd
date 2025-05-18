@@ -2,6 +2,7 @@ extends Resource
 class_name BodyPart
 
 @export_group("Graphics")
+@export var name : String
 @export var sprite : Texture2D
 @export var display_priority : int = 0
 #TODO Populate this with the actual types of units we will have

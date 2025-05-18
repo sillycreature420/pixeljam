@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_5gula")
+name = "Shambler Skull"
 display_priority = 0
 creature_type = 0
 health_modifier = 10.0
