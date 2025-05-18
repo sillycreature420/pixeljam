@@ -1,17 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://e7gffkw5l42p"]
+[gd_scene load_steps=3 format=3 uid="uid://e7gffkw5l42p"]
 
-[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="1_1p1k7"]
 [ext_resource type="Script" uid="uid://brife5y1poou7" path="res://World/Environment/Features/SpawnPoint/spawn_point.gd" id="1_mhyus"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhyus"]
-atlas = ExtResource("1_1p1k7")
-region = Rect2(592, 304, 16, 16)
+[ext_resource type="Texture2D" uid="uid://bgqanyiqtmlhx" path="res://Assets/Lab.png" id="2_mhyus"]
 
 [node name="SpawnPoint" type="Node2D"]
 script = ExtResource("1_mhyus")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_mhyus")
+texture = ExtResource("2_mhyus")
 
 [node name="SpawnLocation" type="Node2D" parent="."]
 position = Vector2(19, 17)

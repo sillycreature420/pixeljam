@@ -109,7 +109,8 @@ func build_groups_container():
 func build_path_label(_group : UnitGroup) -> Label:
 	
 	var new_path_label = Label.new()
-	new_path_label.text = "Assign a path."
+	if _group.target_path: new_path_label.text = _group.target_path.name
+	else: new_path_label.text = "Choose a path!"
 	new_path_label.custom_minimum_size = Vector2(16,32)
 	hud.paths_label_container.add_child(new_path_label)
 	return new_path_label

@@ -15,10 +15,13 @@ class_name FlickingLight2D
 
 func _ready() -> void:
 	setup_timer()
+	EventBus.prep_phase_done.connect(night_time)
+	EventBus.action_phase_done.connect(day_time)
+	day_time()
 	return
 
 func setup_timer():
-	timer.autostart = true
+	timer.autostart = false
 	add_child(timer)
 	timer.timeout.connect(change_light_energy)
 	return
@@ -27,4 +30,13 @@ func change_light_energy():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "energy", randf() * light_intensity, light_tween_speed)
 	timer.wait_time = randf_range(1 * wait_time_variation, 1.5 * wait_time_variation)
+	return
+
+func day_time():
+	energy = 0
+	timer.stop()
+	return
+
+func night_time():
+	timer.start()
 	return
