@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_7me3y"]
 [ext_resource type="Texture2D" uid="uid://vga3avpb4gyh" path="res://addons/godot_state_charts/toggle_sidebar.svg" id="2_a7ugr"]
-[ext_resource type="SpriteFrames" uid="uid://dbuh1q5bh5o6s" path="res://Resources/Data/BodyPart/SpriteFrames/ZombieWalkLegs.tres" id="3_0stkv"]
+[ext_resource type="SpriteFrames" uid="uid://dbuh1q5bh5o6s" path="res://Resources/Data/BodyPart/SpriteFrames/Zombie/ZombieWalkLegs.tres" id="3_0stkv"]
 
 [resource]
 script = ExtResource("1_7me3y")

@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://loxgs6x40sa6"]
+
+[ext_resource type="Texture2D" uid="uid://cxj0g4gxxg2ty" path="res://Assets/ShamblerSprites/ShamblerLegsSpriteSheet.png" id="1_51gvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8h86"]
+atlas = ExtResource("1_51gvq")
+region = Rect2(72, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5xy1"]
+atlas = ExtResource("1_51gvq")
+region = Rect2(200, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n1qs"]
+atlas = ExtResource("1_51gvq")
+region = Rect2(328, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb5i2"]
+atlas = ExtResource("1_51gvq")
+region = Rect2(456, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8h86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5xy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n1qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb5i2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

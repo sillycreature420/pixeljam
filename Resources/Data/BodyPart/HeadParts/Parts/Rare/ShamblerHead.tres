@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://cakum8l17234p"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=3 format=3 uid="uid://cakum8l17234p"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_5gula"]
+[ext_resource type="SpriteFrames" uid="uid://hipd4xa76fo3" path="res://Resources/Data/BodyPart/SpriteFrames/Shambler/ShamblerHeadSpriteFrames.tres" id="2_en8aw"]
 
 [resource]
 script = ExtResource("1_5gula")
 name = "Shambler Skull"
+sprite_frames = ExtResource("2_en8aw")
 display_priority = 0
 creature_type = 0
 health_modifier = 10.0
