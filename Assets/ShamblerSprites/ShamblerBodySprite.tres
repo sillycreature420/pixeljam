@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dlsad2wvjf6qj"]
+
+[ext_resource type="Texture2D" uid="uid://cadk07mgtr8el" path="res://Assets/ShamblerSprites/ShamblerBodySpriteSheet.png" id="1_17rak"]
+
+[resource]
+atlas = ExtResource("1_17rak")
+region = Rect2(208.92, 42.685, 16, 16)

@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://bdsdrdl1b4604"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://bdsdrdl1b4604"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_i51ey"]
+[ext_resource type="Texture2D" uid="uid://cwmw2ceqs48n3" path="res://Assets/ZombieSprites/FleshWalkerBodySprite.tres" id="2_ene76"]
+[ext_resource type="SpriteFrames" uid="uid://dpvi8lpgeqcyq" path="res://Resources/Data/BodyPart/SpriteFrames/Zombie/ZombieWalkBody.tres" id="3_m18y7"]
 
 [resource]
 script = ExtResource("1_i51ey")
 name = "Flesh Walker Body"
+sprite = ExtResource("2_ene76")
+sprite_frames = ExtResource("3_m18y7")
 display_priority = 0
 creature_type = 0
 health_modifier = 3.0
