@@ -94,7 +94,7 @@ func build_groups_container():
 	for group in GroupManager.groups:
 		var new_group_button = Button.new()
 		new_group_button.text = "Group " + str(GroupManager.groups.find(group) + 1)
-		
+		new_group_button.icon = group.unit_data.head_part.sprite
 		new_group_button.pressed.connect(_group_selected.bind(group))
 		
 		hud.groups_container.add_child(new_group_button)

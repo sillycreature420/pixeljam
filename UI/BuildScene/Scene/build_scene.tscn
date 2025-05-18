@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdno5nencn4p8"]
+[gd_scene load_steps=15 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
+[ext_resource type="Texture2D" uid="uid://cvridgrgida3n" path="res://Assets/Build_phase_test.png" id="2_com0n"]
 [ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
 [ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
 [ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
@@ -8,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dqvy1msy0pyyi" path="res://UI/Shop/Scene/shop_slot.tscn" id="6_nwngi"]
 [ext_resource type="Script" uid="uid://dgc0nafcuckh7" path="res://UI/Shop/Script/shop_reroll.gd" id="6_y70dw"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_auprv"]
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwngi"]
 radius = 60.0
+
+[sub_resource type="Theme" id="Theme_com0n"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
 
@@ -39,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_auprv")
+texture = ExtResource("2_com0n")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -142,6 +143,7 @@ mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly"]
 layout_mode = 2
+theme = SubResource("Theme_com0n")
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12

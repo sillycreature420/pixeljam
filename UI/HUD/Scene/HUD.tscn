@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt44ewa43ei5s"]
+[gd_scene load_steps=4 format=3 uid="uid://dt44ewa43ei5s"]
 
 [ext_resource type="Script" uid="uid://d05eds26ys34f" path="res://UI/HUD/Script/hud_controller.gd" id="1_hs5f0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hs5f0"]
+load_path = "res://.godot/imported/head_test1.png-e07598c4ea8414b1d8377d30b3302043.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pc8e"]
+atlas = SubResource("CompressedTexture2D_hs5f0")
+region = Rect2(0, 0, 16, 16.4125)
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("group_cost_label")]
 layout_mode = 3
@@ -10,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hs5f0")
-group_cost_label = NodePath("Preparing/VBoxContainer/UnitPurchaseDialog/GroupCostLabel")
+group_cost_label = NodePath("Preparing/VBoxContainer/GroupPathDialog/HBoxContainer/GroupCostLabel")
 
 [node name="Playing" type="Control" parent="."]
 layout_mode = 1
@@ -56,6 +63,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GroupPathDialog" type="VBoxContainer" parent="Preparing/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 5.0
+
+[node name="GroupPathLabel" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+text = "Your Army:"
+
+[node name="Groups" type="VBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="DummyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Groups"]
+layout_mode = 2
+text = "DummyGroup"
+icon = SubResource("AtlasTexture_5pc8e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+
+[node name="BuyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy Group"
+
+[node name="GroupCostLabel" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "50 Points"
+
+[node name="Paths" type="VBoxContainer" parent="Preparing/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="DummyPath" type="Button" parent="Preparing/VBoxContainer/Paths"]
+layout_mode = 2
+text = "DummyPath"
+
 [node name="DebugStuff" type="VBoxContainer" parent="Preparing/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -81,48 +127,15 @@ layout_mode = 2
 size_flags_vertical = 10
 
 [node name="BuyUnitsLabel" type="Label" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
+visible = false
 layout_mode = 2
 text = "Buy More Unit Groups:"
 
 [node name="TypeToBuy" type="Button" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Zombie"
-
-[node name="BuyGroup" type="Button" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
-layout_mode = 2
-text = "Buy Group"
-
-[node name="GroupCostLabel" type="Label" parent="Preparing/VBoxContainer/UnitPurchaseDialog"]
-layout_mode = 2
-text = "50 Points"
-
-[node name="GroupPathDialog" type="HBoxContainer" parent="Preparing/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-size_flags_stretch_ratio = 5.0
-
-[node name="GroupPathLabel" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog"]
-layout_mode = 2
-text = "Assign Groups to Paths:"
-
-[node name="Groups" type="GridContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
-layout_mode = 2
-size_flags_horizontal = 6
-columns = 4
-
-[node name="DummyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Groups"]
-layout_mode = 2
-text = "DummyGroup"
-
-[node name="Paths" type="GridContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
-layout_mode = 2
-size_flags_horizontal = 6
-columns = 3
-
-[node name="DummyPath" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Paths"]
-layout_mode = 2
-text = "DummyPath"
 
 [node name="BottomRowControls" type="HBoxContainer" parent="Preparing/VBoxContainer"]
 layout_mode = 2
@@ -153,9 +166,9 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
+[connection signal="pressed" from="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer/BuyGroup" to="." method="_on_buy_group_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/HBoxContainer/AddGroupDebugButton" to="." method="_on_add_group_debug_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/DebugGroupOptions/ZombieGroup" to="." method="debug_new_group_type_selected" binds= ["Zombie"]]
 [connection signal="pressed" from="Preparing/VBoxContainer/UnitPurchaseDialog/TypeToBuy" to="." method="_on_type_to_buy_pressed"]
-[connection signal="pressed" from="Preparing/VBoxContainer/UnitPurchaseDialog/BuyGroup" to="." method="_on_buy_group_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/BuildButton" to="." method="_on_build_button_pressed"]

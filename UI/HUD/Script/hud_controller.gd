@@ -8,8 +8,8 @@ signal unit_group_purchased(type: String)
 # Reference to the preparation phase UI element
 @onready var preparing_scene: Control = $Preparing
 
-@onready var groups_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Groups
-@onready var paths_container: GridContainer = $Preparing/VBoxContainer/GroupPathDialog/Paths
+@onready var groups_container: VBoxContainer = $Preparing/VBoxContainer/GroupPathDialog/Groups
+@onready var paths_container: VBoxContainer = $Preparing/VBoxContainer/Paths
 
 @export var group_cost_label : Label
 

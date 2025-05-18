@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BodyPart" load_steps=3 format=3 uid="uid://yvmqr837teko"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_wjmdx"]
-[ext_resource type="Texture2D" uid="uid://b3abc31os15g0" path="res://Resources/Data/BodyPart/HeadParts/Sprites/head_test1.png" id="2_pfcm2"]
+[ext_resource type="Texture2D" uid="uid://b2cfyq2u18a2m" path="res://Resources/Data/BodyPart/HeadParts/Sprites/head_test.png" id="2_wjmdx"]
 
 [resource]
 script = ExtResource("1_wjmdx")
 name = "Gnasher Skull"
-sprite = ExtResource("2_pfcm2")
+sprite = ExtResource("2_wjmdx")
 display_priority = 0
 creature_type = 0
 health_modifier = -5.0
