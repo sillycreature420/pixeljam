@@ -9,7 +9,7 @@ signal unit_group_purchased(type: String)
 @onready var preparing_scene: Control = $Preparing
 
 @onready var groups_container: VBoxContainer = $Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2/Groups
-@onready var paths_container: VBoxContainer = $Preparing/VBoxContainer/Paths
+@onready var paths_container: VBoxContainer = $Preparing/Paths
 @onready var paths_label_container : VBoxContainer = $Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2/PathLabels
 
 @export var group_cost_label : Label
