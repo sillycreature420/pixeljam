@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func assign_path(group: UnitGroup, path: Node2D):
 	group.target_path = path
+	group.path_label.text = path.name
 
 
 func assign_unit_data(group: UnitGroup, unit_data: UnitData):

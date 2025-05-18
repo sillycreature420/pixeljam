@@ -90,6 +90,10 @@ func build_groups_container():
 	for child in hud.groups_container.get_children():
 		child.queue_free()
 	
+	# Clear the path labels
+	for child in hud.paths_label_container.get_children():
+		child.queue_free()
+	
 	# Add buttons for each group found in the group manager component
 	for group in GroupManager.groups:
 		var new_group_button = Button.new()
@@ -98,7 +102,18 @@ func build_groups_container():
 		new_group_button.pressed.connect(_group_selected.bind(group))
 		
 		hud.groups_container.add_child(new_group_button)
+		group.path_label = build_path_label(group)
 		
+		
+
+func build_path_label(_group : UnitGroup) -> Label:
+	
+	var new_path_label = Label.new()
+	new_path_label.text = "Assign a path."
+	new_path_label.custom_minimum_size = Vector2(16,32)
+	hud.paths_label_container.add_child(new_path_label)
+	return new_path_label
+
 func build_paths_container():
 	# Clear the current path buttons
 	for child in hud.paths_container.get_children():

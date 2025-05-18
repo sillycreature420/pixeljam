@@ -1,12 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt44ewa43ei5s"]
+[gd_scene load_steps=2 format=3 uid="uid://dt44ewa43ei5s"]
 
 [ext_resource type="Script" uid="uid://d05eds26ys34f" path="res://UI/HUD/Script/hud_controller.gd" id="1_hs5f0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hs5f0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5pc8e"]
-atlas = SubResource("CompressedTexture2D_hs5f0")
-region = Rect2(0, 0, 16, 16.4125)
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("group_cost_label")]
 layout_mode = 3
@@ -71,14 +65,32 @@ size_flags_stretch_ratio = 5.0
 layout_mode = 2
 text = "Your Army:"
 
-[node name="Groups" type="VBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Groups" type="VBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 32)
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="DummyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/Groups"]
+[node name="DummyGroup" type="Button" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2/Groups"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "DummyGroup"
-icon = SubResource("AtlasTexture_5pc8e")
+
+[node name="PathLabels" type="VBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2/PathLabels"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "assigned to path 1."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Preparing/VBoxContainer/GroupPathDialog"]
 layout_mode = 2
