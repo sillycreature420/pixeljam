@@ -372,6 +372,3 @@ light_tween_speed = 0.6
 unique_name_in_owner = true
 stream = ExtResource("17_7ppdn")
 bus = &"SFX"
-
-[node name="Houses" type="Sprite2D" parent="."]
-position = Vector2(408, 265)

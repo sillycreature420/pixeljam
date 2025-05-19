@@ -29,10 +29,6 @@ func _ready() -> void:
 	EventBus.points_added.connect(_update_points_total)
 	LevelManager.transition_completed.connect(_level_loaded)
 	
-	#HACK Load in some test parts to start the level with
-	#PartsManager.parts = test_parts
-	#PartsManager.selected_part = 0
-	
 	LevelManager.total_points = current_points
 
 func start_action_phase():
