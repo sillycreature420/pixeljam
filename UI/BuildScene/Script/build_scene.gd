@@ -28,6 +28,7 @@ func build_groups_container():
 
 func _group_selected(group):
 	GroupManager.currently_selected_group = group
+	%CurrentlySelectedGroup.text = str(GroupManager.groups.find(group) + 1)
 	print(str(group) + " selected")
 
 

@@ -371,6 +371,22 @@ object_slot_1 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer
 object_slot_2 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody")
 object_slot_3 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs")
 
+[node name="GroupSelectedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 444.0
+offset_right = 793.0
+offset_bottom = 467.0
+text = "Group Selected:"
+
+[node name="CurrentlySelectedGroup" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 794.0
+offset_top = 445.0
+offset_right = 917.0
+offset_bottom = 468.0
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/SelectButtons/SelectPrevPart" to="." method="_on_select_prev_part_pressed"]
