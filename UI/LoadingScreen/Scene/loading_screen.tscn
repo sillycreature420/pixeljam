@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cac0e1ufp4k1s"]
+[gd_scene load_steps=3 format=3 uid="uid://cac0e1ufp4k1s"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kp7xd"]
+[sub_resource type="Gradient" id="Gradient_kp7xd"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mnn02"]
+gradient = SubResource("Gradient_kp7xd")
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -17,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_kp7xd")
+texture = SubResource("GradientTexture1D_mnn02")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
