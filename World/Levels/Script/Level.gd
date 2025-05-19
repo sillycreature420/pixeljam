@@ -9,6 +9,8 @@ extends Node2D
 @export var test_parts: Array[BodyPart]
 
 @onready var hud: Control = $"../UILayer/HUD"
+@onready var music_player: AudioStreamPlayer = $"/root/World/Music"
+const LEVEL_MUSIC = preload("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
 
 # Spawn point for units (initialized when level loads)
 var spawn_point: Node2D
@@ -29,7 +31,7 @@ func _ready() -> void:
 	#HACK Load in some test parts to start the level with
 	#PartsManager.parts = test_parts
 	#PartsManager.selected_part = 0
-
+	
 	LevelManager.total_points = current_points
 
 func start_action_phase():
@@ -71,7 +73,10 @@ func _level_loaded():
 	build_paths_container()
 	hud.update_round_display(current_round)
 	_update_points_total(current_points)
-
+	
+	music_player.stream = LEVEL_MUSIC
+	music_player.play()
+	
 
 func _group_selected(group):
 	GroupManager.currently_selected_group = group

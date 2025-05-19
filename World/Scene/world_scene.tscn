@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnql4xsdf4yqp"]
+[gd_scene load_steps=9 format=3 uid="uid://bnql4xsdf4yqp"]
 
 [ext_resource type="PackedScene" uid="uid://c32gnxi2b8mbq" path="res://UI/MainMenu/Scene/main_menu.tscn" id="1_fbpti"]
 [ext_resource type="PackedScene" uid="uid://dt44ewa43ei5s" path="res://UI/HUD/Scene/HUD.tscn" id="2_ldy0v"]
 [ext_resource type="PackedScene" uid="uid://cdno5nencn4p8" path="res://UI/BuildScene/Scene/build_scene.tscn" id="2_urue2"]
+[ext_resource type="PackedScene" uid="uid://cevs52wlc750j" path="res://UI/OptionsMenu/options_menu.tscn" id="4_5asll"]
 [ext_resource type="PackedScene" uid="uid://8adewwn5hngw" path="res://World/Levels/LevelOne/Scene/level_one.tscn" id="4_b8c1i"]
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="5_abtoq"]
 [ext_resource type="Script" uid="uid://c2fotwxg0p3ea" path="res://Scripts/WorldComponents/CameraController.gd" id="6_75yel"]
@@ -19,12 +20,23 @@ unique_name_in_owner = true
 
 [node name="MainMenu" parent="UILayer" instance=ExtResource("1_fbpti")]
 
+[node name="OptionsMenu" parent="UILayer" instance=ExtResource("4_5asll")]
+unique_name_in_owner = true
+visible = false
+
 [node name="Level" parent="." instance=ExtResource("4_b8c1i")]
 test_parts = Array[ExtResource("5_abtoq")]([ExtResource("6_b8c1i")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("6_75yel")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="unit_group_purchased" from="UILayer/HUD" to="Level" method="_on_hud_unit_group_purchased"]
 
