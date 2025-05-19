@@ -113,6 +113,7 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 func check_if_final_unit():
 	var all_units = get_parent().get_children()
+	await get_tree().process_frame
 	if all_units.size() <= 1:
 		#Do round end logic here
 		print("everyone is dead!")
@@ -231,3 +232,15 @@ func _on_death():
 	drop_new_part()
 	LevelManager.update_points_total(50)
 	queue_free()
+
+func _exit_tree() -> void:
+	var all_units_dead = true
+	for unit in get_tree().get_nodes_in_group("units"):
+		if !unit.is_queued_for_deletion():
+			all_units_dead = false
+	
+	if all_units_dead == true:
+		print("everyone is dead!")
+		EventBus.emit_action_phase_done()
+		EventBus.hud.preparing_scene.show()
+		EventBus.hud.playing_scene.hide()

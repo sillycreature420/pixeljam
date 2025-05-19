@@ -151,7 +151,3 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		_update_points_total(current_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")
-
-
-func _on_music_finished() -> void:
-	music_player.play()
