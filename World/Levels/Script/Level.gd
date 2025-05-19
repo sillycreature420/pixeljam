@@ -10,6 +10,8 @@ extends Node2D
 
 @onready var hud: Control = $"../UILayer/HUD"
 @onready var music_player: AudioStreamPlayer = $"/root/World/Music"
+@onready var sfx_player: AudioStreamPlayer = $"/root/World/SFX"
+
 const LEVEL_MUSIC = preload("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
 
 # Spawn point for units (initialized when level loads)

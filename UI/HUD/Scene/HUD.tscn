@@ -180,6 +180,19 @@ text = "Points: "
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="OptionsButton" type="Button" parent="Preparing"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Options"
+
 [connection signal="pressed" from="Playing/VBoxContainer/Debug/ReturnToPrepButton" to="." method="_on_return_to_prep_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer/BuyGroup" to="." method="_on_buy_group_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/DebugStuff/HBoxContainer/AddGroupDebugButton" to="." method="_on_add_group_debug_button_pressed"]
@@ -187,3 +200,4 @@ layout_mode = 2
 [connection signal="pressed" from="Preparing/VBoxContainer/UnitPurchaseDialog/TypeToBuy" to="." method="_on_type_to_buy_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Preparing/VBoxContainer/BottomRowControls/BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="Preparing/OptionsButton" to="." method="_on_options_button_pressed"]
