@@ -6,9 +6,19 @@
 [ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
 [ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
 [ext_resource type="Script" uid="uid://c3p4s2jm6kg2l" path="res://UI/ObjectSlot/Script/craft_button.gd" id="4_stjvo"]
+[ext_resource type="Texture2D" uid="uid://dgkha5aua4b60" path="res://Assets/BuildSlotTexture.png" id="5_anxpf"]
 [ext_resource type="PackedScene" uid="uid://dqvy1msy0pyyi" path="res://UI/Shop/Scene/shop_slot.tscn" id="6_nwngi"]
 [ext_resource type="Script" uid="uid://dgc0nafcuckh7" path="res://UI/Shop/Script/shop_reroll.gd" id="6_y70dw"]
 [ext_resource type="Script" uid="uid://dvabdordyrvux" path="res://UI/Shop/Script/merged_stats.gd" id="9_d4yl2"]
+
+[sub_resource type="Gradient" id="Gradient_d4yl2"]
+offsets = PackedFloat32Array(0, 0.694805)
+colors = PackedColorArray(1, 1, 1, 0.207843, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anxpf"]
+gradient = SubResource("Gradient_d4yl2")
+fill = 1
+fill_from = Vector2(0.490826, 0.504587)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nwngi"]
 size = Vector2(16, 16)
@@ -17,12 +27,6 @@ size = Vector2(16, 16)
 radius = 60.0
 
 [sub_resource type="Theme" id="Theme_com0n"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lk7k5"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imtg7"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4iico"]
 
 [node name="BuildScene" type="Control"]
 layout_mode = 3
@@ -111,6 +115,14 @@ z_index = 1
 script = ExtResource("2_nwngi")
 stats_text = NodePath("../../../../../../../Shop/HoveredStats")
 
+[node name="RarityGlow" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
+offset_left = -66.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_anxpf")
+
 [node name="Sprite2D" type="Sprite2D" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart"]
 scale = Vector2(8, 8)
 texture = SubResource("PlaceholderTexture2D_nwngi")
@@ -176,7 +188,7 @@ text = "Head"
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = SubResource("PlaceholderTexture2D_lk7k5")
+texture = ExtResource("5_anxpf")
 
 [node name="ObjectSlotHead" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head" instance=ExtResource("3_4iico")]
 position = Vector2(107, 63)
@@ -192,7 +204,7 @@ text = "Body"
 [node name="Body" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_imtg7")
+texture = ExtResource("5_anxpf")
 
 [node name="ObjectSlotBody" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body" instance=ExtResource("3_4iico")]
 position = Vector2(107, 63)
@@ -209,7 +221,7 @@ text = "Legs"
 [node name="Legs" type="TextureRect" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_4iico")
+texture = ExtResource("5_anxpf")
 
 [node name="ObjectSlotLegs" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs" instance=ExtResource("3_4iico")]
 position = Vector2(107, 63)
@@ -358,6 +370,22 @@ script = ExtResource("9_d4yl2")
 object_slot_1 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Head/ObjectSlotHead")
 object_slot_2 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Body/ObjectSlotBody")
 object_slot_3 = NodePath("../../AspectRatioContainer/VBoxContainer/HBoxContainer2/PartsAssembly/MarginContainer/CenterContainer/VBoxContainer/Legs/ObjectSlotLegs")
+
+[node name="GroupSelectedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 444.0
+offset_right = 793.0
+offset_bottom = 467.0
+text = "Group Selected:"
+
+[node name="CurrentlySelectedGroup" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 794.0
+offset_top = 445.0
+offset_right = 917.0
+offset_bottom = 468.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="input_event" from="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" to="AspectRatioContainer/VBoxContainer/HBoxContainer2/VBoxContainer/PartsVatPanel/CurrentPart/CurrentPart/PickupableComponent" method="_input_event"]

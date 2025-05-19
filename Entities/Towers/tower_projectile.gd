@@ -3,6 +3,7 @@ extends Node2D
 var projectile_speed: float = 80.0
 var damage: float
 var target_unit: Node2D
+var collided: bool = false
 
 func update_position(target_global_pos: Vector2, delta: float) -> void:
 	global_position = global_position.move_toward(
@@ -14,6 +15,7 @@ func update_position(target_global_pos: Vector2, delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area == target_unit:
+	if area == target_unit && collided == false:
 		area.health_component.damage(damage)
 		queue_free()
+		collided = true

@@ -12,6 +12,8 @@ signal unit_group_purchased(type: String)
 @onready var paths_container: VBoxContainer = $Preparing/Paths
 @onready var paths_label_container : VBoxContainer = $Preparing/VBoxContainer/GroupPathDialog/HBoxContainer2/PathLabels
 
+@onready var options_menu: Control = $"/root/World/UILayer/OptionsMenu"
+
 @export var group_cost_label : Label
 
 var group_type_to_purchase: String
@@ -112,3 +114,7 @@ func _on_type_to_buy_pressed() -> void:
 		group_type_to_purchase_index = 0
 	group_type_to_purchase = UnitData.CREATURE_TYPE.keys()[group_type_to_purchase_index]
 	%TypeToBuy.text = group_type_to_purchase
+
+
+func _on_options_button_pressed() -> void:
+	options_menu.show()

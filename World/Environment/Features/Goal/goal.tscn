@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://viml08d7w1pc"]
+[gd_scene load_steps=6 format=3 uid="uid://viml08d7w1pc"]
 
 [ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="1_am0wf"]
 [ext_resource type="Script" uid="uid://b41vt3k452dhb" path="res://World/Environment/Features/Goal/goal.gd" id="1_yldyy"]
 [ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="3_ufa6t"]
+[ext_resource type="AudioStream" uid="uid://faq2x75k5tx7" path="res://Assets/Audio/SFX/goal_reached.wav" id="4_qcqvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyd80"]
 atlas = ExtResource("1_am0wf")
@@ -16,3 +17,8 @@ texture = SubResource("AtlasTexture_oyd80")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_ufa6t")]
 max_health = 100.0
+
+[node name="GoalReached" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_qcqvg")
+volume_db = -4.0

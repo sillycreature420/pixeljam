@@ -28,6 +28,7 @@ func build_groups_container():
 
 func _group_selected(group):
 	GroupManager.currently_selected_group = group
+	%CurrentlySelectedGroup.text = str(GroupManager.groups.find(group) + 1)
 	print(str(group) + " selected")
 
 
@@ -39,6 +40,7 @@ func _on_visibility_changed() -> void:
 func show_currently_selected_part():
 	%CurrentPart.body_part_resource = PartsManager.parts[PartsManager.selected_part]
 	%CurrentPart.sprite_node.texture = PartsManager.parts[PartsManager.selected_part].sprite
+	%CurrentPart.update_rarity_glow()
 
 
 func _on_select_prev_part_pressed() -> void:

@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="BodyPart" load_steps=2 format=3 uid="uid://bt7iijb4trgf6"]
+[gd_resource type="Resource" script_class="BodyPart" load_steps=4 format=3 uid="uid://bt7iijb4trgf6"]
 
 [ext_resource type="Script" uid="uid://60krhj2toyet" path="res://Resources/Types/BodyPart/BodyPart.gd" id="1_r6k7t"]
+[ext_resource type="Texture2D" uid="uid://bro31o6sbngf7" path="res://Assets/ZombieSprites/FleshWalkerHeadSprite.tres" id="2_32u15"]
+[ext_resource type="SpriteFrames" uid="uid://cmobgtadj3a34" path="res://Resources/Data/BodyPart/SpriteFrames/Zombie/ZombieWalkHead.tres" id="3_m5pfu"]
 
 [resource]
 script = ExtResource("1_r6k7t")
 name = "Demon Teeth"
+sprite = ExtResource("2_32u15")
+sprite_frames = ExtResource("3_m5pfu")
 display_priority = 0
 creature_type = 0
 health_modifier = 0.0

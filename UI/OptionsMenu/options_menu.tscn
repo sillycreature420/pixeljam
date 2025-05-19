@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cevs52wlc750j"]
+
+[ext_resource type="Script" uid="uid://bf5pb1fwfjrun" path="res://UI/OptionsMenu/options_menu.gd" id="1_a44bu"]
+[ext_resource type="PackedScene" uid="uid://bqrrl41pxuixa" path="res://UI/Audio/audio_slider.tscn" id="2_w5ifl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a44bu"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a44bu")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_a44bu")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="AudioSlider" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_w5ifl")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+print_debug = false
+audio_bus_to_change = "Music"
+
+[node name="SFXLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="AudioSlider2" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_w5ifl")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+print_debug = false
+audio_bus_to_change = "SFX"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
