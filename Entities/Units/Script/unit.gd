@@ -25,6 +25,7 @@ var next_pos: Vector2
 var movement_delta: float
 var targeting_goal: bool = false
 
+
 # Combat variables
 var target_obstacle = null  # Current obstacle being attacked (null if none)
 var health: float  # Current health
@@ -239,8 +240,9 @@ func _exit_tree() -> void:
 		if !unit.is_queued_for_deletion():
 			all_units_dead = false
 	
-	if all_units_dead == true:
+	if all_units_dead == true && LevelManager.round_ending == false:
 		print("everyone is dead!")
 		EventBus.emit_action_phase_done()
 		EventBus.hud.preparing_scene.show()
 		EventBus.hud.playing_scene.hide()
+		LevelManager.round_ending = true

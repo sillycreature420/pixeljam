@@ -19,6 +19,7 @@ var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/lo
 @onready var hud: HUD = $"../World/UILayer/HUD"
 
 var total_points : int
+var round_ending: bool = false
 
 # DEPRECATED - Kept for potential backward compatibility
 var tile_data: TileMapLayer
