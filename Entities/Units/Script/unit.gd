@@ -114,7 +114,6 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 func check_if_final_unit():
 	var all_units = get_parent().get_children()
-	await get_tree().process_frame
 	if all_units.size() <= 1:
 		#Do round end logic here
 		print("everyone is dead!")

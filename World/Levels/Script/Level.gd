@@ -74,7 +74,7 @@ func _level_loaded():
 	build_groups_container()
 	build_paths_container()
 	hud.update_round_display(current_round)
-	_update_points_total(current_points)
+	_update_points_total(LevelManager.total_points)
 	
 	music_player.stream = LEVEL_MUSIC
 	music_player.play()
@@ -138,16 +138,16 @@ func build_paths_container():
 
 
 func _update_points_total(points: int):
-	hud.update_points_display(current_points)
+	hud.update_points_display(points)
 	
 
 func _on_hud_unit_group_purchased(type: String) -> void:
-	if current_points >= new_group_cost:
+	if LevelManager.total_points >= new_group_cost:
 		var new_group = UnitGroup.new()
 		EventBus.emit_new_group_added(new_group, type)
-		current_points -= new_group_cost
+		LevelManager.total_points -= new_group_cost
 		new_group_cost += 50
 		LevelManager.hud.group_cost_label.text = str(new_group_cost) + " Points" 
-		_update_points_total(current_points)
+		_update_points_total(LevelManager.total_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")
