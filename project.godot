@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="FromTheDeadGameTheme"
+config/name="RisenAndReassembled"
 run/main_scene="uid://bnql4xsdf4yqp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
