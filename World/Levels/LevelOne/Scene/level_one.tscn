@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=28 format=4 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hq2f4w87dq5" path="res://Assets/adjusted_tiles_sprite_sheet.png" id="8_6rfv2"]
 [ext_resource type="Script" uid="uid://coobm1jtf8org" path="res://Entities/Lighting/flicking_light.gd" id="14_c3ji1"]
 [ext_resource type="Script" uid="uid://splttxuie3s7" path="res://World/Levels/LevelOne/Lighting/DayNightCycle.gd" id="15_etgsi"]
+[ext_resource type="AudioStream" uid="uid://e4lqr6xcl6ks" path="res://Assets/Audio/SFX/round_start.wav" id="17_7ppdn"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -364,3 +365,10 @@ texture = SubResource("GradientTexture2D_c3ji1")
 script = ExtResource("14_c3ji1")
 wait_time_variation = 3.0
 light_tween_speed = 0.6
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="RoundStart" type="AudioStreamPlayer" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("17_7ppdn")
+bus = &"SFX"

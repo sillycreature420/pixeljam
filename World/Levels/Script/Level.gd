@@ -10,7 +10,6 @@ extends Node2D
 
 @onready var hud: Control = $"../UILayer/HUD"
 @onready var music_player: AudioStreamPlayer = $"/root/World/Music"
-@onready var sfx_player: AudioStreamPlayer = $"/root/World/SFX"
 
 const LEVEL_MUSIC = preload("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
 
@@ -40,7 +39,8 @@ func start_action_phase():
 	# Spawn units, the spawn_point handles the path assignment
 	for group in GroupManager.groups:
 		spawn_point.spawn_group(group)
-
+	
+	%RoundStart.play()
 
 func end_action_phase():
 	# Increment round by one
@@ -151,3 +151,7 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		_update_points_total(current_points)
 	else:
 		push_warning("Not enough points to purchase a new group of units!")
+
+
+func _on_music_finished() -> void:
+	music_player.play()

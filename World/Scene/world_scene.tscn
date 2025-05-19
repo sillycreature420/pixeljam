@@ -35,11 +35,8 @@ script = ExtResource("6_75yel")
 unique_name_in_owner = true
 bus = &"Music"
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-bus = &"SFX"
-
 [connection signal="unit_group_purchased" from="UILayer/HUD" to="Level" method="_on_hud_unit_group_purchased"]
+[connection signal="finished" from="Music" to="Level" method="_on_music_finished"]
 
 [editable path="Level"]
 [editable path="Level/Towers/Path3/Tower"]
