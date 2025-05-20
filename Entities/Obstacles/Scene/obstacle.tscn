@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="2_n27sn"]
 
 [node name="Obstacle" type="Node2D" node_paths=PackedStringArray("health_component") groups=["obstacles"]]
+y_sort_enabled = true
 script = ExtResource("1_ab0uj")
 health_component = NodePath("HealthComponent")
 

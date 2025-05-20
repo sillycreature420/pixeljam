@@ -20,6 +20,7 @@ fill = 1
 fill_from = Vector2(0.472477, 0.509174)
 
 [node name="Unit" type="Area2D" node_paths=PackedStringArray("animated_head", "animated_body", "animated_legs", "attack_cooldown") groups=["units"]]
+y_sort_enabled = true
 script = ExtResource("1_0rvlb")
 animated_head = NodePath("AnimatedSpriteHead")
 animated_body = NodePath("AnimatedSpriteBody")
@@ -27,13 +28,12 @@ animated_legs = NodePath("AnimatedSpriteLegs")
 attack_cooldown = NodePath("AttackCooldown")
 
 [node name="AnimatedSpriteLegs" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
 
 [node name="AnimatedSpriteBody" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2.5)
+position = Vector2(0, -0.5)
 
 [node name="AnimatedSpriteHead" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0rvlb")
