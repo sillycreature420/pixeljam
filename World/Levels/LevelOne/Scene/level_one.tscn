@@ -382,6 +382,9 @@ position = Vector2(314, 46)
 [node name="PathfindingNode3" parent="Path2" instance=ExtResource("6_dd4mq")]
 position = Vector2(401, 94)
 
+[node name="PathfindingNode12" parent="Path2" instance=ExtResource("6_dd4mq")]
+position = Vector2(371, 72)
+
 [node name="PathfindingNode4" parent="Path2" instance=ExtResource("6_dd4mq")]
 position = Vector2(365, 117)
 

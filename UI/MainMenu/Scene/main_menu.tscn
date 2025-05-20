@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c32gnxi2b8mbq"]
+[gd_scene load_steps=3 format=3 uid="uid://c32gnxi2b8mbq"]
 
 [ext_resource type="Script" uid="uid://ch3w44j7g8bu8" path="res://UI/MainMenu/Script/main_menu.gd" id="1_e3ngv"]
-
-[sub_resource type="Gradient" id="Gradient_e3ngv"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2xedc"]
-gradient = SubResource("Gradient_e3ngv")
+[ext_resource type="Texture2D" uid="uid://cjtcym7lvmy2u" path="res://Assets/Title.png" id="2_2xedc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_2xedc")
+texture = ExtResource("2_2xedc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,7 +35,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-text = "Risen and Reassembled"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
