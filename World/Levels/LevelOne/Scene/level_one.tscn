@@ -145,6 +145,21 @@ position = Vector2(410, 200)
 
 [node name="Path3" type="Node2D" parent="Pickups"]
 
+[node name="Pickup5" parent="Pickups/Path3" instance=ExtResource("8_2nvf8")]
+position = Vector2(520, 55)
+
+[node name="Pickup6" parent="Pickups/Path3" instance=ExtResource("8_2nvf8")]
+position = Vector2(625, 111)
+
+[node name="Pickup7" parent="Pickups/Path3" instance=ExtResource("8_2nvf8")]
+position = Vector2(701, 149)
+
+[node name="Pickup8" parent="Pickups/Path3" instance=ExtResource("8_2nvf8")]
+position = Vector2(768, 181)
+
+[node name="Pickup9" parent="Pickups/Path3" instance=ExtResource("8_2nvf8")]
+position = Vector2(822, 266)
+
 [node name="Units" type="Node2D" parent="."]
 
 [node name="Obstacles" type="Node2D" parent="."]
@@ -224,21 +239,19 @@ point_value = 1500
 
 [node name="Tower" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(211, 271)
+damage = 2.0
 
 [node name="Tower2" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(288, 436)
-
-[node name="Tower3" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
-position = Vector2(321, 416)
+damage = 3.0
 
 [node name="Tower4" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(415, 375)
+damage = 4.0
 
 [node name="Tower5" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
 position = Vector2(420, 475)
-
-[node name="Tower6" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
-position = Vector2(511, 480)
+damage = 4.0
 
 [node name="Path2" type="Node2D" parent="Towers"]
 
@@ -247,9 +260,11 @@ position = Vector2(303, 214)
 
 [node name="Tower2" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
 position = Vector2(615, 173)
+damage = 2.0
 
 [node name="Tower3" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
 position = Vector2(536, 228)
+damage = 2.0
 
 [node name="Path3" type="Node2D" parent="Towers"]
 
@@ -261,33 +276,43 @@ position = Vector2(558, 121)
 
 [node name="Tower3" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(641, 66)
+damage = 2.0
 
 [node name="Tower4" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(743, 346)
+damage = 5.0
 
 [node name="Tower8" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(718, 95)
+damage = 2.0
 
 [node name="Tower9" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(773, 127)
+damage = 4.0
 
 [node name="Tower10" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(703, 184)
+damage = 4.0
 
 [node name="Tower11" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(852, 159)
+damage = 4.0
 
 [node name="Tower12" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(740, 242)
+damage = 4.0
 
 [node name="Tower5" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(650, 392)
+damage = 5.0
 
 [node name="Tower6" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(711, 450)
+damage = 5.0
 
 [node name="Tower7" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(798, 394)
+damage = 5.0
 
 [node name="Path1" type="Node2D" parent="."]
 position = Vector2(129, 167)
@@ -410,6 +435,7 @@ position = Vector2(530, 279)
 position = Vector2(727, 410)
 
 [node name="LightingSystem" type="Node2D" parent="."]
+visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="LightingSystem"]
 color = Color(2.16588e-07, 0, 0.221716, 1)
