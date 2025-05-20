@@ -231,7 +231,8 @@ func _on_death():
 	print("Unit died!")
 	#check_if_final_unit()
 	drop_new_part()
-	LevelManager.update_points_total(50)
+	var points_to_give = roundi(100/unit_data.count)
+	LevelManager.update_points_total(points_to_give)
 	queue_free()
 
 func _exit_tree() -> void:
