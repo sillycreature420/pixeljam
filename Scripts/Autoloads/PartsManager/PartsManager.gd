@@ -10,20 +10,20 @@ var last_type_dropped : int = 3
 
 #FIXME this is broken on the web version, see DirAccess documentation, it lists
 # exported res:// folders as being problematic for some platforms.
-var head_resource_parts = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/")
-var head_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Common/")
-var head_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/")
-var head_resource_parts_rare = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Rare/")
+var head_resource_parts = ResourceLoader.list_directory("res://Resources/Data/BodyPart/HeadParts/")
+var head_resource_parts_common = ResourceLoader.list_directory("res://Resources/Data/BodyPart/HeadParts/Parts/Common/")
+var head_resource_parts_uncommon = ResourceLoader.list_directory("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/")
+var head_resource_parts_rare = ResourceLoader.list_directory("res://Resources/Data/BodyPart/HeadParts/Parts/Rare/")
 
-var body_resource_parts = DirAccess.get_files_at("res://Resources/Data/BodyPart/BodyParts/")
-var body_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/BodyPart/BodyParts/Parts/Common/")
-var body_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/")
-var body_resource_parts_rare = DirAccess.get_files_at("res://Resources/Data/BodyPart/BodyParts/Parts/Rare/")
+var body_resource_parts = ResourceLoader.list_directory("res://Resources/Data/BodyPart/BodyParts/")
+var body_resource_parts_common = ResourceLoader.list_directory("res://Resources/Data/BodyPart/BodyParts/Parts/Common/")
+var body_resource_parts_uncommon = ResourceLoader.list_directory("res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/")
+var body_resource_parts_rare = ResourceLoader.list_directory("res://Resources/Data/BodyPart/BodyParts/Parts/Rare/")
 
-var legs_resource_parts = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/")
-var legs_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/Parts/Common/")
-var legs_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/")
-var legs_resource_parts_rare = DirAccess.get_files_at("res://Resources/Data/BodyPart/LegParts/Parts/Rare/")
+var legs_resource_parts = ResourceLoader.list_directory("res://Resources/Data/BodyPart/LegParts/")
+var legs_resource_parts_common = ResourceLoader.list_directory("res://Resources/Data/BodyPart/LegParts/Parts/Common/")
+var legs_resource_parts_uncommon = ResourceLoader.list_directory("res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/")
+var legs_resource_parts_rare = ResourceLoader.list_directory("res://Resources/Data/BodyPart/LegParts/Parts/Rare/")
 
 func generate_new_body_part(_type : int, _rarity : int) -> BodyPart:
 	var new_body_part : BodyPart
@@ -95,15 +95,15 @@ func generate_new_head(rarity : int) -> BodyPart:
 	
 	if rarity == 0:
 		var new_resource = head_resource_parts_common[randi() % head_resource_parts_common.size()]
-		new_part = load("res://Resources/Data/BodyPart/HeadParts/Parts/Common/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/HeadParts/Parts/Common/" + new_resource)
 		
 	elif rarity == 1:
 		var new_resource = head_resource_parts_uncommon[randi() % head_resource_parts_uncommon.size()]
-		new_part = load("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/" + new_resource)
 		
 	elif rarity == 2:
 		var new_resource = head_resource_parts_rare[randi() % head_resource_parts_rare.size()]
-		new_part = load("res://Resources/Data/BodyPart/HeadParts/Parts/Rare/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/HeadParts/Parts/Rare/" + new_resource)
 		
 	else: push_error("Rarity was not within the expected range of 0 to 2.")
 	
@@ -116,15 +116,15 @@ func generate_new_body(rarity : int) -> BodyPart:
 	
 	if rarity == 0:
 		var new_resource = body_resource_parts_common[randi() % body_resource_parts_common.size()]
-		new_part = load("res://Resources/Data/BodyPart/BodyParts/Parts/Common/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/BodyParts/Parts/Common/" + new_resource)
 		
 	elif rarity == 1:
 		var new_resource = body_resource_parts_uncommon[randi() % body_resource_parts_uncommon.size()]
-		new_part = load("res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/BodyParts/Parts/Uncommon/" + new_resource)
 		
 	elif rarity == 2:
 		var new_resource = body_resource_parts_rare[randi() % body_resource_parts_rare.size()]
-		new_part = load("res://Resources/Data/BodyPart/BodyParts/Parts/Rare/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/BodyParts/Parts/Rare/" + new_resource)
 		
 	else: push_error("Rarity was not within the expected range of 0 to 2.")
 	
@@ -137,15 +137,15 @@ func generate_new_legs(rarity : int) -> BodyPart:
 	
 	if rarity == 0:
 		var new_resource = legs_resource_parts_common[randi() % legs_resource_parts_common.size()]
-		new_part = load("res://Resources/Data/BodyPart/LegParts/Parts/Common/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/LegParts/Parts/Common/" + new_resource)
 		
 	elif rarity == 1:
 		var new_resource = legs_resource_parts_uncommon[randi() % legs_resource_parts_uncommon.size()]
-		new_part = load("res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/LegParts/Parts/Uncommon/" + new_resource)
 		
 	elif rarity == 2:
 		var new_resource = legs_resource_parts_rare[randi() % legs_resource_parts_rare.size()]
-		new_part = load("res://Resources/Data/BodyPart/LegParts/Parts/Rare/" + new_resource)
+		new_part = ResourceLoader.load("res://Resources/Data/BodyPart/LegParts/Parts/Rare/" + new_resource)
 		
 	else: push_error("Rarity was not within the expected range of 0 to 2.")
 	

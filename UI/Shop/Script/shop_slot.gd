@@ -23,7 +23,7 @@ func _ready() -> void:
 	EventBus.action_phase_done.connect(supply_new_body_part)
 	pressed.connect(item_purchased)
 	#HACK Seeing if this fixes the web version
-	#supply_new_body_part()
+	supply_new_body_part()
 	return
 
 func update_display():
