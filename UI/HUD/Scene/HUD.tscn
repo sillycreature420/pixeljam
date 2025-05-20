@@ -115,7 +115,7 @@ text = "Buy Group"
 [node name="GroupCostLabel" type="Label" parent="Preparing/VBoxContainer/GroupPathDialog/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "50 Points"
+text = "100 Points"
 
 [node name="DebugStuff" type="VBoxContainer" parent="Preparing/VBoxContainer"]
 visible = false
