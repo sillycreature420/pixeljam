@@ -14,7 +14,7 @@ func _on_destroyed():
 	$"/root/World/UILayer/WinScreen".show()
 	$"/root/World/Music".stream = WIN_MUSIC
 	$"/root/World/Music".play()
-
+	LevelManager.level_won = true
 
 func unit_reached_goal(damage_taken: float):
 	EventBus.emit_points_added(1000)

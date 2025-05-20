@@ -20,6 +20,7 @@ var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/lo
 
 var total_points : int
 var round_ending: bool = false
+var level_won: bool = false
 
 # DEPRECATED - Kept for potential backward compatibility
 var tile_data: TileMapLayer

@@ -53,7 +53,7 @@ func end_action_phase():
 	hud.update_round_display(current_round)
 	EventBus.current_round = current_round
 	
-	if current_round > 4:
+	if current_round > 4 && LevelManager.level_won == false:
 		$"/root/World/UILayer/GameOverScreen".show()
 		$"/root/World/Music".stream = GAMEOVER_MUSIC
 		$"/root/World/Music".play()
