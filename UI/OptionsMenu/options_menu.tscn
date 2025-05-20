@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cevs52wlc750j"]
+[gd_scene load_steps=5 format=3 uid="uid://cevs52wlc750j"]
 
 [ext_resource type="Script" uid="uid://bf5pb1fwfjrun" path="res://UI/OptionsMenu/options_menu.gd" id="1_a44bu"]
 [ext_resource type="PackedScene" uid="uid://bqrrl41pxuixa" path="res://UI/Audio/audio_slider.tscn" id="2_w5ifl"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a44bu"]
+[sub_resource type="Gradient" id="Gradient_w5ifl"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3gdf6"]
+gradient = SubResource("Gradient_w5ifl")
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -21,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_a44bu")
+texture = SubResource("GradientTexture1D_3gdf6")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
