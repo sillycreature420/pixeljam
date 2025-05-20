@@ -12,6 +12,7 @@ extends Node2D
 @onready var music_player: AudioStreamPlayer = $"/root/World/Music"
 
 const LEVEL_MUSIC = preload("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
+const GAMEOVER_MUSIC = preload("res://Assets/Audio/Music/introspective piece demo 1.wav")
 
 # Spawn point for units (initialized when level loads)
 var spawn_point: Node2D
@@ -37,6 +38,7 @@ func start_action_phase():
 		spawn_point.spawn_group(group)
 	
 	%RoundStart.play()
+	LevelManager.round_ending = false
 
 func end_action_phase():
 	# Increment round by one
@@ -50,6 +52,11 @@ func end_action_phase():
 	build_paths_container()
 	hud.update_round_display(current_round)
 	EventBus.current_round = current_round
+	
+	if current_round > 4:
+		$"/root/World/UILayer/GameOverScreen".show()
+		$"/root/World/Music".stream = GAMEOVER_MUSIC
+		$"/root/World/Music".play()
 	
 # Callback when level transition completes
 func _level_loaded():

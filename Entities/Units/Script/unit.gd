@@ -114,12 +114,13 @@ func _on_velocity_computed(safe_velocity: Vector2):
 
 func check_if_final_unit():
 	var all_units = get_parent().get_children()
-	if all_units.size() <= 1:
+	if all_units.size() <= 1 && LevelManager.round_ending == false:
 		#Do round end logic here
 		print("everyone is dead!")
 		EventBus.emit_action_phase_done()
 		EventBus.hud.preparing_scene.show()
 		EventBus.hud.playing_scene.hide()
+		LevelManager.round_ending = true
 	return
 
 # Handle reaching a target (path node or obstacle)
@@ -228,7 +229,7 @@ func _on_damage_taken(_damage_value):
 
 func _on_death():
 	print("Unit died!")
-	check_if_final_unit()
+	#check_if_final_unit()
 	drop_new_part()
 	LevelManager.update_points_total(50)
 	queue_free()
