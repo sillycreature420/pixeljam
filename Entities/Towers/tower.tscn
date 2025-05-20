@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b55sowd0pdqfu"]
 
 [ext_resource type="Script" uid="uid://5kx8yiac4u5b" path="res://Entities/Towers/tower.gd" id="1_lqjbc"]
-[ext_resource type="Texture2D" uid="uid://bjwqcfgh3x5ou" path="res://Assets/colored-transparent_packed.png" id="2_m7y1c"]
 [ext_resource type="PackedScene" uid="uid://b062as410s0wr" path="res://Entities/Towers/BasicTower/basic_tower_projectile.tscn" id="2_t5kyh"]
+[ext_resource type="Texture2D" uid="uid://cm0eumxjtwp0q" path="res://Assets/Towers_projectiles.png" id="3_t5kyh"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_w36c6"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_w36c6"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_s2tcc"]
@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://le5w1cm0ul8p" path="res://addons/godot_state_charts/expression_guard.gd" id="7_50v4x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2tcc"]
-atlas = ExtResource("2_m7y1c")
-region = Rect2(656, 304, 16, 16)
+atlas = ExtResource("3_t5kyh")
+region = Rect2(20, 42, 24, 54)
 
 [sub_resource type="Resource" id="Resource_50v4x"]
 script = ExtResource("7_50v4x")

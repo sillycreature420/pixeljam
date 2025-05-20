@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://jjhkdkk0utdt"]
+[gd_scene load_steps=4 format=3 uid="uid://jjhkdkk0utdt"]
 
 [ext_resource type="Script" uid="uid://bobim4bmxljxa" path="res://Entities/Towers/tower_projectile.gd" id="1_8tg65"]
+[ext_resource type="Texture2D" uid="uid://cm0eumxjtwp0q" path="res://Assets/Towers_projectiles.png" id="2_p7ef2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jg8h"]
+atlas = ExtResource("2_p7ef2")
+region = Rect2(50, 17, 13, 13)
 
 [node name="TowerProjectile" type="Area2D"]
 script = ExtResource("1_8tg65")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_2jg8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

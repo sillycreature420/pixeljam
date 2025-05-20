@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=32 format=4 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cgooqpyhmp3fu" path="res://Assets/tiles_sheet.png" id="7_osqk6"]
 [ext_resource type="PackedScene" uid="uid://cqwml2pfkjwgt" path="res://Entities/Pickups/pickup.tscn" id="8_2nvf8"]
 [ext_resource type="Texture2D" uid="uid://d3hq2f4w87dq5" path="res://Assets/adjusted_tiles_sprite_sheet.png" id="8_6rfv2"]
+[ext_resource type="PackedScene" uid="uid://bfb7mwyeluoy0" path="res://Entities/Obstacles/BasicWall/basic_wall2.tscn" id="12_r08td"]
+[ext_resource type="PackedScene" uid="uid://kr0tax0a1xlo" path="res://Entities/Obstacles/BasicWall/Bigwall.tscn" id="13_001ci"]
 [ext_resource type="Script" uid="uid://coobm1jtf8org" path="res://Entities/Lighting/flicking_light.gd" id="14_c3ji1"]
+[ext_resource type="PackedScene" uid="uid://82bbjyhfevcv" path="res://Entities/Obstacles/BasicWall/Bigwall2.tscn" id="14_qnuvg"]
 [ext_resource type="Script" uid="uid://splttxuie3s7" path="res://World/Levels/LevelOne/Lighting/DayNightCycle.gd" id="15_etgsi"]
 [ext_resource type="AudioStream" uid="uid://e4lqr6xcl6ks" path="res://Assets/Audio/SFX/round_start.wav" id="17_7ppdn"]
 [ext_resource type="Texture2D" uid="uid://b2tl6cspk1vq2" path="res://Assets/Houses.png" id="18_1kgdi"]
@@ -171,6 +174,22 @@ position = Vector2(333, 188)
 [node name="Obstacle2" parent="Obstacles/Path2" instance=ExtResource("5_dudjm")]
 position = Vector2(383, 209)
 
+[node name="Obstacle4" parent="Obstacles/Path2" instance=ExtResource("12_r08td")]
+position = Vector2(557, 202)
+
+[node name="Obstacle5" parent="Obstacles/Path2" instance=ExtResource("12_r08td")]
+position = Vector2(579, 212)
+
+[node name="Obstacle6" parent="Obstacles/Path2" instance=ExtResource("12_r08td")]
+position = Vector2(597, 222)
+
+[node name="Obstacle7" parent="Obstacles/Path2" instance=ExtResource("12_r08td")]
+position = Vector2(659, 301)
+
+[node name="Obstacle3" parent="Obstacles/Path2" instance=ExtResource("13_001ci")]
+position = Vector2(685, 371)
+point_value = 2000
+
 [node name="Path3" type="Node2D" parent="Obstacles"]
 
 [node name="Obstacle" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
@@ -182,28 +201,93 @@ position = Vector2(493, 57)
 [node name="Obstacle3" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
 position = Vector2(559, 88)
 
+[node name="Obstacle4" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
+position = Vector2(331, 458)
+
+[node name="Obstacle5" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
+position = Vector2(354, 446)
+
+[node name="Obstacle6" parent="Obstacles/Path3" instance=ExtResource("5_dudjm")]
+position = Vector2(376, 436)
+
+[node name="Obstacle7" parent="Obstacles/Path3" instance=ExtResource("14_qnuvg")]
+position = Vector2(684, 430)
+point_value = 1500
+
+[node name="Obstacle8" parent="Obstacles/Path3" instance=ExtResource("14_qnuvg")]
+position = Vector2(773, 382)
+point_value = 1500
+
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Path1" type="Node2D" parent="Towers"]
 
 [node name="Tower" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
-position = Vector2(209, 289)
+position = Vector2(211, 271)
 
 [node name="Tower2" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
-position = Vector2(290, 455)
+position = Vector2(288, 436)
+
+[node name="Tower3" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
+position = Vector2(321, 416)
+
+[node name="Tower4" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
+position = Vector2(415, 375)
+
+[node name="Tower5" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
+position = Vector2(420, 475)
+
+[node name="Tower6" parent="Towers/Path1" instance=ExtResource("5_mp0tl")]
+position = Vector2(511, 480)
 
 [node name="Path2" type="Node2D" parent="Towers"]
 
 [node name="Tower" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
-position = Vector2(367, 156)
+position = Vector2(303, 214)
 
 [node name="Tower2" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
-position = Vector2(568, 182)
+position = Vector2(615, 173)
+
+[node name="Tower3" parent="Towers/Path2" instance=ExtResource("5_mp0tl")]
+position = Vector2(536, 228)
 
 [node name="Path3" type="Node2D" parent="Towers"]
 
 [node name="Tower" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
 position = Vector2(448, 65)
+
+[node name="Tower2" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(558, 121)
+
+[node name="Tower3" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(641, 66)
+
+[node name="Tower4" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(743, 346)
+
+[node name="Tower8" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(718, 95)
+
+[node name="Tower9" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(773, 127)
+
+[node name="Tower10" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(703, 184)
+
+[node name="Tower11" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(852, 159)
+
+[node name="Tower12" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(740, 242)
+
+[node name="Tower5" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(650, 392)
+
+[node name="Tower6" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(711, 450)
+
+[node name="Tower7" parent="Towers/Path3" instance=ExtResource("5_mp0tl")]
+position = Vector2(798, 394)
 
 [node name="Path1" type="Node2D" parent="."]
 position = Vector2(129, 167)
