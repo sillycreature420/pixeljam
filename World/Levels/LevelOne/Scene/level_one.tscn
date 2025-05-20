@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://8adewwn5hngw"]
+[gd_scene load_steps=29 format=4 uid="uid://8adewwn5hngw"]
 
 [ext_resource type="Script" uid="uid://bd6fcffmadfnw" path="res://World/Levels/Script/Level.gd" id="1_j6ojo"]
 [ext_resource type="Script" uid="uid://cnh045qwybtfk" path="res://Resources/Types/LevelData/LevelData.gd" id="2_2pata"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://coobm1jtf8org" path="res://Entities/Lighting/flicking_light.gd" id="14_c3ji1"]
 [ext_resource type="Script" uid="uid://splttxuie3s7" path="res://World/Levels/LevelOne/Lighting/DayNightCycle.gd" id="15_etgsi"]
 [ext_resource type="AudioStream" uid="uid://e4lqr6xcl6ks" path="res://Assets/Audio/SFX/round_start.wav" id="17_7ppdn"]
+[ext_resource type="Texture2D" uid="uid://b2tl6cspk1vq2" path="res://Assets/Houses.png" id="18_1kgdi"]
 
 [sub_resource type="Resource" id="Resource_idf41"]
 script = ExtResource("2_2pata")
@@ -372,3 +373,25 @@ light_tween_speed = 0.6
 unique_name_in_owner = true
 stream = ExtResource("17_7ppdn")
 bus = &"SFX"
+
+[node name="Houses" type="Node2D" parent="."]
+
+[node name="Houses" type="Sprite2D" parent="Houses"]
+position = Vector2(540, 269)
+texture = ExtResource("18_1kgdi")
+
+[node name="Houses2" type="Sprite2D" parent="Houses"]
+position = Vector2(333, 238)
+texture = ExtResource("18_1kgdi")
+
+[node name="Houses3" type="Sprite2D" parent="Houses"]
+position = Vector2(680, 114)
+texture = ExtResource("18_1kgdi")
+
+[node name="Houses4" type="Sprite2D" parent="Houses"]
+position = Vector2(832, 337)
+texture = ExtResource("18_1kgdi")
+
+[node name="Houses5" type="Sprite2D" parent="Houses"]
+position = Vector2(859, 14)
+texture = ExtResource("18_1kgdi")
