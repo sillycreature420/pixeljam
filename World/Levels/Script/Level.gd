@@ -11,8 +11,8 @@ extends Node2D
 @onready var hud: Control = $"../UILayer/HUD"
 @onready var music_player: AudioStreamPlayer = $"/root/World/Music"
 
-const LEVEL_MUSIC = preload("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
-const GAMEOVER_MUSIC = preload("res://Assets/Audio/Music/introspective piece demo 1.wav")
+var LEVEL_MUSIC
+var GAMEOVER_MUSIC
 
 # Spawn point for units (initialized when level loads)
 var spawn_point: Node2D
@@ -24,6 +24,8 @@ var current_points: int = 500
 var new_group_cost: int = 50
 
 func _ready() -> void:
+	LEVEL_MUSIC =load("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
+	GAMEOVER_MUSIC = load("res://Assets/Audio/Music/introspective piece demo 1.wav")
 	# Connect to global event bus signals
 	EventBus.prep_phase_done.connect(start_action_phase)
 	EventBus.action_phase_done.connect(end_action_phase)
@@ -67,8 +69,8 @@ func _level_loaded():
 	if level_name == "Level One":
 		# Create default unit group for new players
 		var first_unit_group = UnitGroup.new()
-		first_unit_group.unit_data = preload("res://Resources/Data/UnitData/ZombieUnitData/DebugZombieUnitData.tres")
-		first_unit_group.unit_scene = preload("res://Entities/Units/ZOMBIEUnit/zombie_unit.tscn")
+		first_unit_group.unit_data = load("res://Resources/Data/UnitData/ZombieUnitData/DebugZombieUnitData.tres")
+		first_unit_group.unit_scene = load("res://Entities/Units/Scene/Unit.tscn")
 		
 		# Add to group manager's tracking system
 		GroupManager._new_group_added(first_unit_group, "ZOMBIE")

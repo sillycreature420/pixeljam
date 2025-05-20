@@ -13,7 +13,7 @@ var _current_level: Node                   # Reference to currently active level
 var current_level_data: LevelData          # Data asset for current level
 var level_data: Dictionary[String, LevelData]  # Collection of all level data
 var _loading_screen: Control               # Reference to loading screen instance
-var loading_screen_scene: PackedScene = preload("res://UI/LoadingScreen/Scene/loading_screen.tscn")
+var loading_screen_scene: PackedScene
 
 # Points management
 @onready var hud: HUD = $"../World/UILayer/HUD"
@@ -26,6 +26,7 @@ var level_won: bool = false
 var tile_data: TileMapLayer
 
 func _ready() -> void:
+	loading_screen_scene = load("res://UI/LoadingScreen/Scene/loading_screen.tscn")
 	# Initialize current level references if world exists
 	if is_instance_valid(get_node("../World")):
 		_current_level = get_node("../World/Level")

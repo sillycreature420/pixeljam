@@ -41,7 +41,6 @@ shape = SubResource("CircleShape2D_0rvlb")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 8.0
 target_desired_distance = 4.0
-debug_enabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_g8r8p")]
 
