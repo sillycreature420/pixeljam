@@ -23,6 +23,7 @@ func update_reroll_text():
 
 func reset_reroll():
 	cost = default_cost
+	update_reroll_text()
 	return
 
 func increase_reroll():

@@ -13,6 +13,3 @@ offset_top = 2.0
 offset_right = 143.0
 offset_bottom = 91.0
 script = ExtResource("6_xj40s")
-
-[node name="NavigationAgent2D" parent="." index="5"]
-debug_enabled = false

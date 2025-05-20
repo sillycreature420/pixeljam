@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cdno5nencn4p8"]
 
 [ext_resource type="Script" uid="uid://bjvur56hponxi" path="res://UI/BuildScene/Script/build_scene.gd" id="1_auprv"]
-[ext_resource type="Texture2D" uid="uid://cvridgrgida3n" path="res://Assets/Build_phase_test.png" id="2_com0n"]
+[ext_resource type="Texture2D" uid="uid://c2lfvdkgdwhus" path="res://Assets/Build_phase.png" id="2_anxpf"]
 [ext_resource type="Script" uid="uid://baca412mxeueq" path="res://Components/PickupableComponent/pickupable_component.gd" id="2_lk7k5"]
 [ext_resource type="Script" uid="uid://bh25m27qddncj" path="res://Entities/BodyPartObjects/Scene/body_part_object.gd" id="2_nwngi"]
 [ext_resource type="PackedScene" uid="uid://dqdpu004yxhei" path="res://UI/ObjectSlot/Scene/object_slot_2D.tscn" id="3_4iico"]
@@ -45,7 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_com0n")
+texture = ExtResource("2_anxpf")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1

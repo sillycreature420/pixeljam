@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy1cf7in5chmm"]
+[gd_scene load_steps=7 format=3 uid="uid://cy1cf7in5chmm"]
 
 [ext_resource type="Script" uid="uid://c8mrvawbexjro" path="res://Entities/Obstacles/Script/obstacle.gd" id="1_ab0uj"]
 [ext_resource type="PackedScene" uid="uid://be3vsklviq1tp" path="res://Components/HealthComponent/health_component.tscn" id="2_n27sn"]
+
+[sub_resource type="Gradient" id="Gradient_qcqvg"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n27sn"]
+gradient = SubResource("Gradient_qcqvg")
+width = 64
+
+[sub_resource type="Gradient" id="Gradient_h74gf"]
+colors = PackedColorArray(0.45, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qbwga"]
+gradient = SubResource("Gradient_h74gf")
+width = 64
 
 [node name="Obstacle" type="Node2D" node_paths=PackedStringArray("health_component") groups=["obstacles"]]
 y_sort_enabled = true
@@ -11,3 +25,14 @@ health_component = NodePath("HealthComponent")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_n27sn")]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+custom_minimum_size = Vector2(64, 0)
+offset_left = -32.0
+offset_top = -14.0
+offset_right = 32.0
+offset_bottom = -8.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_n27sn")
+texture_progress = SubResource("GradientTexture1D_qbwga")

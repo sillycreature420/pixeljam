@@ -9,18 +9,20 @@ extends Node2D
 
 # Spawns a group of units based on the provided UnitGroup configuration
 # @param group: The UnitGroup resource containing spawn configuration and Unit stats
-func spawn_group(group: UnitGroup):
+func spawn_group(group: UnitGroup, wait_time: float):
 	# Get the path this group of units should follow
 	var target_path = group.target_path
 	
 	# Get the packed scene (unit entity) to spawn
 	var unit_scene = group.unit_scene
 	
-	spawn_delay.start(1)
+	#spawn_delay.wait_time = wait_time
+	#spawn_delay.start()
 	
 	# Spawn the specified number of units
 	for i in range(group.unit_data.count):
-		await spawn_delay.timeout
+		print("Spawned one unit")
+		await get_tree().create_timer(wait_time).timeout
 		# Create a new instance of the unit
 		var new_unit = unit_scene.instantiate()
 		
