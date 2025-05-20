@@ -56,6 +56,7 @@ layout_mode = 2
 text = "Options"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Exit"
 

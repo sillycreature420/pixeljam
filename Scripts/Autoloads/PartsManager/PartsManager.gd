@@ -8,7 +8,8 @@ signal new_part_dropped(new_part : BodyPart)
 var selected_part: int = 0
 var last_type_dropped : int = 3
 
-
+#FIXME this is broken on the web version, see DirAccess documentation, it lists
+# exported res:// folders as being problematic for some platforms.
 var head_resource_parts = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/")
 var head_resource_parts_common = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Common/")
 var head_resource_parts_uncommon = DirAccess.get_files_at("res://Resources/Data/BodyPart/HeadParts/Parts/Uncommon/")

@@ -61,10 +61,10 @@ func _level_loaded():
 		# Create default unit group for new players
 		var first_unit_group = UnitGroup.new()
 		first_unit_group.unit_data = preload("res://Resources/Data/UnitData/ZombieUnitData/DebugZombieUnitData.tres")
-		first_unit_group.unit_scene = preload("res://Entities/Units/ZombieUnit/zombie_unit.tscn")
+		first_unit_group.unit_scene = preload("res://Entities/Units/ZOMBIEUnit/zombie_unit.tscn")
 		
 		# Add to group manager's tracking system
-		GroupManager._new_group_added(first_unit_group, "Zombie")
+		GroupManager._new_group_added(first_unit_group, "ZOMBIE")
 	
 	# Update the HUD to reflect the current level's status
 	build_groups_container()
