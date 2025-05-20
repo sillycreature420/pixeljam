@@ -21,7 +21,7 @@ var spawn_point: Node2D
 var current_round: int = 1
 # Current number of points the player has
 var current_points: int = 500
-var new_group_cost: int = 50
+var new_group_cost: int = 100
 
 func _ready() -> void:
 	LEVEL_MUSIC =load("res://Assets/Audio/Music/pixeljam level music demo 4-2.wav")
@@ -151,7 +151,7 @@ func _on_hud_unit_group_purchased(type: String) -> void:
 		var new_group = UnitGroup.new()
 		EventBus.emit_new_group_added(new_group, type)
 		LevelManager.total_points -= new_group_cost
-		new_group_cost += 50
+		new_group_cost += 100
 		LevelManager.hud.group_cost_label.text = str(new_group_cost) + " Points" 
 		_update_points_total(LevelManager.total_points)
 	else:
