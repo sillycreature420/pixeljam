@@ -3,11 +3,14 @@ extends Node2D
 # Configuration - damage dealt per attack
 @export var damage: float
 @export var projectile_scene: PackedScene
+@export var range : float
 
 # State machine and cooldown timer references
 @onready var state_chart: StateChart = $StateChart
 @onready var attack_cooldown: Timer = $AttackCooldown
 @onready var projectiles: Node2D = $Projectiles
+
+
 
 # Track units in attack range and the current target
 var units_in_range: Array[Unit]  # List of units within detection range
@@ -25,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	# Check all units in the "units" group for proximity
 	for unit in get_tree().get_nodes_in_group("units"):
 		# If unit is within 64 units distance
-		if unit.global_position.distance_to(global_position) < 64:
+		if unit.global_position.distance_to(global_position) < range:
 			# Update state machine and trigger alert
 			state_chart.set_expression_property("unit_in_range", true)
 			state_chart.send_event("Alert")
@@ -42,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		for i in range(units_in_range.size() - 1, -1, -1):
 			var unit = units_in_range[i]
 			if unit:
-				if unit.global_position.distance_to(global_position) > 64:
+				if unit.global_position.distance_to(global_position) > range:
 					units_in_range.remove_at(i)
 			else:
 				units_in_range.remove_at(i)

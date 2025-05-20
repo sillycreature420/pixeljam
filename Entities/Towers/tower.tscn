@@ -27,6 +27,7 @@ metadata/_custom_type_script = "uid://le5w1cm0ul8p"
 script = ExtResource("1_lqjbc")
 damage = 1.0
 projectile_scene = ExtResource("2_t5kyh")
+range = 128.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_s2tcc")
