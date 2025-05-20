@@ -4,6 +4,7 @@ extends Node2D
 @export var level_name: String                # Name identifier for this level
 @export var level_data: LevelData             # Data asset containing level config and info
 @export var paths: Array[Node2D]              # Array of currently available paths in this level
+@export var game_over_round : int = 9
 
 @export_group("Debug")
 @export var test_parts: Array[BodyPart]
@@ -37,7 +38,7 @@ func _ready() -> void:
 func start_action_phase():
 	# Spawn units, the spawn_point handles the path assignment
 	for group in GroupManager.groups:
-		spawn_point.spawn_group(group)
+		spawn_point.spawn_group(group, 3/group.unit_data.count)
 	
 	%RoundStart.play()
 	LevelManager.round_ending = false
@@ -55,7 +56,7 @@ func end_action_phase():
 	hud.update_round_display(current_round)
 	EventBus.current_round = current_round
 	
-	if current_round > 4 && LevelManager.level_won == false:
+	if current_round > game_over_round && LevelManager.level_won == false:
 		$"/root/World/UILayer/GameOverScreen".show()
 		$"/root/World/Music".stream = GAMEOVER_MUSIC
 		$"/root/World/Music".play()
