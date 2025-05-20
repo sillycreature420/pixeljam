@@ -41,7 +41,7 @@ text = "Music"
 [node name="AudioSlider" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_w5ifl")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-value = -40.0
+value = -30.0
 print_debug = false
 max_db = 0.0
 audio_bus_to_change = "Music"
@@ -53,7 +53,7 @@ text = "SFX"
 [node name="AudioSlider2" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_w5ifl")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-value = -20.0
+value = -30.0
 print_debug = false
 max_db = 0.0
 audio_bus_to_change = "SFX"
