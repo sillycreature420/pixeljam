@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b0e4mnrgtg1fe"]
+
+[ext_resource type="Texture2D" uid="uid://bydbo7apvef1j" path="res://Assets/CyborgSprites/Cyborg torso anim.png" id="1_e3vac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x43ee"]
+atlas = ExtResource("1_e3vac")
+region = Rect2(198, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4bmp"]
+atlas = ExtResource("1_e3vac")
+region = Rect2(326, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ftk"]
+atlas = ExtResource("1_e3vac")
+region = Rect2(454, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7fl2"]
+atlas = ExtResource("1_e3vac")
+region = Rect2(582, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x43ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4bmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87ftk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7fl2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
